@@ -43,8 +43,13 @@ class DatabaseController
         $query = "SELECT * FROM `{$this->table}` WHERE ";
 
         foreach ($where as $key => $condition) {
-            $query .= " `$key` $condition[0] '$condition[1]'";
+            $value = $condition[1];
+            if (!is_int($value)) {
+                $value = "'$value'";
+            }
+            $query .= " `$key` $condition[0] $value AND";
         }
+        $query = substr($query, 0, (strlen($query) - 4));
         $result = $this->pdo->query($query)->fetchAll();
 
         if ($result === false) {
@@ -66,22 +71,25 @@ class DatabaseController
         return $result;
     }
 
-    public function update(array $values, $id)
+    public function update($id, array $values)
     {
         $query = "UPDATE {$this->table} SET";
 
         foreach ($values as $field => $value) {
-            $query .= " $field='$value'";
+            if (!is_int($value)) {
+                $value = "'$value'";
+            }
+            $query .= " $field=$value,";
         }
 
+        $query = substr($query, 0, (strlen($query) - 1));
         $query .= " WHERE id=$id";
         $result = $this->pdo->query($query);
 
         if ($result instanceof PDOStatement) {
             return true;
         }
-
-        return $result;
+        return false;
     }
 
     public function insert(array $values)
@@ -105,8 +113,7 @@ class DatabaseController
         if ($result instanceof PDOStatement) {
             return true;
         }
-
-        return $result;
+        return false;
     }
 
     public function delete($primaryKey)
@@ -117,7 +124,6 @@ class DatabaseController
         if ($result instanceof PDOStatement) {
             return true;
         }
-
-        return $result;
+        return false;
     }
 }
