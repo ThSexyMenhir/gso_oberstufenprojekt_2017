@@ -1,6 +1,6 @@
 <?php
-include ("src/controller/DatenbankController.php");
-$a = new DatenbankController('lehrer');
+include("src/controller/DatabaseController.php");
+$a = new DatabaseController('lehrer');
 var_dump($a->getEntityById(1));
 //var_dump($a->getEntities(['vorname' => ['=', 'Max']]));
 //var_dump($a->update(['vorname' => 'Jan'], 1))

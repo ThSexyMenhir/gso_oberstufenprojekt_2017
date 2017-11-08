@@ -2,7 +2,7 @@
 
 //TODO Kommentare
 //TODO Sicherheitschecks
-class DatenbankController
+class DatabaseController
 {
     const HOST = 'localhost';
     const DATABASE_NAME = 'lehrerkalender';
