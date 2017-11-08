@@ -2,14 +2,13 @@ body{
 	font-family: "Times New Roman", Times, serif;
 }
 nav{
-	background-color: #292b2c;
-	color: white;
+	background-color: white;
+	color: black;
 	padding: 0!important;
-	height: 42px;
+	border-bottom: solid 2px #ADADAD;
 }
 nav .logo{
-	color: white;
-	border-right: 1px solid white;
+	color: black;
 	padding-right: 16px;
 	padding-left: 16px;
 }
@@ -23,7 +22,6 @@ nav .dropdown-pull-right>.dropdown-menu {
   left: auto;
 }
 nav .drop{
-	border-left: 1px solid white;
 	margin-right: 0;
 	padding-left: 16px;
 	padding-right: 16px
