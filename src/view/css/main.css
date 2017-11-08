@@ -1,56 +1,24 @@
 body {
     font-family: "Times New Roman", Times, serif;
 }
-
-nav {
-    background-color: white;
-    color: black;
-    padding: 0 !important;
-    border-bottom: solid 2px #ADADAD;
+nav.navbar {
+	border-bottom: solid 2px #ADADAD;
 }
-
-nav .logo {
-    color: black;
-    padding-right: 16px;
-    padding-left: 16px;
+nav.navbar .headline{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
-
-nav .dropdown-pull-right {
-    float: right !important;
+nav.navbar .dropdown{
+	position: absolute;
+	top: 50%;
+	right: 0%;
+	transform: translate(-50%, -50%);
+	font-size: 30px;
+	cursor: pointer;
+}
+nav.navbar .dropdown-pull-right {
     right: 0;
     left: auto;
-}
-
-nav .dropdown-pull-right > .dropdown-menu {
-    right: -16px;
-    left: auto;
-}
-
-nav .drop {
-    margin-right: 0;
-    padding-left: 16px;
-    padding-right: 16px
-}
-
-nav .drop:hover {
-    background-color: grey;
-}
-
-nav .dropdown-menu {
-    padding: 0;
-    top: 130%;
-}
-
-nav .dropdown-menu li a {
-    color: black;
-    text-decoration: none;
-}
-
-nav .dropdown-menu li:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
-main {
-    margin-top: 42px;
 }
