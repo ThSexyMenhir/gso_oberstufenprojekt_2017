@@ -1,0 +1,12 @@
+.login .main {
+  max-width: 320px;
+  margin: 0 auto;
+}
+.login h3 {
+  text-align: center;
+  line-height: 200%;
+}
+.login button{
+	width: 100%;
+	cursor: pointer;
+}
