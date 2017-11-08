@@ -1,4 +1,26 @@
 <?php include ("../../../../header.phtml"); ?>
+<?php
+$classes = array(
+	    0 => array(
+	         "name" => "FIA 51"
+	    ),
+		1 => array(
+	         "name" => "FIA 52"
+	    ),
+		2 => array(
+	         "name" => "FIA 53"
+	    ),
+		3 => array(
+	         "name" => "FIA 54"
+	    ),
+		4 => array(
+	         "name" => "FIA 55"
+	    ),
+		5 => array(
+	         "name" => "FIA 56"
+	    )
+	);
+?>
 <div class="container klassen">
 	<div class="row search">
 		<div class="btn-group">
@@ -9,39 +31,25 @@
 		<button type="button" class="btn btn-primary add-class">Klasse Hinzufügen</button>
 	</div>
 	<div class="row panel-group">
+		<?php
+			foreach ($classes as &$value) {
+		?>
+		<div class="col-xs-3">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<?php echo $value["name"]?>
+				</div>
+				<div class="panel-footer">
+					<a><i class="fa fa-pencil" aria-hidden="true"></i></a>
+					<a><i class="fa fa-times" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		</div>
 
-		<div class="panel panel-primary col-xs-3">
-			<div class="panel-heading">
-				<h3 class="panel-title">FIA 51</h3>
-			</div>
-			<div class="panel-body">
-				Panel content
-			</div>
-		</div>
-		<div class="panel panel-primary col-xs-3">
-			<div class="panel-heading">
-				<h3 class="panel-title">FIA 51</h3>
-			</div>
-			<div class="panel-body">
-				Panel content
-			</div>
-		</div>
-		<div class="panel panel-primary col-xs-3">
-			<div class="panel-heading">
-				<h3 class="panel-title">FIA 51</h3>
-			</div>
-			<div class="panel-body">
-				Panel content
-			</div>
-		</div>
-		<div class="panel panel-primary col-xs-3">
-			<div class="panel-heading">
-				<h3 class="panel-title">FIA 51</h3>
-			</div>
-			<div class="panel-body">
-				Panel content
-			</div>
-		</div>
+		<?php
+			}
+		 ?>
+
 
 	</div>
 </div>

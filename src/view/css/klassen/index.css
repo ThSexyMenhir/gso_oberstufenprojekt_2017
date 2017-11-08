@@ -35,17 +35,34 @@
 .klassen .panel-group{
 	margin-top: 40px;
 }
+
 .klassen .panel-primary{
+	margin-bottom: 20px!important;
 	border-color: #337ab7;
-	margin-bottom: 20px;
-	background-color: #fff;
+	background-color: #337ab7;
 	border: 1px solid #337ab7;
 	border-radius: 4px;
 	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
 	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	padding: 0;
 }
-.klassen .panel-primary .panel-heading{
+.klassen .panel-primary .panel-body{
 	color: #fff;
 	background-color: #337ab7;
 	border-color: #337ab7;
+	font-size: 18px;
+	padding: 10px 15px 10px 15px;
+}
+.klassen .panel-primary .panel-footer{
+	font-size: 35px;
+	text-align: right;
+}
+.klassen .panel-primary .panel-footer .fa-times{
+	color: red;
+}
+.klassen .panel-primary .panel-footer .fa-pencil{
+	color: gray;
+}
+.klassen .panel-primary .panel-footer i{
+	cursor: pointer;
 }
