@@ -1,0 +1,9 @@
+.header-row{
+    border-bottom: solid 1px black;
+    padding: 10px;
+    height: 20px;
+}
+
+.col-xs-4{
+    background-color: red;
+}
