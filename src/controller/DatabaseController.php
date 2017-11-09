@@ -46,7 +46,7 @@ class DatabaseController
 			$query .= " WHERE ";
 			foreach ($where as $key => $condition) {
 				$value = $condition[1];
-				if (!is_int($value)) {
+				if (!is_numeric($value)) {
 					$value = "'$value'";
 				}
 				$query .= " `$key` $condition[0] $value AND";
@@ -85,7 +85,7 @@ class DatabaseController
 		$query = "UPDATE {$this->table} SET";
 
 		foreach ($values as $field => $value) {
-			if (!is_int($value)) {
+			if (!is_numeric($value)) {
 				$value = "'$value'";
 			}
 			$query .= " $field=$value,";
@@ -107,8 +107,11 @@ class DatabaseController
 		$valueQuery = "(";
 
 		foreach ($values as $field => $value) {
+			if (!is_numeric($value)) {
+				$value = "'$value'";
+			}
 			$query .= "`$field`, ";
-			$valueQuery .= "'$value', ";
+			$valueQuery .= "$value, ";
 		}
 
 		$query = substr($query, 0, (strlen($query) - 2));

@@ -38,10 +38,10 @@ class StudentsController extends AbstractController
 		return $this->dataBaseController->update($id, $values);
 	}
 
-	public function add($firstname, $lastname, $photo, $idKlasse)
+	public function add($firstname, $lastname, $photo, $idClass)
 	{
 		$classController = new ClassController();
-		$class = $classController->getEntity($idKlasse);
+		$class = $classController->getEntity($idClass);
 
 		if (is_null($class)) {
 			return false;
@@ -50,8 +50,8 @@ class StudentsController extends AbstractController
 		$values = [
 			"vorname" => $firstname,
 			"nachname" => $lastname,
-			"foto" => $photo,
-			"id_klasse" => $idKlasse,
+			"foto_pfad" => $photo,
+			"id_klasse" => $idClass,
 		];
 
 		return $this->dataBaseController->insert($values);
@@ -69,7 +69,7 @@ class StudentsController extends AbstractController
 			$students[] = [
 				"headline" => $values["nachname"] . ", " . $values["vorname"],
 				"content" => $class["bezeichnung"],
-				"id" => $class["id"],
+				"id" => $values["id"],
 			];
 		}
 

@@ -31,7 +31,7 @@ $schueler = $studentsController->getEntitiesForOverview([], ['nachname', 'vornam
 				<input id="searchinput" type="search" class="form-control" placeholder="Schüler Suchen">
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
-			<button id="searchBUtton" class="btn btn-primary active-search">Suchen</button>
+			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
 			<a href="add.php" class="btn btn-primary add-button">Schüler Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
@@ -53,8 +53,12 @@ $schueler = $studentsController->getEntitiesForOverview([], ['nachname', 'vornam
 							<?= $value["content"] ?>
 						</div>
 						<div class="icons">
-							<a><i class="fa fa-pencil" aria-hidden="true"></i></a>
-							<a><i class="fa fa-times" aria-hidden="true"></i></a>
+							<a href="edit.php?id=<?= $value["id"] ?>">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</a>
+							<a href="do-delete.php?id=<?= $value["id"] ?>" id="delete">
+								<i class="fa fa-times" aria-hidden="true"></i>
+							</a>
 						</div>
 					</div>
 				</div>
