@@ -4,6 +4,7 @@ if (!class_exists("ClassController")) {
 }
 
 $siteTitle = "Klassen Übersicht";
+
 $classes = array(
 	0 => array(
 		"headline" => "FIA 51"
@@ -24,6 +25,7 @@ $classes = array(
 		"headline" => "FIA 56"
 	)
 );
+
 $classController = new ClassController();
 $classes = $classController->getEntities();
 ?>

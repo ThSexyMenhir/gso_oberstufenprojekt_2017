@@ -1,38 +1,62 @@
 <?php
 
 if (!class_exists("AbstractController")) {
-    include __DIR__ . "/AbstractController.php";
+	include __DIR__ . "/AbstractController.php";
+}
+if (!class_exists("TeacherController")) {
+	include __DIR__ . "/TeacherController.php";
 }
 
-class ClassController extends  AbstractController
+class ClassController extends AbstractController
 {
-    protected $tableName = 'Klassen';
+	protected $tableName = 'Klassen';
 
-    public function add()
-    {
+	public function edit($id, $idMainTeacher, $description)
+	{
+		$values = [];
 
-    }
+		if ($idMainTeacher !== "") {
+			$values["id_klassenlehrer"] = $idMainTeacher;
+		}
+		if ($description !== "") {
+			$values["bezeichnung"] = $description;
+		}
 
-    public function edit($id, $idMainTeacher, $description)
-    {
+		return $this->dataBaseController->update($id, $values);
+	}
 
-    }
+	public function add($idMainTeacher, $description)
+	{
+		$teacherController = new TeacherController();
+		$teacher = $teacherController->getEntity($idMainTeacher);
 
-    public function getEntities()
-    {
-        $result = parent::getEntities();
+		if (is_null($teacher)) {
+			return false;
+		}
 
-        $teacherController = new TeacherController();
+		$values = [
+			"id_klassenlehrer" => $idMainTeacher,
+			"bezeichnung" => $description,
+		];
 
-        $classes = [];
-        foreach($result as $values) {
-            $teacher = $teacherController->getEntity($values['id_klassenlehrer']);
-            $classes[] = [
-                'headline' => $values['bezeichnung'],
-                'content' => $teacher['kuerzel']
-            ];
-        }
+		return $this->dataBaseController->insert($values);
+	}
 
-        return $classes;
-    }
+	public function getEntities()
+	{
+		$result = parent::getEntities();
+
+		$teacherController = new TeacherController();
+
+		$classes = [];
+		foreach ($result as $values) {
+			$teacher = $teacherController->getEntity($values['id_klassenlehrer']);
+			$classes[] = [
+				'headline' => $values['bezeichnung'],
+				'content' => $teacher['kuerzel']
+			];
+		}
+
+		return $classes;
+	}
 }
