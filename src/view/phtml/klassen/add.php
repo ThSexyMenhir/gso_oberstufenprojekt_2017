@@ -25,8 +25,9 @@ $teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<form action="do-addKlasse.php" method="POST">
+		<form action="do-add.php" method="POST">
 			<div class="row">
+			
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="idMainTeacher">Klassenlehrer:</label>
 					<select class="form-control" name="idMainTeacher">   

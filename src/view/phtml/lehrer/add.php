@@ -39,8 +39,8 @@
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
-					<label for="comment">Password</label>
-					<input type="text" class="form-control" name="passwort">
+					<label for="pwd">Password</label>
+					<input type="password" class="form-control" name="passwort">
 				</div>
 
 				<div class="form-check col-md-4 col-xs-12">

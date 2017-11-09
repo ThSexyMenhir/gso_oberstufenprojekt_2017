@@ -32,7 +32,7 @@ $subjects = $subjectController->getEntities([], ['kuerzel', 'bezeichnung']);
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
 			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
-			<button class="btn btn-primary add-button">Stunden Hinzufügen</button>
+			<a href="add.php" class="btn btn-primary add-button">Stunde Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
 			<div class="col-xs-12<?= (empty($subjects)) ? '':' display-none'?>">
