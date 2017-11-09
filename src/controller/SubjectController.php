@@ -6,7 +6,7 @@ if (!class_exists("AbstractController")) {
 
 class SubjectController extends AbstractController
 {
-	protected $tableName = 'Stunden';
+	protected $tableName = "Stunden";
 
 	public function edit($id, $shortTag, $description)
 	{
@@ -32,15 +32,16 @@ class SubjectController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
-	public function getEntities(array $where = [], array $orderBy = [])
+	public function getEntitiesForOverview(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities($where, $orderBy);
 
 		$subjects = [];
 		foreach ($result as $values) {
 			$subjects[] = [
-				'headline' => $values['bezeichnung'],
-				'content' => $values['kuerzel']
+				"headline" => $values["bezeichnung"],
+				"content" => $values["kuerzel"],
+				"id" => $values["id"],
 			];
 		}
 

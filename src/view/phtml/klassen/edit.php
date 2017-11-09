@@ -2,11 +2,23 @@
 if (!class_exists("TeacherController")) {
 	include __DIR__ . "/../../../controller/TeacherController.php";
 }
+if (!class_exists("ClassController")) {
+	include __DIR__ . "/../../../controller/ClassController.php";
+}
 
-$siteTitle = "Klasse Hinzufügen";
+$siteTitle = "Klasse bearbeiten";
+
+$id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 
 $teacherController = new TeacherController();
-$teachers = $teacherController->getEntitiesForOverview([], ['nachname', 'vorname']);
+$teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
+
+$classController = new ClassController();
+$class = $classController->getEntity($id);
+
+if (is_null($class)) {
+	//TODO redirect + Fehlermeldung
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -25,14 +37,18 @@ $teachers = $teacherController->getEntitiesForOverview([], ['nachname', 'vorname
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<form action="do-add.php" method="POST">
+		<form action="do-edit.php" method="POST">
 			<div class="row">
-
+				<input type="hidden" name="id" value="<?= $class["id"] ?>">
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="idMainTeacher">Klassenlehrer:</label>
 					<select class="form-control" name="idMainTeacher">
 						<?php foreach ($teachers as $teacher) { ?>
-							<option value="<?= $teacher["id"] ?>">
+							<option value="<?= $teacher["id"] ?>"
+								<? if ($class["id_klassenlehrer"] === $teacher["id"]) {
+									echo "selected";
+								} ?>
+							>
 								<?= $teacher["nachname"] . ", " . $teacher["vorname"] ?>
 							</option>
 						<?php } ?>
@@ -41,7 +57,7 @@ $teachers = $teacherController->getEntitiesForOverview([], ['nachname', 'vorname
 
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="description">Bezeichnung:</label>
-					<input type="text" class="form-control" name="description">
+					<input type="text" class="form-control" name="description" value="<?= $class["bezeichnung"] ?>">
 				</div>
 
 				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>

@@ -6,7 +6,7 @@ if (!class_exists("SubjectController")) {
 $siteTitle = "Stunden Übersicht";
 
 $subjectController = new SubjectController();
-$subjects = $subjectController->getEntities([], ['kuerzel', 'bezeichnung']);
+$subjects = $subjectController->getEntitiesForOverview([], ['kuerzel', 'bezeichnung']);
 ?>
 
 <!DOCTYPE html>

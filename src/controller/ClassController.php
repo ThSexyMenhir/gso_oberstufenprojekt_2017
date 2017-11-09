@@ -9,7 +9,7 @@ if (!class_exists("TeacherController")) {
 
 class ClassController extends AbstractController
 {
-	protected $tableName = 'Klassen';
+	protected $tableName = "Klassen";
 
 	public function edit($id, $idMainTeacher, $description)
 	{
@@ -48,7 +48,7 @@ class ClassController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
-	public function getEntities(array $where = [], array $orderBy = [])
+	public function getEntitiesForOverview(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities($where, $orderBy);
 
@@ -56,10 +56,11 @@ class ClassController extends AbstractController
 
 		$classes = [];
 		foreach ($result as $values) {
-			$teacher = $teacherController->getEntity($values['id_klassenlehrer']);
+			$teacher = $teacherController->getEntity($values["id_klassenlehrer"]);
 			$classes[] = [
-				'headline' => $values['bezeichnung'],
-				'content' => $teacher['kuerzel']
+				"headline" => $values["bezeichnung"],
+				"content" => $teacher["kuerzel"],
+				"id" => $values["id"],
 			];
 		}
 

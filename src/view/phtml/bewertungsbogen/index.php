@@ -6,7 +6,7 @@ if (!class_exists("EvaluationSheetController")) {
 $siteTitle = "Bewertungsbogen Übersicht";
 
 $evaluationSheetController = new EvaluationSheetController();
-$evaluationSheets = $evaluationSheetController->getEntities([], ['id_klasse']);·
+$evaluationSheets = $evaluationSheetController->getEntitiesForOverview([], ['id_klasse']);
 ?>
 <!DOCTYPE html>
 <html lang="de">

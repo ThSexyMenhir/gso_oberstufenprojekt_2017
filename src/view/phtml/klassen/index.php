@@ -6,7 +6,7 @@ if (!class_exists("ClassController")) {
 $siteTitle = "Klassen Übersicht";
 
 $classController = new ClassController();
-$classes = $classController->getEntities([], ['bezeichnung']);
+$classes = $classController->getEntitiesForOverview([], ['bezeichnung']);
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -35,14 +35,15 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 			<a href="add.php" class="btn btn-primary add-button">Klasse Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
-				<div class="col-xs-12<?= (empty($classes)) ? '':' display-none'?>">
-					<div class="alert alert-danger">
-						<strong>Keine Klassen gefunden</strong>
-					</div>
+			<div class="col-xs-12<?= (empty($classes)) ? '' : ' display-none' ?>">
+				<div class="alert alert-danger">
+					<strong>Keine Klassen gefunden</strong>
 				</div>
-				<?php
-				foreach ($classes as $value) {
-					?>
+			</div>
+			<?php
+			foreach ($classes as $value) {
+				?>
+				<a href="detail.php?id=<?= $value["id"] ?>">
 					<div class="col-md-3 col-xs-6">
 						<div class="panel panel-primary">
 							<div class="panel-body">
@@ -53,15 +54,20 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 									<?= $value["content"] ?>
 								</div>
 								<div class="icons">
-									<a><i class="fa fa-pencil" aria-hidden="true"></i></a>
-									<a><i class="fa fa-times" aria-hidden="true"></i></a>
+									<a href="edit.php?id=<?= $value["id"] ?>">
+										<i class="fa fa-pencil" aria-hidden="true"></i>
+									</a>
+									<a href="do-delete.php?id=<?= $value["id"] ?>" id="delete">
+										<i class="fa fa-times" aria-hidden="true"></i>
+									</a>
 								</div>
 							</div>
 						</div>
 					</div>
+				</a>
 
-					<?php
-				}
+				<?php
+			}
 			?>
 
 		</div>
@@ -70,5 +76,6 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 <script src="../../../../vendor/jquery-3.2.1.min.js"></script>
 <script src="../../../../vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="../../../../src/view/js/main.js"></script>
+<script src="../../../../src/view/js/klassen/index.js"></script>
 </body>
 </html>

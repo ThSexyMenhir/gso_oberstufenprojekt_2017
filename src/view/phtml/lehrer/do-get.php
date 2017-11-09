@@ -4,7 +4,7 @@ if(!class_exists("TeacherController")){
 }
 
 $oTeacherController = new TeacherController();
-$entities = $oTeacherController->getEntities();
+$entities = $oTeacherController->getEntitiesForOverview();
 
 if(filter_input(INPUT_SERVER, "REQUEST_METHOD") == "POST"){
     echo json_encode($entities);

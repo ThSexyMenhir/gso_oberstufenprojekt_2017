@@ -6,7 +6,7 @@ if (!class_exists("StudentsController")) {
 $siteTitle = "Schüler Übersicht";
 
 $studentsController = new StudentsController();
-$schueler = $studentsController->getEntities([], ['nachname', 'vorname']);
+$schueler = $studentsController->getEntitiesForOverview([], ['nachname', 'vorname']);
 
 ?>
 <!DOCTYPE html>

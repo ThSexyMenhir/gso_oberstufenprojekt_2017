@@ -12,7 +12,7 @@ if (!class_exists("SubjectController")) {
 
 class EvaluationSheetController extends AbstractController
 {
-	protected $tableName = 'Bewertungsbogen';
+	protected $tableName = "Bewertungsbogen";
 
 	public function edit($id, $idClass, $idSubject)
 	{
@@ -64,7 +64,7 @@ class EvaluationSheetController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
-	public function getEntities(array $where = [], array $orderBy = [])
+	public function getEntitiesForOverview(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities($where, $orderBy);
 
@@ -73,11 +73,12 @@ class EvaluationSheetController extends AbstractController
 
 		$evaluationSheets = [];
 		foreach ($result as $values) {
-			$class = $classController->getEntity($values['id_klasse']);
-			$subject = $subjectController->getEntity($values['id_stunde']);
+			$class = $classController->getEntity($values["id_klasse"]);
+			$subject = $subjectController->getEntity($values["id_stunde"]);
 			$evaluationSheets[] = [
-				'headline' => $class['bezeichnung'],
-				'content' => $subject['kuerzel']
+				"headline" => $class["bezeichnung"],
+				"content" => $subject["kuerzel"],
+				"id" => $subject["id"],
 			];
 		}
 

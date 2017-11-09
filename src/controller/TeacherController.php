@@ -64,7 +64,7 @@ class TeacherController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
-	public function getEntities(array $where = [], array $orderBy = [])
+	public function getEntitiesForOverview(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities($where, $orderBy);
 

@@ -1,7 +1,7 @@
 <header>
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
-			<a href="#">
+			<a href="../../../../src/view/phtml/stundeninhalt/index.php">
 				<img alt="Logo" src="../../../../src/data/media/img/gso-bk-logo.jpg">
 			</a>
 		</div>
