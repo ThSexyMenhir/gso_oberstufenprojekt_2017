@@ -4,7 +4,7 @@
 	include ("../../../../header.phtml");
 ?>
 <?php
-$classes = array(
+$teachers = array(
 	    0 => array(
 	         "name" => "Hans Wurst",
 			 "short" => "HW"
@@ -37,12 +37,12 @@ $classes = array(
 			<input id="searchinput" type="search" class="form-control" placeholder="Lehrer Suchen">
 		 	<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 		</div>
-		<button type="button" class="btn btn-primary active-search">Suchen</button>
-		<button type="button" class="btn btn-primary add-button">Lehrer Hinzufügen</button>
+		<button class="btn btn-primary active-search">Suchen</button>
+		<button class="btn btn-primary add-button">Lehrer Hinzufügen</button>
 	</div>
 	<div class="row panel-group">
 		<?php
-			foreach ($classes as $value) {
+			foreach ($teachers as $value) {
 		?>
 		<div class="col-md-3 col-xs-6">
 			<div class="panel panel-primary">
