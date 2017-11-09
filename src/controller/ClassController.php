@@ -48,10 +48,8 @@ class ClassController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
-	public function getEntities()
 	public function getEntities(array $where = [], array $orderBy = [])
 	{
-		$result = parent::getEntities();
 		$result = parent::getEntities($where, $orderBy);
 
 		$teacherController = new TeacherController();
