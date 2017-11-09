@@ -1,6 +1,7 @@
 <?php
+
 if (!class_exists("TeacherController")) {
-	include __DIR__ . "/../../../controller/TeacherController.php";
+    include __DIR__ . "/../../../controller/TeacherController.php";
 }
 
 $firstname = isset($firstname) ? $firstname : filter_input(INPUT_POST, "firstName");
@@ -10,13 +11,13 @@ $userName = isset($userName) ? $userName : filter_input(INPUT_POST, "userName");
 $password = isset($password) ? $password : filter_input(INPUT_POST, "password");
 $isAdmin = isset($isAdmin) ? $isAdmin : filter_input(INPUT_POST, "isAdmin");
 
-//TODO check ob Werte gesetzt
-
-$teacherController = new TeacherController();
-$success = $teacherController->add($firstname, $lastname, $memberCode, $userName, $password, $isAdmin);
+if (isset($firstname) && isset($lastname) && isset($memberCode) && isset($userName) && isset($password) && isset($isAdmin)) {
+    $teacherController = new TeacherController();
+    $success = $teacherController->add($firstname, $lastname, $memberCode, $userName, $password, $isAdmin);
+}
 
 if (!$success) {
-	//TODO Fehlermeldung anzeigen
+    //TODO Fehlermeldung anzeigen
 }
 
 //TOOD Weiterleitung
