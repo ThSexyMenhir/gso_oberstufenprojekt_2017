@@ -52,8 +52,12 @@ $evaluationSheets = $evaluationSheetController->getEntitiesForOverview([], ['id_
 									<?= $value["content"] ?>
 								</div>
 								<div class="icons">
-									<a><i class="fa fa-pencil" aria-hidden="true"></i></a>
-									<a><i class="fa fa-times" aria-hidden="true"></i></a>
+									<a href="edit.php?id=<?= $value["id"] ?>">
+										<i class="fa fa-pencil" aria-hidden="true"></i>
+									</a>
+									<a href="do-delete.php?id=<?= $value["id"] ?>" id="delete">
+										<i class="fa fa-times" aria-hidden="true"></i>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -69,5 +73,6 @@ $evaluationSheets = $evaluationSheetController->getEntitiesForOverview([], ['id_
 <script src="../../../../vendor/jquery-3.2.1.min.js"></script>
 <script src="../../../../vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="../../../../src/view/js/main.js"></script>
+<script src="../../../../src/view/js/bewertungsbogen/index.js"></script>
 </body>
 </html>
