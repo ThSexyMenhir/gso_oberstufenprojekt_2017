@@ -7,6 +7,7 @@ $siteTitle = "Klassen Übersicht";
 
 $classController = new ClassController();
 $classes = $classController->getEntities();
+$classes = $classController->getEntities([], ['bezeichnung']);
 ?>
 <!DOCTYPE html>
 <html lang="de">

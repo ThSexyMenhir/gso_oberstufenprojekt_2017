@@ -1,4 +1,8 @@
 <?php
+if (!class_exists("StudentsController")) {
+	include __DIR__ . "/../../../controller/StudentsController.php";
+}
+
 $siteTitle = "Schüler Übersicht";
 $schueler = array(
 	0 => array(
@@ -26,6 +30,10 @@ $schueler = array(
 		"content" => "FIA67"
 	)
 );
+
+$studentsController = new StudentsController();
+$schueler = $studentsController->getEntities([], ['nachname', 'vorname']);
+
 ?>
 <!DOCTYPE html>
 <html lang="de">

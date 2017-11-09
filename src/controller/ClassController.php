@@ -16,6 +16,12 @@ class ClassController extends AbstractController
 		$values = [];
 
 		if ($idMainTeacher !== "") {
+			$teacherController = new TeacherController();
+			$teacher = $teacherController->getEntity($idMainTeacher);
+
+			if (is_null($teacher)) {
+				return false;
+			}
 			$values["id_klassenlehrer"] = $idMainTeacher;
 		}
 		if ($description !== "") {
@@ -43,8 +49,10 @@ class ClassController extends AbstractController
 	}
 
 	public function getEntities()
+	public function getEntities(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities();
+		$result = parent::getEntities($where, $orderBy);
 
 		$teacherController = new TeacherController();
 

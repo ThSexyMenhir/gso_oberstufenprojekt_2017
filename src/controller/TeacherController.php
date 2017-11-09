@@ -65,8 +65,10 @@ class TeacherController extends AbstractController
 	}
 
 	public function getEntities()
+	public function getEntities(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities();
+		$result = parent::getEntities($where, $orderBy);
 
 		$teachers = [];
 		foreach ($result as $values) {

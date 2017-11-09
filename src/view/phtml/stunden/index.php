@@ -7,6 +7,7 @@ $siteTitle = "Stunden Übersicht";
 
 $subjectController = new SubjectController();
 $subjects = $subjectController->getEntities();
+$subjects = $subjectController->getEntities([], ['kuerzel', 'bezeichnung']);
 ?>
 
 <!DOCTYPE html>

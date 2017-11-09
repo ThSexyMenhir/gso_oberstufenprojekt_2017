@@ -7,6 +7,7 @@ $siteTitle = "Lehrer Übersicht";
 
 $teacherController = new TeacherController();
 $teachers = $teacherController->getEntities();
+$teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -32,6 +33,8 @@ $teachers = $teacherController->getEntities();
 			</div>
 			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
 			<button class="btn btn-primary add-button">Lehrer Hinzufügen</button>
+			<button class="btn btn-primary active-search">Suchen</button>
+			<a href="add.php" class="btn btn-primary add-button">Lehrer Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
 				<div class="col-xs-12<?= (empty($teachers)) ? '':' display-none'?>">
