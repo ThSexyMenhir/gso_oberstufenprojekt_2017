@@ -27,7 +27,7 @@
 					<input type="text" class="form-control" name="lastName">
 				</div>
                 <div class="form-group">
-                <label for="exampleInputFile">Datei einfügen</label>
+                <label for="lastName">Datei einfügen</label>
                 <input type="file" class="form-control-file" name="photo" aria-describedby="fileHelp">
               </div>
 				
