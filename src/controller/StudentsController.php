@@ -1,6 +1,5 @@
 <?php
 
-class StudentsController
 if (!class_exists("AbstractController")) {
 	include __DIR__ . "/AbstractController.php";
 }
