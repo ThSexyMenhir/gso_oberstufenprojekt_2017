@@ -34,18 +34,14 @@ $teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
 			<a href="add.php" class="btn btn-primary add-button">Lehrer Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
-			<?php
-			if (empty($teachers)) {
-				?>
-				<div class="col-xs-12">
+				<div class="col-xs-12<?= (empty($teachers)) ? '':' display-none'?>">
 					<div class="alert alert-danger">
 						<strong>Keine Lehrer gefunden</strong>
 					</div>
 				</div>
 				<?php
-			} else {
 				foreach ($teachers as $value) {
-					?>
+				?>
 					<div class="col-md-3 col-xs-6">
 						<div class="panel panel-primary">
 							<div class="panel-body">
@@ -63,10 +59,9 @@ $teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
 						</div>
 					</div>
 
-					<?php
+				<?php
 				}
-			}
-			?>
+				?>
 
 
 		</div>
@@ -77,4 +72,3 @@ $teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
 <script src="../../../../src/view/js/main.js"></script>
 </body>
 </html>
-

@@ -30,20 +30,17 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 				<input id="searchinput" type="search" class="form-control" placeholder="Klasse Suche">
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
+
 			<button class="btn btn-primary active-search">Suchen</button>
 			<a href="add.php" class="btn btn-primary add-button">Klasse Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
-			<?php
-			if (empty($classes)) {
-				?>
-				<div class="col-xs-12">
+				<div class="col-xs-12<?= (empty($classes)) ? '':' display-none'?>">
 					<div class="alert alert-danger">
 						<strong>Keine Klassen gefunden</strong>
 					</div>
 				</div>
 				<?php
-			} else {
 				foreach ($classes as $value) {
 					?>
 					<div class="col-md-3 col-xs-6">
@@ -65,7 +62,6 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 
 					<?php
 				}
-			}
 			?>
 
 		</div>
@@ -76,4 +72,3 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 <script src="../../../../src/view/js/main.js"></script>
 </body>
 </html>
-
