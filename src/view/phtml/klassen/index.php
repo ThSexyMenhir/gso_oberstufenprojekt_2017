@@ -1,57 +1,52 @@
-
 <?php
-	$siteTitle = "Schüler Übersicht";
-	include ("../../../../header.phtml");
-?>
+	$siteTitle = "Klassen Übersicht";
+	include("../../../../header.php");
+?>&
 <?php
-$schueler = array(
+$classes = array(
 	    0 => array(
-	         "headline" => "Hans Wurst",
-			 "content" => "FIA51"
+	         "headline" => "FIA 51"
 	    ),
 		1 => array(
-			"headline" => "Peter Wurst",
-			"content" => "FIA51"
+	         "headline" => "FIA 52"
 	    ),
 		2 => array(
-			"headline" => "Robert Wurst",
-			"content" => "FIA52"
+	         "headline" => "FIA 53"
 	    ),
 		3 => array(
-			"headline" => "Hund Wurst",
-			"content" => "FIA53"
+	         "headline" => "FIA 54"
 	    ),
 		4 => array(
-			"headline" => "Fritz Wurst",
-			"content" => "FIA56"
+	         "headline" => "FIA 55"
 	    ),
 		5 => array(
-			"headline" => "Till Wurst",
-			"content" => "FIA67"
+	         "headline" => "FIA 56"
 	    )
 	);
+$classController = new ClassController();
+$classes = $classController->getEntities();
 ?>
 <div class="container">
 	<div class="row search">
 		<div class="btn-group">
-			<input id="searchinput" type="search" class="form-control" placeholder="Schüler Suchen">
+			<input id="searchinput" type="search" class="form-control" placeholder="Klasse Suche">
 		 	<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 		</div>
 		<button class="btn btn-primary active-search">Suchen</button>
-		<button class="btn btn-primary add-button">Schüler Hinzufügen</button>
+		<button class="btn btn-primary add-button">Klasse Hinzufügen</button>
 	</div>
 	<div class="row panel-group">
 		<?php
-			if(empty($schueler)){
-				?>
+			if(empty($classes)){
+		?>
 		<div class="col-xs-12">
 			<div class="alert alert-danger">
-			  <strong>Keine Schüler gefunden</strong>
+			  <strong>Keine Klassen gefunden</strong>
 			</div>
 		</div>
-				<?php
+		<?php
 			}else {
-				foreach ($schueler as $value) {
+				foreach ($classes as $value) {
 		?>
 		<div class="col-md-3 col-xs-6">
 			<div class="panel panel-primary">
@@ -77,4 +72,4 @@ $schueler = array(
 
 	</div>
 </div>
-<?php include ("../../../../footer.phtml"); ?>
+<?php include("../../../../footer.php"); ?>

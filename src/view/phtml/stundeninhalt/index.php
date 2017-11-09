@@ -1,4 +1,4 @@
-<?php include ("../../../../header.phtml"); ?>
+<?php include("../../../../header.php"); ?>
 <link rel="stylesheet" href="../../../../src/view/css/stundeninhalt/index.css">
 
 <div class="container-fluid">
@@ -19,4 +19,4 @@
 </div><!-- ./container -->
 
 
-<?php include ("../../../../footer.phtml"); ?>
+<?php include("../../../../footer.php"); ?>

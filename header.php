@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<?php include("../../../../src/view/phtml/css-init.phtml") ?>
+	<?php include("../../../../src/view/phtml/css-init.php") ?>
 	<title>GSO - Kalender</title>
 </head>
 

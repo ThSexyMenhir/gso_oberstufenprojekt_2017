@@ -1,49 +1,57 @@
 
 <?php
-	$siteTitle = "Stunden Übersicht";
-	include ("../../../../header.phtml");
+	$siteTitle = "Schüler Übersicht";
+	include("../../../../header.php");
 ?>
 <?php
-$subjects = array(
+$schueler = array(
 	    0 => array(
-	         "headline" => "Deutsch",
-			 "content" => "DE"
+	         "headline" => "Hans Wurst",
+			 "content" => "FIA51"
 	    ),
 		1 => array(
-			"headline" => "Englisch",
-			"content" => "EN"
+			"headline" => "Peter Wurst",
+			"content" => "FIA51"
 	    ),
 		2 => array(
-			"headline" => "Anwendungsentwickler",
-			"content" => "ANW"
+			"headline" => "Robert Wurst",
+			"content" => "FIA52"
 	    ),
 		3 => array(
-			"headline" => "Sport",
-			"content" => "SP"
+			"headline" => "Hund Wurst",
+			"content" => "FIA53"
+	    ),
+		4 => array(
+			"headline" => "Fritz Wurst",
+			"content" => "FIA56"
+	    ),
+		5 => array(
+			"headline" => "Till Wurst",
+			"content" => "FIA67"
 	    )
 	);
 ?>
 <div class="container">
 	<div class="row search">
 		<div class="btn-group">
-			<input id="searchinput" type="search" class="form-control" placeholder="Stunden Suchen">
+			<input id="searchinput" type="search" class="form-control" placeholder="Schüler Suchen">
 		 	<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 		</div>
 		<button class="btn btn-primary active-search">Suchen</button>
-		<button class="btn btn-primary add-button">Stunden Hinzufügen</button>
+		<button class="btn btn-primary add-button">Schüler Hinzufügen</button>
 	</div>
 	<div class="row panel-group">
 		<?php
-			if(empty($subjects)){
+			if(empty($schueler)){
 				?>
 		<div class="col-xs-12">
 			<div class="alert alert-danger">
-			  <strong>Keine Stunden gefunden</strong>
+			  <strong>Keine Schüler gefunden</strong>
 			</div>
 		</div>
 				<?php
 			}else {
-				foreach ($subjects as $value) {
+				foreach ($schueler as $value) {
 		?>
 		<div class="col-md-3 col-xs-6">
 			<div class="panel panel-primary">
@@ -69,4 +77,4 @@ $subjects = array(
 
 	</div>
 </div>
-<?php include ("../../../../footer.phtml"); ?>
+<?php include("../../../../footer.php"); ?>

@@ -4,7 +4,7 @@ if (!class_exists("TeacherController")) {
 }
 
 $siteTitle = "Lehrer Übersicht";
-include("../../../../header.phtml");
+include("../../../../header.php");
 
 $teacherController = new TeacherController();
 $teachers = $teacherController->getEntities();
@@ -56,4 +56,4 @@ $teachers = $teacherController->getEntities();
 
 	</div>
 </div>
-<?php include ("../../../../footer.phtml"); ?>
+<?php include("../../../../footer.php"); ?>
