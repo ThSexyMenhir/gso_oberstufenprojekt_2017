@@ -1,31 +1,12 @@
 <?php
+if (!class_exists("EvaluationSheetController")) {
+	include __DIR__ . "/../../../controller/EvaluationSheetController.php";
+}
+
 $siteTitle = "Bewertungsbogen Übersicht";
-$ScoreSheet = array(
-	0 => array(
-		"headline" => "FIA51",
-		"content" => "ANW"
-	),
-	1 => array(
-		"headline" => "FIA51",
-		"content" => "ITK"
-	),
-	2 => array(
-		"headline" => "FIA51",
-		"content" => "WUG"
-	),
-	3 => array(
-		"headline" => "FIA52",
-		"content" => "ANW"
-	),
-	4 => array(
-		"headline" => "FIA52",
-		"content" => "ITK"
-	),
-	5 => array(
-		"headline" => "FIA53",
-		"content" => "ANW"
-	)
-);
+
+$evaluationSheetController = new EvaluationSheetController();
+$evaluationSheets = $evaluationSheetController->getEntities([], ['id_klasse']);·
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -53,13 +34,13 @@ $ScoreSheet = array(
 			<button class="btn btn-primary add-button">Bewertungsbogen Hinzufügen</button>
 		</div>
 		<div class="row panel-group">
-				<div class="col-xs-12<?= (empty($ScoreSheet)) ? '':' display-none'?>">
+				<div class="col-xs-12<?= (empty($evaluationSheets)) ? '':' display-none'?>">
 					<div class="alert alert-danger">
 						<strong>Kein Bewertungsbogen gefunden</strong>
 					</div>
 				</div>
 				<?php
-				foreach ($ScoreSheet as $value) {
+				foreach ($evaluationSheets as $value) {
 					?>
 					<div class="col-md-3 col-xs-6">
 						<div class="panel panel-primary">
