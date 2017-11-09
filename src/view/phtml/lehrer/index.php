@@ -31,7 +31,7 @@ $teachers = $teacherController->getEntities();
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
 			<button class="btn btn-primary active-search">Suchen</button>
-			<button class="btn btn-primary add-button">Lehrer Hinzufügen</button>
+			<a href="add.php" class="btn btn-primary add-button">Lehrer Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
 			<?php
