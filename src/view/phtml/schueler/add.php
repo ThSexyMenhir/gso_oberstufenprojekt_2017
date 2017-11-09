@@ -8,7 +8,7 @@ $siteTitle = "Schüler Hinzufügen";
 $classController = new ClassController();
 $classes = $classController->getEntities([], ['bezeichnung']);
 
-$idClass = isset($idClass) ? $idClass : filter_input(INPUT_POST, "idKlasse");
+$idClass = isset($idClass) ? $idClass : filter_input(INPUT_GET, "idClass");
 
 ?>
 <!DOCTYPE html>

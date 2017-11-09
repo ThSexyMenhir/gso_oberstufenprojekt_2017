@@ -1,8 +1,23 @@
-<? //TODO ?>
 <?php
+if (!class_exists("ClassController")) {
+	include __DIR__ . "/../../../controller/ClassController.php";
+}
+
 	$siteTitle = "Klassen Details";
-?>
-<?php
+
+$id = isset($id) ? $id : filter_input(INPUT_GET, "id");
+
+if (!isset($id)) {
+	header("Location: index.php");
+}
+
+$classController = new ClassController();
+$class = $classController->getEntity($id);
+
+if (is_null($class)) {
+	header("Location: index.php");
+}
+
 $schueler = array(
 	    0 => array(
 	         "headline" => "Hans Wurst",
@@ -59,7 +74,7 @@ $schueler = array(
 						<button class="btn btn-primary add-button">Hinzufügen</button>
 					</div>
 				</div>
-				<button class="btn btn-primary add-button ex">Schüler Hinzufügen</button>
+				<a href="../schueler/add.php?idClass=<?=$class["id"]?>" class="btn btn-primary add-button ex">Schüler Hinzufügen</a>
 			</div>
 			<div class="row panel-group">
 				<div class="col-xs-12<?= (empty($schueler)) ? '':' display-none'?>">
