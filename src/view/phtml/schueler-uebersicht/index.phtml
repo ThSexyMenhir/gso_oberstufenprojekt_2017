@@ -1,50 +1,57 @@
+
 <?php
-	$siteTitle = "Klassen Übersicht";
+	$siteTitle = "Schüler Übersicht";
 	include ("../../../../header.phtml");
 ?>
 <?php
-$classes = array(
+$schueler = array(
 	    0 => array(
-	         "name" => "FIA 51"
+	         "name" => "Hans Wurst",
+			 "class" => "FIA51"
 	    ),
 		1 => array(
-	         "name" => "FIA 52"
+			"name" => "Peter Wurst",
+			"class" => "FIA51"
 	    ),
 		2 => array(
-	         "name" => "FIA 53"
+			"name" => "Robert Wurst",
+			"class" => "FIA52"
 	    ),
 		3 => array(
-	         "name" => "FIA 54"
+			"name" => "Hund Wurst",
+			"class" => "FIA53"
 	    ),
 		4 => array(
-	         "name" => "FIA 55"
+			"name" => "Fritz Wurst",
+			"class" => "FIA56"
 	    ),
 		5 => array(
-	         "name" => "FIA 56"
+			"name" => "Till Wurst",
+			"class" => "FIA67"
 	    )
 	);
 ?>
 <div class="container">
 	<div class="row search">
 		<div class="btn-group">
-			<input id="searchinput" type="search" class="form-control" placeholder="Klasse Suche">
+			<input id="searchinput" type="search" class="form-control" placeholder="Schüler Suchen">
 		 	<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 		</div>
 		<button class="btn btn-primary active-search">Suchen</button>
-		<button class="btn btn-primary add-button">Klasse Hinzufügen</button>
+		<button class="btn btn-primary add-button">Schüler Hinzufügen</button>
 	</div>
 	<div class="row panel-group">
 		<?php
-			if(empty($classes)){
-		?>
+			if(empty($schueler)){
+				?>
 		<div class="col-xs-12">
 			<div class="alert alert-danger">
-			  <strong>Keine Klassen gefunden</strong>
+			  <strong>Keine Schüler gefunden</strong>
 			</div>
 		</div>
-		<?php
+				<?php
 			}else {
-				foreach ($classes as $value) {
+				foreach ($schueler as $value) {
 		?>
 		<div class="col-md-3 col-xs-6">
 			<div class="panel panel-primary">
@@ -52,6 +59,9 @@ $classes = array(
 					<?=$value["name"]?>
 				</div>
 				<div class="panel-footer">
+					<div class="text">
+						<?=$value["class"]?>
+					</div>
 					<div class="icons">
 						<a><i class="fa fa-pencil" aria-hidden="true"></i></a>
 						<a><i class="fa fa-times" aria-hidden="true"></i></a>

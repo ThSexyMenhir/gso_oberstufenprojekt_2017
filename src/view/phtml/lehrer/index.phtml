@@ -23,7 +23,16 @@ $teachers = $teacherController->getEntities($lastname);
 	</div>
 	<div class="row panel-group">
 		<?php
-			foreach ($teachers as $value) {
+			if(empty($teachers)){
+				?>
+		<div class="col-xs-12">
+			<div class="alert alert-danger">
+			  <strong>Keine Lehrer gefunden</strong>
+			</div>
+		</div>
+				<?php
+			}else {
+				foreach ($teachers as $value) {
 		?>
 		<div class="col-md-3 col-xs-6">
 			<div class="panel panel-primary">
@@ -43,6 +52,7 @@ $teachers = $teacherController->getEntities($lastname);
 		</div>
 
 		<?php
+				}
 			}
 		 ?>
 
