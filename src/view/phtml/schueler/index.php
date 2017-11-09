@@ -1,31 +1,13 @@
 <?php
+if (!class_exists("StudentsController")) {
+	include __DIR__ . "/../../../controller/StudentsController.php";
+}
+
 $siteTitle = "Schüler Übersicht";
-$schueler = array(
-	0 => array(
-		"headline" => "Hans Wurst",
-		"content" => "FIA51"
-	),
-	1 => array(
-		"headline" => "Peter Wurst",
-		"content" => "FIA51"
-	),
-	2 => array(
-		"headline" => "Robert Wurst",
-		"content" => "FIA52"
-	),
-	3 => array(
-		"headline" => "Hund Wurst",
-		"content" => "FIA53"
-	),
-	4 => array(
-		"headline" => "Fritz Wurst",
-		"content" => "FIA56"
-	),
-	5 => array(
-		"headline" => "Till Wurst",
-		"content" => "FIA67"
-	)
-);
+
+$studentsController = new StudentsController();
+$schueler = $studentsController->getEntities([], ['nachname', 'vorname']);
+
 ?>
 <!DOCTYPE html>
 <html lang="de">

@@ -32,18 +32,18 @@ class SubjectController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
-	public function getEntities()
+	public function getEntities(array $where = [], array $orderBy = [])
 	{
-		$result = parent::getEntities();
+		$result = parent::getEntities($where, $orderBy);
 
-		$classes = [];
+		$subjects = [];
 		foreach ($result as $values) {
-			$classes[] = [
+			$subjects[] = [
 				'headline' => $values['bezeichnung'],
 				'content' => $values['kuerzel']
 			];
 		}
 
-		return $classes;
+		return $subjects;
 	}
 }
