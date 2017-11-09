@@ -18,8 +18,13 @@ abstract class AbstractController
         return $this->dataBaseController->delete($id);
     }
 
-    public function get($id)
+    public function getEntity($id)
     {
         return $this->dataBaseController->getEntityById($id);
+    }
+
+    public function getEntities()
+    {
+        return $this->dataBaseController->getEntities();
     }
 }

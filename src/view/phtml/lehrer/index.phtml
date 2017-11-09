@@ -1,35 +1,16 @@
-
 <?php
 	$siteTitle = "Lehrer Übersicht";
 	include ("../../../../header.phtml");
 ?>
 <?php
-$teachers = array(
-	    0 => array(
-	         "name" => "Hans Wurst",
-			 "short" => "HW"
-	    ),
-		1 => array(
-			"name" => "Hans Wurst",
-			"short" => "HW"
-	    ),
-		2 => array(
-			"name" => "Hans Wurst",
-			"short" => "HW"
-	    ),
-		3 => array(
-			"name" => "Hans Wurst",
-			"short" => "HW"
-	    ),
-		4 => array(
-			"name" => "Hans Wurst",
-			"short" => "HW"
-	    ),
-		5 => array(
-			"name" => "Hans Wurst",
-			"short" => "HW"
-	    )
-	);
+$lastname = "";
+
+if (!isset($_REQUEST['lastname'])) {
+	$lastname = $_REQUEST['lastname'];
+}
+
+$teacherController = new TeacherController();
+$teachers = $teacherController->getEntities($lastname);
 ?>
 <div class="container">
 	<div class="row search">

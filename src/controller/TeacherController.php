@@ -4,9 +4,9 @@ class TeacherController extends AbstractController
 {
     protected $tableName = "Lehrer";
 
-    public function get($id)
+    public function getEntity($id)
     {
-        $result = parent::get($id);
+        $result = parent::getEntity($id);
 
         if ($result !== null) {
             unset($result["passwort"]);
@@ -60,31 +60,18 @@ class TeacherController extends AbstractController
         return $this->dataBaseController->insert($values);
     }
 
-    public function search($firstname, $lastname, $memberCode)
+    public function getEntities()
     {
-        $values = [];
+        $result = parent::getEntities();
 
-        if ($firstname !== "") {
-            $values["vorname"] = [
-                "LIKE",
-                "%" . $firstname . "%"
-            ];
-        }
-        if ($lastname !== "") {
-            $values["nachname"] = [
-                "LIKE",
-                "%" . $lastname . "%"
-            ];
-        }
-        if ($memberCode !== "") {
-            $values["kuerzel"] = [
-                "LIKE",
-                "%" . $memberCode . "%"
+        $teachers = [];
+        foreach ($result as $values) {
+            $teachers[] = [
+                "name" => $values["nachname"] . ", " . $values["vorname"],
+                "short" => $values["kuerzel"],
             ];
         }
 
-        return $this->dataBaseController->getEntities($values);
-
-
+        return $teachers;
     }
 }

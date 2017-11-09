@@ -40,16 +40,22 @@ class DatabaseController
 
     public function getEntities(array $where = [])
     {
-        $query = "SELECT * FROM `{$this->table}` WHERE ";
+        $query = "SELECT * FROM `{$this->table}`";
 
-        foreach ($where as $key => $condition) {
-            $value = $condition[1];
-            if (!is_int($value)) {
-                $value = "'$value'";
+        if (count($where) > 0) {
+            $query.= " WHERE ";
+            foreach ($where as $key => $condition) {
+                $value = $condition[1];
+                if (!is_int($value)) {
+                    $value = "'$value'";
+                }
+                $query .= " `$key` $condition[0] $value AND";
             }
-            $query .= " `$key` $condition[0] $value AND";
+            $query = substr($query, 0, (strlen($query) - 4));
         }
-        $query = substr($query, 0, (strlen($query) - 4));
+
+        $query.= " ORDER BY 'nachname'";
+
         $result = $this->pdo->query($query)->fetchAll();
 
         if ($result === false) {
