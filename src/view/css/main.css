@@ -94,3 +94,7 @@ nav.navbar .dropdown-pull-right {
 .clear {
     clear: both;
 }
+
+.display-none{
+	display: none;
+}

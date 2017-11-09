@@ -62,17 +62,13 @@ $schueler = array(
 				<button class="btn btn-primary add-button ex">Schüler Hinzufügen</button>
 			</div>
 			<div class="row panel-group">
-				<?php
-					if(empty($schueler)){
-						?>
-				<div class="col-xs-12">
+				<div class="col-xs-12<?= (empty($schueler)) ? '':' display-none'?>">
 					<div class="alert alert-danger">
 					  <strong>Keine Schüler gefunden</strong>
 					</div>
 				</div>
-						<?php
-					}else {
-						foreach ($schueler as $value) {
+				<?php
+				foreach ($schueler as $value) {
 				?>
 				<div class="col-md-3 col-xs-6">
 					<div class="panel panel-primary">
@@ -91,9 +87,8 @@ $schueler = array(
 				</div>
 
 				<?php
-						}
-					}
-				 ?>
+				}
+				?>
 
 			</div>
 		</div>

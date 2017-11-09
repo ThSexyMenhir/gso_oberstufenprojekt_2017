@@ -30,22 +30,18 @@ $teachers = $teacherController->getEntities();
 				<input id="searchinput" type="search" class="form-control" placeholder="Lehrer Suchen">
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
-			<button class="btn btn-primary active-search">Suchen</button>
+			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
 			<button class="btn btn-primary add-button">Lehrer Hinzufügen</button>
 		</div>
 		<div class="row panel-group">
-			<?php
-			if (empty($teachers)) {
-				?>
-				<div class="col-xs-12">
+				<div class="col-xs-12<?= (empty($teachers)) ? '':' display-none'?>">
 					<div class="alert alert-danger">
 						<strong>Keine Lehrer gefunden</strong>
 					</div>
 				</div>
 				<?php
-			} else {
 				foreach ($teachers as $value) {
-					?>
+				?>
 					<div class="col-md-3 col-xs-6">
 						<div class="panel panel-primary">
 							<div class="panel-body">
@@ -63,10 +59,9 @@ $teachers = $teacherController->getEntities();
 						</div>
 					</div>
 
-					<?php
+				<?php
 				}
-			}
-			?>
+				?>
 
 
 		</div>
@@ -77,4 +72,3 @@ $teachers = $teacherController->getEntities();
 <script src="../../../../src/view/js/main.js"></script>
 </body>
 </html>
-
