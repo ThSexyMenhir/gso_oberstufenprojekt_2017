@@ -11,7 +11,7 @@ if (isset($id)){
 }
 
 if (!$success) {
-	//TODO Fehlermeldung anzeigen
+    
 }
 
 //TOOD Weiterleitung
