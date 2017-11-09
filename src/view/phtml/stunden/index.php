@@ -1,23 +1,12 @@
 <?php
+if (!class_exists("SubjectController")) {
+	include __DIR__ . "/../../../controller/SubjectController.php";
+}
+
 $siteTitle = "Stunden Übersicht";
-$subjects = array(
-	0 => array(
-		"headline" => "Deutsch",
-		"content" => "DE"
-	),
-	1 => array(
-		"headline" => "Englisch",
-		"content" => "EN"
-	),
-	2 => array(
-		"headline" => "Anwendungsentwickler",
-		"content" => "ANW"
-	),
-	3 => array(
-		"headline" => "Sport",
-		"content" => "SP"
-	)
-);
+
+$subjectController = new SubjectController();
+$subjects = $subjectController->getEntities();
 ?>
 
 <!DOCTYPE html>

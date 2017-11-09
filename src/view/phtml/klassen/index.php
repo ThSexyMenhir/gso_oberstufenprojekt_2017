@@ -4,26 +4,7 @@ if (!class_exists("ClassController")) {
 }
 
 $siteTitle = "Klassen Übersicht";
-$classes = array(
-	0 => array(
-		"headline" => "FIA 51"
-	),
-	1 => array(
-		"headline" => "FIA 52"
-	),
-	2 => array(
-		"headline" => "FIA 53"
-	),
-	3 => array(
-		"headline" => "FIA 54"
-	),
-	4 => array(
-		"headline" => "FIA 55"
-	),
-	5 => array(
-		"headline" => "FIA 56"
-	)
-);
+
 $classController = new ClassController();
 $classes = $classController->getEntities();
 ?>
@@ -37,7 +18,6 @@ $classes = $classController->getEntities();
 	<link rel="stylesheet" href="../../../../vendor/bootstrap-3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../../../vendor/bootstrap-3.3.7/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../../../../vendor/font-awesome.min.css">
-	<link rel="stylesheet" href="../../../../src/view/css/stundeninhalt/index.css">
 	<title>GSO - Kalender</title>
 </head>
 

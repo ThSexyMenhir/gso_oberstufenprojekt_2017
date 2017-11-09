@@ -1,81 +1,81 @@
 <?php
 
 if (!class_exists("AbstractController")) {
-    include __DIR__ . "/AbstractController.php";
+	include __DIR__ . "/AbstractController.php";
 }
 
 class TeacherController extends AbstractController
 {
-    protected $tableName = "Lehrer";
+	protected $tableName = "Lehrer";
 
-    public function getEntity($id)
-    {
-        $result = parent::getEntity($id);
+	public function getEntity($id)
+	{
+		$result = parent::getEntity($id);
 
-        if ($result !== null) {
-            unset($result["passwort"]);
-            unset($result["benutzername"]);
-        }
-        return $result;
-    }
+		if ($result !== null) {
+			unset($result["passwort"]);
+			unset($result["benutzername"]);
+		}
+		return $result;
+	}
 
-    public function edit($id, $firstname, $lastname, $memberCode, $userName, $password, $isAdmin)
-    {
-        $values = [];
+	public function edit($id, $firstname, $lastname, $memberCode, $userName, $password, $isAdmin)
+	{
+		$values = [];
 
-        if ($firstname !== "") {
-            $values["vorname"] = $firstname;
-        }
-        if ($lastname !== "") {
-            $values["nachname"] = $lastname;
-        }
-        if ($memberCode !== "") {
-            $values["kuerzel"] = $memberCode;
-        }
-        if ($userName !== "") {
-            $values["benutzername"] = $userName;
-        }
-        if ($password !== "") {
-            $values["passwort"] = $password;
-        }
-        $values["ist_admin"] = 0;
-        if ($isAdmin) {
-            $values["ist_admin"] = $isAdmin;
-        }
+		if ($firstname !== "") {
+			$values["vorname"] = $firstname;
+		}
+		if ($lastname !== "") {
+			$values["nachname"] = $lastname;
+		}
+		if ($memberCode !== "") {
+			$values["kuerzel"] = $memberCode;
+		}
+		if ($userName !== "") {
+			$values["benutzername"] = $userName;
+		}
+		if ($password !== "") {
+			$values["passwort"] = $password;
+		}
+		$values["ist_admin"] = 0;
+		if ($isAdmin) {
+			$values["ist_admin"] = $isAdmin;
+		}
 
-        return $this->dataBaseController->update($id, $values);
-    }
+		return $this->dataBaseController->update($id, $values);
+	}
 
-    public function add($firstname, $lastname, $memberCode, $userName, $password, $isAdmin)
-    {
-        if (strlen($memberCode) !== 2) {
-            return false;
-        }
+	public function add($firstname, $lastname, $memberCode, $userName, $password, $isAdmin)
+	{
+		if (strlen($memberCode) !== 2) {
+			return false;
+		}
 
-        $values = [
-            "vorname" => $firstname,
-            "nachname" => $lastname,
-            "kuerzel" => $memberCode,
-            "benutzername" => $userName,
-            "passwort" => $password,
-            "ist_admin" => $isAdmin,
-        ];
+		$values = [
+			"vorname" => $firstname,
+			"nachname" => $lastname,
+			"kuerzel" => $memberCode,
+			"benutzername" => $userName,
+			"passwort" => $password,
+			"ist_admin" => $isAdmin,
+		];
 
-        return $this->dataBaseController->insert($values);
-    }
+		return $this->dataBaseController->insert($values);
+	}
 
-    public function getEntities()
-    {
-        $result = parent::getEntities();
+	public function getEntities()
+	{
+		$result = parent::getEntities();
 
-        $teachers = [];
-        foreach ($result as $values) {
-            $teachers[] = [
-                "headline" => $values["nachname"] . ", " . $values["vorname"],
-                "content" => $values["kuerzel"],
-            ];
-        }
+		$teachers = [];
+		foreach ($result as $values) {
+			$teachers[] = [
+				"headline" => $values["nachname"] . ", " . $values["vorname"],
+				"content" => $values["kuerzel"],
+			];
+		}
 
-        return $teachers;
-    }
+		return $teachers;
+	}
 }
