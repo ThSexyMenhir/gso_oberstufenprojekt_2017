@@ -1,5 +1,4 @@
 <?php
-
 if (!class_exists("ClassController")) {
     include __DIR__ . "/../../../controller/ClassController.php";
 }
@@ -14,7 +13,7 @@ if (isset($id) && isset($idMainTeacher) && isset($description)) {
 }
 
 if (!$success) {
-    //TODO Fehlermeldung anzeigen
+    header("Location: index.php");
 }
 
-//TOOD Weiterleitung
+header("Location: index.php");

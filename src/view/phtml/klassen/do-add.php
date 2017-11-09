@@ -1,20 +1,22 @@
 <?php
-
 if (!class_exists("ClassController")) {
-    include __DIR__ . "/../../../controller/ClassController.php";
+	include __DIR__ . "/../../../controller/ClassController.php";
 }
 
 $idMainTeacher = isset($idMainTeacher) ? $idMainTeacher : filter_input(INPUT_POST, "idMainTeacher");
 $description = isset($description) ? $description : filter_input(INPUT_POST, "description");
 
-if (isset($idMainTeacher) && $description) {
-    $classController = new ClassController();
-    $success = $classController->add($idMainTeacher, $description);
+if (!isset($idMainTeacher) || !isset($description)) {
+	header("Location: index.php");
 }
+
+$classController = new ClassController();
+$success = $classController->add($idMainTeacher, $description);
 
 if (!$success) {
-    //TODO Fehlermeldung anzeigen
+	header("Location: index.php");
 }
 
-//TOOD Weiterleitung
+header("Location: index.php");
+
 
