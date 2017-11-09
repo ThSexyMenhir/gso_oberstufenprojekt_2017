@@ -19,16 +19,16 @@
 			<div class="row">
 
 				<div class="form-group col-md-4 col-xs-12">
-					<label for="usr">Vorname:</label>
-					<input type="text" class="form-control" name=" ">
+					<label for="firstName">Vorname:</label>
+					<input type="text" class="form-control" name="firstName">
 				</div>
                 <div class="form-group col-md-4 col-xs-12">
-					<label for="usr">Nachname:</label>
-					<input type="text" class="form-control" name=" ">
+					<label for="lastName">Nachname:</label>
+					<input type="text" class="form-control" name="lastName">
 				</div>
                 <div class="form-group">
                 <label for="exampleInputFile">Datei einfügen</label>
-                <input type="file" class="form-control-file" name=" " aria-describedby="fileHelp">
+                <input type="file" class="form-control-file" name="photo" aria-describedby="fileHelp">
               </div>
 				
 

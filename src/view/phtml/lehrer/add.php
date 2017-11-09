@@ -19,27 +19,27 @@
 			<div class="row">
 
 				<div class="form-group col-md-4 col-xs-12">
-					<label for="usr">Vorname:</label>
+					<label for="firstname">Vorname:</label>
 					<input type="text" class="form-control" name="firstName">
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
-					<label for="theme">Nachname:</label>
+					<label for="name">Nachname:</label>
 					<input type="text" class="form-control" name="lastName">
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
-					<label for="comment">Kürzel</label>
+					<label for="membercode">Kürzel</label>
 					<input type="text" class="form-control" name="memberCode">
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
-					<label for="comment">Benutzername</label>
+					<label for="username">Benutzername</label>
 					<input type="text" class="form-control" name="userName">
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
-					<label for="pwd">Password</label>
+					<label for="passwort">Password</label>
 					<input type="password" class="form-control" name="passwort">
 				</div>
 

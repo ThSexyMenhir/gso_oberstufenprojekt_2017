@@ -20,7 +20,7 @@
 				
 				
                 <div class="form-group col-md-4 col-xs-12">
-                	<label for="description">Kürzel:</label>
+                	<label for="membercode">Kürzel:</label>
 					<input type="text" class="form-control" name=" ">            	
                 </div>     
 
