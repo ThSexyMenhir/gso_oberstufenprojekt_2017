@@ -6,7 +6,7 @@ if (!class_exists("TeacherController")) {
 $siteTitle = "Klasse Hinzufügen";
 
 $teacherController = new TeacherController();
-$teachers = $teacherController->getEntitiesForOverview([], ['nachname', 'vorname']);
+$teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
 ?>
 <!DOCTYPE html>
 <html lang="de">
