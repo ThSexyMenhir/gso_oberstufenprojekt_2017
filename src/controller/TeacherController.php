@@ -1,5 +1,9 @@
 <?php
 
+if (!class_exists("AbstractController")) {
+    include __DIR__ . "/AbstractController.php";
+}
+
 class TeacherController extends AbstractController
 {
     protected $tableName = "Lehrer";

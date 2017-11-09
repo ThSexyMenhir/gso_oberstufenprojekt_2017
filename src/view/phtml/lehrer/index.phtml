@@ -1,8 +1,11 @@
 <?php
-	$siteTitle = "Lehrer Übersicht";
-	include ("../../../../header.phtml");
-?>
-<?php
+if (!class_exists("TeacherController")) {
+    include __DIR__ . "/../../../controller/TeacherController.php";
+}
+
+$siteTitle = "Lehrer Übersicht";
+include("../../../../header.phtml");
+
 $teacherController = new TeacherController();
 $teachers = $teacherController->getEntities();
 ?>

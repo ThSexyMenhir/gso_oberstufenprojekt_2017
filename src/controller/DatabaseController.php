@@ -74,7 +74,7 @@ class DatabaseController
             return null;
         }
 
-        return $result;
+        return $result[0];
     }
 
     public function update($id, array $values)

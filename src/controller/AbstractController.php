@@ -1,5 +1,9 @@
 <?php
 
+if (!class_exists("DatabaseController")) {
+    include __DIR__ . "/DatabaseController.php";
+}
+
 abstract class AbstractController
 {
     /** @var string */
