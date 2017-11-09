@@ -1,36 +1,36 @@
 <?php
-
 if (!class_exists("StudentsController")) {
-    include __DIR__ . "/../../../controller/StudentsController.php";
+	include __DIR__ . "/../../../controller/StudentsController.php";
 }
 
-$success = false;
+$firstname = isset($firstname) ? $firstname : filter_input(INPUT_POST, "firstName");
+$lastname = isset($lastname) ? $lastname : filter_input(INPUT_POST, "lastName");
+$idKlasse = isset($idKlasse) ? $idKlasse : filter_input(INPUT_POST, "idClass");
+$uploadfile = null;
 
-$firstname = isset($firstname) ? $firstname : filter_input(INPUT_GET, "firstName");
-$lastname = isset($lastname) ? $lastname : filter_input(INPUT_GET, "lastName");
-$idKlasse = isset($idKlasse) ? $idKlasse : filter_input(INPUT_GET, "idClass");
-
+if (!isset($firstname) || !isset($lastname) || !isset($idKlasse)) {
+	header("Location: index.php");
+	exit;
+}
 if (isset($_FILES['photo']) && !is_null($_FILES['photo'])) {
-    $uploadfile = __DIR__ . '/../../../data/media/img/students/' . $firstname . $lastname . $idKlasse . ".png";
+	$uploadfile = __DIR__ . '/../../../data/media/img/students/' . $firstname . $lastname . $idKlasse . ".png";
 
-    if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {
-        $success = true;
-    } else {
-        $success = false;
-    }
+	$success = move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile);
 } else {
-    $success = true;
+	$success = true;
 }
 
-if (isset($firstname) && isset($lastname) && isset($photo) && isset($idKlasse) && $success) {
-    $StudentsController = new StudentsController();
-    $success = $StudentsController->add($firstname, $lastname, $uploadfile, $idKlasse);
-} else {
-    $success = false;
+if ($success) {
+	try {
+		$studentsController = new StudentsController();
+		$success = $studentsController->add($firstname, $lastname, $uploadfile, $idKlasse);
+	} catch (Exception $e) {
+		$success = false;
+	}
 }
 
-if (!$success) {
-    //TODO Fehlermeldung anzeigen
+if (!is_null($uploadfile) && !$success) {
+	unlink($uploadfile);
+	header("Location: index.php");
+	exit;
 }
-
-//TOOD Weiterleitung

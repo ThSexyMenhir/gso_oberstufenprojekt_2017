@@ -13,11 +13,17 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 
 $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 
+if (!isset($id)) {
+	header("Location: index.php");
+	exit;
+}
+
 $studentController = new StudentsController();
 $student = $studentController->getEntity($id);
 
 if (is_null($student)) {
-	//TODO redirect + Fehlermeldung
+	header("Location: index.php");
+	exit;
 }
 ?>
 <!DOCTYPE html>

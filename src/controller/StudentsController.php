@@ -31,6 +31,10 @@ class StudentsController extends AbstractController
 			$values["id_klasse"] = $idKlasse;
 		}
 		if ($photo !== "") {
+			$student = $this->getEntity($id);
+			if ($photo !== $student["foto"]) {
+				unlink($student["foto"]);
+			}
 			$values["foto"] = $photo;
 		}
 
@@ -74,5 +78,12 @@ class StudentsController extends AbstractController
 		}
 
 		return $students;
+	}
+
+	public function delete($id)
+	{
+		$student = $this->getEntity($id);
+		unlink($student["foto"]);
+		parent::delete($id);
 	}
 }
