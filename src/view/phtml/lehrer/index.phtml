@@ -3,14 +3,8 @@
 	include ("../../../../header.phtml");
 ?>
 <?php
-$lastname = "";
-
-if (!isset($_REQUEST['lastname'])) {
-	$lastname = $_REQUEST['lastname'];
-}
-
 $teacherController = new TeacherController();
-$teachers = $teacherController->getEntities($lastname);
+$teachers = $teacherController->getEntities();
 ?>
 <div class="container">
 	<div class="row search">
