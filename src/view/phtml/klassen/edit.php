@@ -15,6 +15,7 @@ $teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
 
 if (!isset($id)) {
 	header("Location: index.php");
+	exit;
 }
 
 $classController = new ClassController();
@@ -22,6 +23,7 @@ $class = $classController->getEntity($id);
 
 if (is_null($class)) {
 	header("Location: index.php");
+	exit;
 }
 ?>
 <!DOCTYPE html>

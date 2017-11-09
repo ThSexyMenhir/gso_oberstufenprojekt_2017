@@ -9,6 +9,7 @@ $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 
 if (!isset($id)) {
 	header("Location: index.php");
+	exit;
 }
 
 $classController = new ClassController();
@@ -16,6 +17,7 @@ $class = $classController->getEntity($id);
 
 if (is_null($class)) {
 	header("Location: index.php");
+	exit;
 }
 
 $schueler = array(

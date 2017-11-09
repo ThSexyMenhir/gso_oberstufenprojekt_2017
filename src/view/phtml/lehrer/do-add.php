@@ -12,6 +12,7 @@ $isAdmin = isset($isAdmin) ? $isAdmin : filter_input(INPUT_POST, "isAdmin");
 
 if (!isset($firstname) || !isset($lastname) || !isset($memberCode) || !isset($userName) || !isset($password) || !isset($isAdmin)) {
 	header("Location: index.php");
+	exit;
 }
 
 $teacherController = new TeacherController();
@@ -19,6 +20,8 @@ $success = $teacherController->add($firstname, $lastname, $memberCode, $userName
 
 if (!$success) {
 	header("Location: index.php");
+	exit;
 }
 
 header("Location: index.php");
+exit;

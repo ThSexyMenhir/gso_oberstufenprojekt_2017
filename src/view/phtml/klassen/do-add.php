@@ -8,6 +8,7 @@ $description = isset($description) ? $description : filter_input(INPUT_POST, "de
 
 if (!isset($idMainTeacher) || !isset($description)) {
 	header("Location: index.php");
+	exit;
 }
 
 $classController = new ClassController();
@@ -15,8 +16,10 @@ $success = $classController->add($idMainTeacher, $description);
 
 if (!$success) {
 	header("Location: index.php");
+	exit;
 }
 
 header("Location: index.php");
+exit;
 
 

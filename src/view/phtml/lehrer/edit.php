@@ -9,12 +9,15 @@ $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 
 if (!isset($id)) {
 	header("Location: index.php");
+	exit;
 }
 
 $teacherController = new TeacherController();
 $teacher = $teacherController->getEntity($id);
+
 if (is_null($teacher)) {
 	header("Location: index.php");
+	exit;
 }
 ?>
 <!DOCTYPE html>

@@ -14,6 +14,7 @@ $isAdmin = isset($isAdmin) ? $isAdmin : filter_input(INPUT_POST, "isAdmin");
 
 if (!isset($id) || !isset($firstname) || !isset($lastname) || !isset($memberCode) || !isset($userName) || !isset($password) || !isset($isAdmin)) {
 	header("Location: index.php");
+	exit;
 }
 
 $teacherController = new TeacherController();
@@ -21,6 +22,8 @@ $success = $teacherController->edit($id, $firstname, $lastname, $memberCode, $us
 
 if (!$success) {
 	header("Location: index.php");
+	exit;
 }
 
 header("Location: index.php");
+exit;

@@ -9,6 +9,7 @@ $description = isset($description) ? $description : filter_input(INPUT_POST, "de
 
 if (!isset($id) || !isset($shorttag) || !isset($description)) {
 	header("Location: index.php");
+	exit;
 }
 
 $subjectController = new SubjectController();
@@ -16,6 +17,8 @@ $success = $subjectController->edit($id, $shortTag, $description);
 
 if (!$success) {
 	header("Location: index.php");
+	exit;
 }
 
 header("Location: index.php");
+exit;
