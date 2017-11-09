@@ -35,7 +35,16 @@ $classes = array(
 	</div>
 	<div class="row panel-group">
 		<?php
-			foreach ($classes as $value) {
+			if(empty($classes)){
+		?>
+		<div class="col-xs-12">
+			<div class="alert alert-danger">
+			  <strong>Keine Klassen gefunden</strong>
+			</div>
+		</div>
+		<?php
+			}else {
+				foreach ($classes as $value) {
 		?>
 		<div class="col-md-3 col-xs-6">
 			<div class="panel panel-primary">
@@ -52,6 +61,7 @@ $classes = array(
 		</div>
 
 		<?php
+				}
 			}
 		 ?>
 
