@@ -6,7 +6,7 @@ if (!class_exists("ClassController")) {
 	include __DIR__ . "/../../../controller/ClassController.php";
 }
 
-$siteTitle = "Klasse bearbeiten";
+$siteTitle = "Klasse Bearbeiten";
 
 $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 

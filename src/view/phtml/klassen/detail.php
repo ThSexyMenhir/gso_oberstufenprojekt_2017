@@ -1,4 +1,4 @@
-
+<? //TODO ?>
 <?php
 	$siteTitle = "Klassen Details";
 ?>
