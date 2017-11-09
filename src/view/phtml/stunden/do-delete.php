@@ -5,13 +5,15 @@ if (!class_exists("SubjectController")) {
 
 $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 
-if (isset($id)){
-    $subjectController = new SubjectController();
-    $success = $subjectController->delete($id);
+if (!isset($id)) {
+	header("Location: index.php");
 }
+
+$subjectController = new SubjectController();
+$success = $subjectController->delete($id);
 
 if (!$success) {
-    
+	header("Location: index.php");
 }
 
-//TOOD Weiterleitung
+header("Location: index.php");

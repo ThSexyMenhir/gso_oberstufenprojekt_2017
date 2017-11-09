@@ -7,11 +7,14 @@ $siteTitle = "Lehrer Bearbeiten";
 
 $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 
+if (!isset($id)) {
+	header("Location: index.php");
+}
+
 $teacherController = new TeacherController();
 $teacher = $teacherController->getEntity($id);
-
 if (is_null($teacher)) {
-	//TODO redirect + Fehlermeldung
+	header("Location: index.php");
 }
 ?>
 <!DOCTYPE html>

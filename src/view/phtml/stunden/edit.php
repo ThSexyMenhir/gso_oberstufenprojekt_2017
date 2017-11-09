@@ -5,15 +5,18 @@ if (!class_exists("SubjectController")) {
 
 $siteTitle = "Stunden Bearbeiten";
 
-
 $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
+
+if (!isset($id)) {
+	header("Location: index.php");
+}
 
 $subjectController = new SubjectController();
 $subject = $subjectController->getEntity($id);
-
 if (is_null($subject)) {
-	//TODO redirect + Fehlermeldung
+	header("Location: index.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="de">

@@ -1,18 +1,19 @@
 <?php
-
 if (!class_exists("ClassController")) {
-    include __DIR__ . "/../../../controller/ClassController.php";
+	include __DIR__ . "/../../../controller/ClassController.php";
 }
 
 $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 
-if (isset($id)) {
-    $classController = new ClassController();
-    $success = $classController->delete($id);
+if (!isset($id)) {
+	header("Location: index.php");
 }
+
+$classController = new ClassController();
+$success = $classController->delete($id);
 
 if (!$success) {
-    //TODO Fehlermeldung anzeigen
+	header("Location: index.php");
 }
 
-//TOOD Weiterleitung
+header("Location: index.php");

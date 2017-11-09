@@ -1,7 +1,6 @@
 <?php
-
 if (!class_exists("TeacherController")) {
-    include __DIR__ . "/../../../controller/TeacherController.php";
+	include __DIR__ . "/../../../controller/TeacherController.php";
 }
 
 $id = isset($id) ? $id : filter_input(INPUT_POST, "id");
@@ -13,13 +12,15 @@ $password = isset($password) ? $password : filter_input(INPUT_POST, "password");
 $isAdmin = isset($isAdmin) ? $isAdmin : filter_input(INPUT_POST, "isAdmin");
 
 
-if (isset($id) && isset($firstname) && isset($lastname) && isset($memberCode) && isset($userName) && isset($password) && isset($isAdmin)) {
-    $teacherController = new TeacherController();
-    $success = $teacherController->edit($id, $firstname, $lastname, $memberCode, $userName, $password, $isAdmin);
+if (!isset($id) || !isset($firstname) || !isset($lastname) || !isset($memberCode) || !isset($userName) || !isset($password) || !isset($isAdmin)) {
+	header("Location: index.php");
 }
+
+$teacherController = new TeacherController();
+$success = $teacherController->edit($id, $firstname, $lastname, $memberCode, $userName, $password, $isAdmin);
 
 if (!$success) {
-    //TODO Fehlermeldung anzeigen
+	header("Location: index.php");
 }
 
-//TOOD Weiterleitung
+header("Location: index.php");
