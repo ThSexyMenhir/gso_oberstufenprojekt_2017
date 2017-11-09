@@ -28,16 +28,16 @@ $classes = array(
 		 	<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 		</div>
 		<button type="button" class="btn btn-primary active-search">Suchen</button>
-		<button type="button" class="btn btn-primary add-class">Klasse Hinzufügen</button>
+		<button type="button" class="btn btn-primary add-button">Klasse Hinzufügen</button>
 	</div>
 	<div class="row panel-group">
 		<?php
-			foreach ($classes as &$value) {
+			foreach ($classes as $value) {
 		?>
 		<div class="col-xs-3">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<?php echo $value["name"]?>
+					<?=$value["name"]?>
 				</div>
 				<div class="panel-footer">
 					<div class="icons">
