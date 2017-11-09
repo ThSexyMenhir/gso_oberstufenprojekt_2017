@@ -25,12 +25,7 @@ nav.navbar .dropdown-pull-right {
 
 /* Pannels */
 #searchinput {
-    width: 200px;
-	height: 19px;
-	border-radius: 0;
-	padding: 0;
 	background-color: #E1E2DE;
-	padding-bottom: 1px;
 	color: #524e4e;
 }
 #searchclear {
@@ -43,13 +38,6 @@ nav.navbar .dropdown-pull-right {
     font-size: 14px;
     cursor: pointer;
     color: #ccc;
-}
-.search button{
-	height: 19px;
-	padding: 0 10px 2px 10px;
-	border: 0;
-	font-size: 12px;
-	margin: 0 5px 0 5px;
 }
 .search{
 	display: inline;
