@@ -5,27 +5,6 @@ if (!class_exists("ClassController")) {
 
 $siteTitle = "Klassen Übersicht";
 
-$classes = array(
-	0 => array(
-		"headline" => "FIA 51"
-	),
-	1 => array(
-		"headline" => "FIA 52"
-	),
-	2 => array(
-		"headline" => "FIA 53"
-	),
-	3 => array(
-		"headline" => "FIA 54"
-	),
-	4 => array(
-		"headline" => "FIA 55"
-	),
-	5 => array(
-		"headline" => "FIA 56"
-	)
-);
-
 $classController = new ClassController();
 $classes = $classController->getEntities();
 ?>
