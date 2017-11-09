@@ -32,6 +32,8 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 			</div>
 			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
 			<button class="btn btn-primary add-button">Klasse Hinzufügen</button>
+			<button class="btn btn-primary active-search">Suchen</button>
+			<a href="add.php" class="btn btn-primary add-button">Klasse Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
 				<div class="col-xs-12<?= (empty($classes)) ? '':' display-none'?>">
