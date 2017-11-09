@@ -15,12 +15,7 @@ abstract class AbstractController
 
     public function delete($id)
     {
-        $result = $this->dataBaseController->update($id, ['ist_geloescht' => 1]);
-
-        if ($result !== true) {
-            return false;
-        }
-        return $result;
+        return $this->dataBaseController->delete($id);
     }
 
     public function get($id)
