@@ -87,3 +87,10 @@ nav.navbar .dropdown-pull-right {
 	float: left;
 	display: inline-block;
 }
+.panel-primary .panel-footer{
+	position:relative;
+}
+
+.clear {
+    clear: both;
+}

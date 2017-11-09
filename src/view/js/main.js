@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-	document.querySelector("#searchclear").addEventListener("click",function(){
-    	document.querySelector("#searchinput").value = "";
-	});
+	if(document.querySelector("#searchclear")){
+		document.querySelector("#searchclear").addEventListener("click",function(){
+	    	document.querySelector("#searchinput").value = "";
+		});
+	}
 });
