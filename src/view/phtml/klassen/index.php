@@ -30,13 +30,9 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 				<input id="searchinput" type="search" class="form-control" placeholder="Klasse Suche">
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
-<<<<<<< HEAD
-			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
-			<button class="btn btn-primary add-button">Klasse Hinzufügen</button>
-=======
+
 			<button class="btn btn-primary active-search">Suchen</button>
 			<a href="add.php" class="btn btn-primary add-button">Klasse Hinzufügen</a>
->>>>>>> 31de37f78ef69a16a317b6cec3e935e7c7953e49
 		</div>
 		<div class="row panel-group">
 				<div class="col-xs-12<?= (empty($classes)) ? '':' display-none'?>">
