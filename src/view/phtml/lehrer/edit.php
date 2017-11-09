@@ -10,7 +10,7 @@ $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 $teacherController = new TeacherController();
 $teacher = $teacherController->getEntity($id);
 
-if (is_null($class)) {
+if (is_null($teacher)) {
 	//TODO redirect + Fehlermeldung
 }
 ?>

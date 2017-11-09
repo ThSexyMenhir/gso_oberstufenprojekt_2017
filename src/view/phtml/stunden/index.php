@@ -53,8 +53,12 @@ $subjects = $subjectController->getEntitiesForOverview([], ['kuerzel', 'bezeichn
 							<?= $value["content"] ?>
 						</div>
 						<div class="icons">
-							<a><i class="fa fa-pencil" aria-hidden="true"></i></a>
-							<a><i class="fa fa-times" aria-hidden="true"></i></a>
+							<a href="edit.php?id=<?= $value["id"] ?>">
+								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</a>
+							<a href="do-delete.php?id=<?= $value["id"] ?>" id="delete">
+								<i class="fa fa-times" aria-hidden="true"></i>
+							</a>
 						</div>
 					</div>
 				</div>

@@ -1,5 +1,19 @@
 <?php
-$siteTitle = "Stunden Hinzufügen";
+if (!class_exists("SubjectController")) {
+	include __DIR__ . "/../../../controller/SubjectController.php";
+}
+
+$siteTitle = "Stunden Bearbeiten";
+
+
+$id = isset($id) ? $id : filter_input(INPUT_GET, "id");
+
+$subjectController = new SubjectController();
+$subject = $subjectController->getEntity($id);
+
+if (is_null($subject)) {
+	//TODO redirect + Fehlermeldung
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -18,20 +32,18 @@ $siteTitle = "Stunden Hinzufügen";
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<form action="do-add.php" method="POST">
+		<form action="do-edit.php" method="POST">
 			<div class="row">
-				
-				
-                <div class="form-group col-md-4 col-xs-12">
-                	<label for="membercode">Kürzel:</label>
-					<input type="text" class="form-control" name="shortTag">
-                </div>     
+				<input type="hidden" name="id" value="<?= $subject["id"] ?>">
+				<div class="form-group col-md-4 col-xs-12">
+					<label for="membercode">Kürzel:</label>
+					<input type="text" class="form-control" value="<?= $subject["kuerzel"] ?>" name="shortTag">
+				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
-                	<label for="description">Bezeichnung:</label>
-					<input type="text" class="form-control" name="description">
-                </div>         
-				
+					<label for="description">Bezeichnung:</label>
+					<input type="text" class="form-control" value="<?= $subject["bezeichnung"] ?>" name="description">
+				</div>
 
 				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
 				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
