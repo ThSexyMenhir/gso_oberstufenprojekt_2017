@@ -1,0 +1,30 @@
+.class-detail .score-sheet, .class-detail .chart, .class-detail .chart-button{
+	display: inline-block;
+}
+.class-detail .score-sheet .chart{
+	transform: translate(0, 41%);
+	font-size: 59px;
+}
+.class-detail .score-sheet{
+	    margin-top: -100px;
+}
+.class-detail .chart-button button{
+	margin-right: 15px;
+}
+.class-detail .chart-button{
+	margin-left: 10px;
+}
+.class-detail .add-button.ex{
+	margin-top: 20px;
+}
+.class-detail .img{
+}
+.class-detail  img{
+	width: 60%;
+	float: left;
+}
+.class-detail .icons{
+	position:absolute;
+	bottom:0;
+	right:5px;
+}
