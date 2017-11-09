@@ -34,34 +34,38 @@ $teachers = $teacherController->getEntitiesForOverview([], ['nachname', 'vorname
 			<a href="add.php" class="btn btn-primary add-button">Lehrer Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
-				<div class="col-xs-12<?= (empty($teachers)) ? '':' display-none'?>">
-					<div class="alert alert-danger">
-						<strong>Keine Lehrer gefunden</strong>
-					</div>
+			<div class="col-xs-12<?= (empty($teachers)) ? '' : ' display-none' ?>">
+				<div class="alert alert-danger">
+					<strong>Keine Lehrer gefunden</strong>
 				</div>
-				<?php
-				foreach ($teachers as $value) {
+			</div>
+			<?php
+			foreach ($teachers as $value) {
 				?>
-					<div class="col-md-3 col-xs-6">
-						<div class="panel panel-primary">
-							<div class="panel-body">
-								<?= $value["headline"] ?>
+				<div class="col-md-3 col-xs-6">
+					<div class="panel panel-primary">
+						<div class="panel-body">
+							<?= $value["headline"] ?>
+						</div>
+						<div class="panel-footer">
+							<div class="text">
+								<?= $value["content"] ?>
 							</div>
-							<div class="panel-footer">
-								<div class="text">
-									<?= $value["content"] ?>
-								</div>
-								<div class="icons">
-									<a><i class="fa fa-pencil" aria-hidden="true"></i></a>
-									<a><i class="fa fa-times" aria-hidden="true"></i></a>
-								</div>
+							<div class="icons">
+								<a href="edit.php?id=<?= $value["id"] ?>">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+								<a href="do-delete.php?id=<?= $value["id"] ?>" id="delete">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</a>
 							</div>
 						</div>
 					</div>
+				</div>
 
 				<?php
-				}
-				?>
+			}
+			?>
 
 
 		</div>

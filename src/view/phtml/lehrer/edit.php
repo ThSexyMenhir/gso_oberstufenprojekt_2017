@@ -1,5 +1,18 @@
 <?php
-$siteTitle = "Lehrer Hinzufügen";
+if (!class_exists("TeacherController")) {
+	include __DIR__ . "/../../../controller/TeacherController.php";
+}
+
+$siteTitle = "Lehrer Bearbeiten";
+
+$id = isset($id) ? $id : filter_input(INPUT_GET, "id");
+
+$teacherController = new TeacherController();
+$teacher = $teacherController->getEntity($id);
+
+if (is_null($class)) {
+	//TODO redirect + Fehlermeldung
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -18,41 +31,44 @@ $siteTitle = "Lehrer Hinzufügen";
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<form action="do-add.php" method="POST">
+		<form action="do-edit.php" method="POST">
 			<div class="row">
-
+				<input type="hidden" name="id" value="<?= $teacher["id"] ?>">
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="firstname">Vorname:</label>
-					<input type="text" class="form-control" name="firstName">
+					<input type="text" class="form-control" value="<?= $teacher["vorname"] ?>" name="firstName">
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="lastName">Nachname:</label>
-					<input type="text" class="form-control" name="lastName">
+					<input type="text" class="form-control" value="<?= $teacher["nachname"] ?>" name="lastName">
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="membercode">Kürzel</label>
-					<input type="text" class="form-control" name="memberCode">
+					<input type="text" class="form-control" value="<?= $teacher["kuerzel"] ?>" name="memberCode">
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="userName">Benutzername</label>
-					<input type="text" class="form-control" name="userName">
+					<input type="text" class="form-control" value="<?= $teacher["benutzername"] ?>" name="userName">
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="password">Password</label>
-					<input type="password" class="form-control" name="password">
+					<input type="password" class="form-control" value="<?= $teacher["passwort"] ?>" name="password">
 				</div>
 
 				<div class="form-check col-md-4 col-xs-12">
 					<label class="form-check-label">
-						<input type="checkbox" class="form-check-input" value="1" name="isAdmin">
+						<input type="checkbox"
+							   class="form-check-input"
+							   value="1"
+							   name="isAdmin" <? if ($teacher["ist_admin"]) {echo "checked";} ?>
+						>
 						Ist Admin?
 					</label>
 				</div>
-
 
 				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
 				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>

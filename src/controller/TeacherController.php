@@ -14,7 +14,6 @@ class TeacherController extends AbstractController
 
 		if ($result !== null) {
 			unset($result["passwort"]);
-			unset($result["benutzername"]);
 		}
 		return $result;
 	}
