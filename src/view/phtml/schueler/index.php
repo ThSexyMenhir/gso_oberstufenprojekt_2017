@@ -31,13 +31,8 @@ $schueler = $studentsController->getEntities([], ['nachname', 'vorname']);
 				<input id="searchinput" type="search" class="form-control" placeholder="Schüler Suchen">
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
-<<<<<<< HEAD
-			<button class="btn btn-primary active-search">Suchen</button>
+			<button id="searchBUtton" class="btn btn-primary active-search">Suchen</button>
 			<a href="add.php" class="btn btn-primary add-button">Schüler Hinzufügen</a>
-=======
-			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
-			<button class="btn btn-primary add-button">Schüler Hinzufügen</button>
->>>>>>> b1a4986391b50a21314059668a04895475b44ae6
 		</div>
 		<div class="row panel-group">
 			<div class="col-xs-12<?= (empty($schueler)) ? '':' display-none'?>">
