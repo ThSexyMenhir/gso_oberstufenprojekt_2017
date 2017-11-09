@@ -32,7 +32,7 @@ $schueler = $studentsController->getEntities([], ['nachname', 'vorname']);
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
 			<button class="btn btn-primary active-search">Suchen</button>
-			<button class="btn btn-primary add-button">Schüler Hinzufügen</button>
+			<a href="add.php" class="btn btn-primary add-button">Schüler Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
 			<?php

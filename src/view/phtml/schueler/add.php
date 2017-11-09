@@ -15,17 +15,21 @@
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<form action="do-addKlasse.php" method="POST">
+		<form action="do-addSchueler.php" method="POST">
 			<div class="row">
 
 				<div class="form-group col-md-4 col-xs-12">
-					<label for="usr">ID:</label>
-					<input type="text" class="form-control" name="idMainTeacher">
+					<label for="usr">Vorname:</label>
+					<input type="text" class="form-control" name="">
+				</div>
+                <div class="form-group col-md-4 col-xs-12">
+					<label for="usr">Nachname:</label>
+					<input type="text" class="form-control" name="">
 				</div>
                 <div class="form-group">
-                <label for="comment">Beschreibung:</label>
-                <textarea class="form-control" rows="5" name="description"></textarea>
-              </div>            
+                <label for="exampleInputFile">Datei einfügen</label>
+                <input type="file" class="form-control-file" name="" aria-describedby="fileHelp">
+              </div>
 				
 
 				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
