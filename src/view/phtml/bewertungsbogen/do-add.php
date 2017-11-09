@@ -1,8 +1,21 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+if (!class_exists("EvaluationSheetController")) {
+    include __DIR__ . "/../../../controller/EvaluationSheetController.php";
+}
 
+$success = false;
+
+$idClass = isset($idClass) ? $idClass : filter_input(INPUT_GET, "idClass");
+$idSubject = isset($idSubject) ? $idSubject : filter_input(INPUT_GET, "idSubject");
+
+if (isset($idClass) && isset($idSubject)) {
+    $evaluationSheetController = new EvaluationSheetController();
+    $success = $evaluationSheetController->add($idClass, $idSubject);
+}
+
+if (!$success) {
+    //TODO Fehlermeldung anzeigen
+}
+
+//TOOD Weiterleitung
