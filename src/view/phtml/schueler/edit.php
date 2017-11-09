@@ -2,14 +2,23 @@
 if (!class_exists("ClassController")) {
 	include __DIR__ . "/../../../controller/ClassController.php";
 }
+if (!class_exists("StudentController")) {
+	include __DIR__ . "/../../../controller/StudentsController.php";
+}
 
-$siteTitle = "Schüler Hinzufügen";
+$siteTitle = "Schüler Bearbeiten";
 
 $classController = new ClassController();
 $classes = $classController->getEntities([], ['bezeichnung']);
 
-$idClass = isset($idClass) ? $idClass : filter_input(INPUT_POST, "idKlasse");
+$id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 
+$studentController = new StudentsController();
+$student = $studentController->getEntity($id);
+
+if (is_null($student)) {
+	//TODO redirect + Fehlermeldung
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -23,28 +32,28 @@ $idClass = isset($idClass) ? $idClass : filter_input(INPUT_POST, "idKlasse");
 	<link rel="stylesheet" href="../../../../vendor/font-awesome.min.css">
 	<title>GSO - Kalender</title>
 </head>
-
+·
 <body>
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<form action="do-add.php" method="POST" enctype="multipart/form-data">
+		<form action="do-edit.php" method="POST" enctype="multipart/form-data">
 			<div class="row">
 
 				<div class="form-group col-md-3 col-xs-12">
 					<label for="firstName">Vorname:</label>
-					<input type="text" class="form-control" name="firstName">
+					<input type="text" class="form-control" value="<?= $student["vorname"] ?>" name="firstName">
 				</div>
 				<div class="form-group col-md-3 col-xs-12">
 					<label for="lastName">Nachname:</label>
-					<input type="text" class="form-control" name="lastName">
+					<input type="text" class="form-control" value="<?= $student["nachname"] ?>" name="lastName">
 				</div>
 				<div class="form-group col-md-2 col-xs-12">
 					<label for="idClass">Klasse:</label>
 					<select class="form-control" name="idClass">
 						<?php foreach ($classes as $class) { ?>
 							<option value="<?= $class["id"] ?>"
-								<? if (!is_null($idClass) && $idClass === $class["id"]) {
+								<? if ($student["id_klasse"] === $class["id"]) {
 									echo "selected";
 								} ?>
 							>
