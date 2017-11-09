@@ -1,3 +1,13 @@
+<?php
+if (!class_exists("TeacherController")) {
+	include __DIR__ . "/../../../controller/TeacherController.php";
+}
+
+$siteTitle = "Lehrer Übersicht";
+
+$teacherController = new TeacherController();
+$teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
+?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -17,15 +27,19 @@
 	<div class="container">
 		<form action="do-addKlasse.php" method="POST">
 			<div class="row">
-
 				<div class="form-group col-md-4 col-xs-12">
-					<label for="usr">ID:</label>
-					<input type="text" class="form-control" name="idMainTeacher">
+					<label for="idMainTeacher">Klassenlehrer:</label>
+					<select class="form-control" name="idMainTeacher">   
+						<?php foreach($teachers as $teacher) { ?>
+							<option value="<?= $teacher["id"]?>"><?= $teacher["headline"]?></option>
+						<?php } ?> 
+					</select> 
 				</div>
-                <div class="form-group">
-                <label for="comment">Beschreibung:</label>
-                <textarea class="form-control" rows="5" name="description"></textarea>
-              </div>            
+				
+                <div class="form-group col-md-4 col-xs-12">
+                	<label for="description">Bezeichnung:</label>
+					<input type="text" class="form-control" name="description">            	
+                </div>            
 				
 
 				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>

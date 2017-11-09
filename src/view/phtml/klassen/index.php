@@ -31,7 +31,7 @@ $classes = $classController->getEntities([], ['bezeichnung']);
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
 
-			<button class="btn btn-primary active-search">Suchen</button>
+			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
 			<a href="add.php" class="btn btn-primary add-button">Klasse Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
