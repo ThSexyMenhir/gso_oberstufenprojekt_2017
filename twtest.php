@@ -18,4 +18,3 @@ $a = new TeacherController();
 //var_dump($a->update(["vorname" => "Jan"], 1))
 //var_dump($a->insert(["vorname" => "Jan"]))
 //var_dump($a->delete(12))
-?>
