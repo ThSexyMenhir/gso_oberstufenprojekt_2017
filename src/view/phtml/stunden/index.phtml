@@ -6,20 +6,20 @@
 <?php
 $subjects = array(
 	    0 => array(
-	         "name" => "Deutsch",
-			 "class" => "DE"
+	         "headline" => "Deutsch",
+			 "content" => "DE"
 	    ),
 		1 => array(
-			"name" => "Englisch",
-			"class" => "EN"
+			"headline" => "Englisch",
+			"content" => "EN"
 	    ),
 		2 => array(
-			"name" => "Anwendungsentwickler",
-			"class" => "ANW"
+			"headline" => "Anwendungsentwickler",
+			"content" => "ANW"
 	    ),
 		3 => array(
-			"name" => "Sport",
-			"class" => "SP"
+			"headline" => "Sport",
+			"content" => "SP"
 	    )
 	);
 ?>
@@ -48,11 +48,11 @@ $subjects = array(
 		<div class="col-md-3 col-xs-6">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<?=$value["name"]?>
+					<?=$value["headline"]?>
 				</div>
 				<div class="panel-footer">
 					<div class="text">
-						<?=$value["class"]?>
+						<?=$value["content"]?>
 					</div>
 					<div class="icons">
 						<a><i class="fa fa-pencil" aria-hidden="true"></i></a>

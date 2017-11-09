@@ -67,8 +67,8 @@ class TeacherController extends AbstractController
         $teachers = [];
         foreach ($result as $values) {
             $teachers[] = [
-                "name" => $values["nachname"] . ", " . $values["vorname"],
-                "short" => $values["kuerzel"],
+                "headline" => $values["nachname"] . ", " . $values["vorname"],
+                "content" => $values["kuerzel"],
             ];
         }
 
