@@ -18,7 +18,6 @@ $teachers = $teacherController->getEntities();
 	<link rel="stylesheet" href="../../../../vendor/bootstrap-3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../../../vendor/bootstrap-3.3.7/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../../../../vendor/font-awesome.min.css">
-	<link rel="stylesheet" href="../../../../src/view/css/stundeninhalt/index.css">
 	<title>GSO - Kalender</title>
 </head>
 
