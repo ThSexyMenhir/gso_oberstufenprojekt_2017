@@ -5,8 +5,9 @@ if (!class_exists("EvaluationSheetController")) {
 }
 
 $siteTitle = "Bewertungsbogen Übersicht";
-
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
 $idTeacher = $_SESSION['gos-kalender']['id_lehrer'];
 $evaluationSheetController = new EvaluationSheetController();
 $evaluationSheets = $evaluationSheetController->getEntitiesForOverview(

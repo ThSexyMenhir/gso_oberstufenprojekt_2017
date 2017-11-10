@@ -16,7 +16,7 @@
 				<li><a href="../klassen/index.php">Klassen</a></li>
 				<li><a href="../lehrer/index.php">Lehrer</a></li>
 				<li><a href="../schueler/index.php">Sch&uuml;ler</a></li>
-				<li><a href="../stunden/index.php">Stunden</a></li>
+				<li><a href="../stunden/index.php">Fächer</a></li>
 				<li><a href="../stundeninhalt/index.php">Stundeninhalt</a></li>
 				<li><a href="../login/do-logout.php">Ausloggen</a></li>
 			</ul>
