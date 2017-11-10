@@ -1,4 +1,5 @@
 <?php
+include __DIR__ . "/../../../../check-login.php";
 $siteTitle = "Lehrer Hinzufügen";
 ?>
 <!DOCTYPE html>

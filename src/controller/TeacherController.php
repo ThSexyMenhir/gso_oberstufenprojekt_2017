@@ -35,7 +35,7 @@ class TeacherController extends AbstractController
 			$values["benutzername"] = $userName;
 		}
 		if ($password !== "") {
-			$values["passwort"] = $password;
+			$values["passwort"] = password_hash($password, PASSWORD_BCRYPT);
 		}
 		$values["ist_admin"] = 0;
 		if ($isAdmin) {
@@ -56,7 +56,7 @@ class TeacherController extends AbstractController
 			"nachname" => $lastname,
 			"kuerzel" => $memberCode,
 			"benutzername" => $userName,
-			"passwort" => $password,
+			"passwort" => password_hash($password, PASSWORD_BCRYPT),
 			"ist_admin" => $isAdmin,
 		];
 

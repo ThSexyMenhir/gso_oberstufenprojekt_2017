@@ -1,3 +1,6 @@
+<?php
+include __DIR__ . "/../../../../check-login.php";
+?>
 <!DOCTYPE html>
 <html lang="de">
 

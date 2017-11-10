@@ -24,14 +24,14 @@ $siteTitle = "Login";
 
 				<h3>Login</h3>
 
-				<form role="form">
+				<form role="form" action="do-login.php" method="POST">
 					<div class="form-group">
-						<label for="inputUsernameEmail">Benutzernamen</label>
-						<input type="text" class="form-control" id="inputUsernameEmail">
+						<label for="username">Benutzernamen</label>
+						<input type="text" class="form-control" name="username">
 					</div>
 					<div class="form-group">
-						<label for="inputPassword">Passwort</label>
-						<input type="password" class="form-control" id="inputPassword">
+						<label for="password">Passwort</label>
+						<input type="password" class="form-control" name="password">
 					</div>
 					<button type="submit" class="btn btn btn-primary">
 						Log In
