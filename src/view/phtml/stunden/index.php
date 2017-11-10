@@ -3,7 +3,7 @@ if (!class_exists("SubjectController")) {
 	include __DIR__ . "/../../../controller/SubjectController.php";
 }
 
-$siteTitle = "Stunden Übersicht";
+$siteTitle = "F&auml;cher Übersicht";
 
 $subjectController = new SubjectController();
 $subjects = $subjectController->getEntitiesForOverview([], ['kuerzel', 'bezeichnung']);
@@ -32,12 +32,12 @@ $subjects = $subjectController->getEntitiesForOverview([], ['kuerzel', 'bezeichn
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
 			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
-			<a href="add.php" class="btn btn-primary add-button">Stunde Hinzufügen</a>
+			<a href="add.php" class="btn btn-primary add-button">Fach Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
 			<div class="col-xs-12<?= (empty($subjects)) ? '':' display-none'?>">
 				<div class="alert alert-danger">
-					<strong>Keine Stunden gefunden</strong>
+					<strong>Kein Fach gefunden</strong>
 				</div>
 			</div>
 			<?php

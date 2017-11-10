@@ -9,6 +9,8 @@ if (!class_exists("ClassController")) {
 
 class StudentsController extends AbstractController
 {
+	const PLACEHOLDER = "/src/data/media/img/placeholder.png";
+
 	protected $tableName = "Schueler";
 
 	public function edit($id, $firstname, $lastname, $photo, $idKlasse)
@@ -72,7 +74,7 @@ class StudentsController extends AbstractController
 			$class = $classController->getEntity($values["id_klasse"]);
 			$students[] = [
 				"headline" => $values["nachname"] . ", " . $values["vorname"] . ": " . $class["bezeichnung"],
-				"content" => $values["foto_pfad"],
+				"content" => $values["foto_pfad"] ? $values["foto_pfad"] : self::PLACEHOLDER,
 				"id" => $values["id"],
 			];
 		}

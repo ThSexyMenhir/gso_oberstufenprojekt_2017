@@ -12,6 +12,7 @@ $classController = new ClassController();
 $classes = $classController->getEntities([], ['bezeichnung']);
 
 $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
+$from = isset($from) ? $from : filter_input(INPUT_GET, "from");
 
 if (!isset($id)) {
 	header("Location: index.php");
@@ -45,6 +46,7 @@ if (is_null($student)) {
 	<div class="container">
 		<form action="do-edit.php" method="POST" enctype="multipart/form-data">
 			<div class="row">
+				<input type="hidden" value="<?=$from?>" name="from">
 				<input type="hidden" name="id" value="<?= $student["id"] ?>">
 				<div class="form-group col-md-3 col-xs-12">
 					<label for="firstName">Vorname:</label>

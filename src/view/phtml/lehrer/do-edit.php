@@ -12,7 +12,7 @@ $password = isset($password) ? $password : filter_input(INPUT_POST, "password");
 $isAdmin = isset($isAdmin) ? $isAdmin : filter_input(INPUT_POST, "isAdmin");
 
 
-if (!isset($id) || !isset($firstname) || !isset($lastname) || !isset($memberCode) || !isset($userName) || !isset($password) || !isset($isAdmin)) {
+if (!isset($id) || !isset($firstname) || !isset($lastname) || !isset($memberCode) || !isset($userName) || !isset($password)) {
 	header("Location: index.php");
 	exit;
 }

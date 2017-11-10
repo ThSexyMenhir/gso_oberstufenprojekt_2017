@@ -9,6 +9,7 @@ $classController = new ClassController();
 $classes = $classController->getEntities([], ['bezeichnung']);
 
 $idClass = isset($idClass) ? $idClass : filter_input(INPUT_GET, "idClass");
+$from = isset($from) ? $from : filter_input(INPUT_GET, "from");
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +31,7 @@ $idClass = isset($idClass) ? $idClass : filter_input(INPUT_GET, "idClass");
 	<div class="container">
 		<form action="do-add.php" method="POST" enctype="multipart/form-data">
 			<div class="row">
-
+				<input type="hidden" value="<?=$from?>" name="from">
 				<div class="form-group col-md-3 col-xs-12">
 					<label for="firstName">Vorname:</label>
 					<input type="text" class="form-control" name="firstName">
