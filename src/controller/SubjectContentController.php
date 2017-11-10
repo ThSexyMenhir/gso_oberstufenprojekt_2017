@@ -9,6 +9,12 @@ if (!class_exists("TeacherController")) {
 if (!class_exists("EvaluationSheetController")) {
     include __DIR__ . "/EvaluationSheetController.php";
 }
+if (!class_exists("ClassController")) {
+    include __DIR__ . "/ClassController.php";
+}
+if (!class_exists("SubjectController")) {
+    include __DIR__ . "/SubjectController.php";
+}
 
 class SubjectContentController extends AbstractController {
 
@@ -74,12 +80,30 @@ class SubjectContentController extends AbstractController {
                     $datetime = new DateTime($values["datum"]);
                     $tmpDay = $datetime->format("w");
                     if ($values["block"] == $i + 1 && $key == $tmpDay) {
+                        $evaluationSheetController = new EvaluationsController();
+                        $evalSheet = $evaluationSheetController->getEntity($values["id_bewertungsbogen"]);
+                        
+                        $teacherController = new TeacherController();
+                        $teacher = $teacherController->getEntity($evalSheet["id_lehrer"]);
+                        
+                        $classController = new ClassController();
+                        $class = $classController->getEntity($evalSheet["id_klasse"]);
+                        
+                        $subjectController = new SubjectController();
+                        $subject = $subjectController->getEntity($evalSheet["id_stunde"]);
+                        
+                        $shortDescription = substr($values["notizen"], 0, 10);
+                                               
                         $subjects[$i][$day] = [
                             "block" => $values["block"],
                             "datum" => $values["datum"],
-                            "notizen" => $values["notizen"],
+                            "shortDescription" => $shortDescription,
+                            "description" => $values["notizen"],
                             "id" => $values["id"],
-                            "id_bewertungsbogen" => $values["id_bewertungsbogen"]
+                            "id_bewertungsbogen" => $values["id_bewertungsbogen"],
+                            "teacher" => $teacher["kuerzel"],
+                            "class" => $class["bezeichnung"],
+                            "subject" => $subject["kuerzel"]
                         ];
                     }
                 }
@@ -88,7 +112,7 @@ class SubjectContentController extends AbstractController {
 
         return $subjects;
     }
-
+    /*
     public function getEntitiesForDay($curDate, array $where = [], array $orderBy = []) {
 
         $where["datum"] = ["LIKE", $curDate];
@@ -136,5 +160,6 @@ class SubjectContentController extends AbstractController {
 
         return $subjects;
     }
+     */
 
 }
