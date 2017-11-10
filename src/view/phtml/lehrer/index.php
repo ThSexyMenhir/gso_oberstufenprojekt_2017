@@ -31,7 +31,7 @@ $teachers = $teacherController->getEntitiesForOverview([], ['nachname', 'vorname
 				<input id="searchinput" type="search" class="form-control" placeholder="Lehrer Suchen">
 				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
 			</div>
-			<button class="btn btn-primary active-search">Suchen</button>
+			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
 			<a href="add.php" class="btn btn-primary add-button">Lehrer Hinzufügen</a>
 		</div>
 		<div class="row panel-group">
