@@ -129,7 +129,7 @@ class SubjectContentController extends AbstractController
 					$datetime = new DateTime($values["datum"]);
 					$tmpDay = $datetime->format("w");
 					if ($values["block"] == $i + 1 && $key == $tmpDay) {
-						$evaluationSheetController = new EvaluationsController();
+						$evaluationSheetController = new EvaluationSheetController();
 						$evalSheet = $evaluationSheetController->getEntity($values["id_bewertungsbogen"]);
 
 						$teacherController = new TeacherController();
