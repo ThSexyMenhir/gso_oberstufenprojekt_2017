@@ -6,8 +6,8 @@ if (!class_exists("EvaluationSheetController")) {
 
 $startdate= isset($startdate) ? $startdate : filter_input(INPUT_GET, "startdate");
 $enddate = isset($enddate) ? $enddate : filter_input(INPUT_GET, "enddate");
-$block = isset($block) ? $block : filter_input(INPUT_GET, "idStudent");
-$date = isset($date) ? $date : filter_input(INPUT_GET, "idSubjectContent");
+$block = isset($block) ? $block : filter_input(INPUT_GET, "block");
+$date = isset($date) ? $date : filter_input(INPUT_GET, "date");
 $idEvaluationSheet = isset($idEvaluationSheet) ? $idEvaluationSheet : filter_input(INPUT_GET, "idEvaluationSheet");
 $note = isset($note) ? $note : filter_input(INPUT_GET, "note");
 
@@ -53,7 +53,7 @@ if (!isset($evaluationSheets)) {
                     <label for="comment">Notizen:</label>
                     <textarea class="form-control" rows="5" name="note"><?=$note?></textarea>
                 </div>
-				<select class="form-control" name="idEvalatuionSheet">
+				<select class="form-control" name="idEvaluationSheet">
 					<?php foreach ($evaluationSheets as $evaluationSheet) { ?>
 						<option value="<?= $evaluationSheet["id"] ?>"
 							<? if ($idEvaluationSheet === $evaluationSheet["id"]) {

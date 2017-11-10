@@ -8,8 +8,8 @@ $success = false;
 
 $startdate= isset($startdate) ? $startdate : filter_input(INPUT_POST, "startdate");
 $enddate = isset($enddate) ? $enddate : filter_input(INPUT_POST, "enddate");
-$block = isset($block) ? $block : filter_input(INPUT_POST, "idStudent");
-$date = isset($date) ? $date : filter_input(INPUT_POST, "idSubjectContent");
+$block = isset($block) ? $block : filter_input(INPUT_POST, "block");
+$date = isset($date) ? $date : filter_input(INPUT_POST, "date");
 $idEvaluationSheet = isset($idEvaluationSheet) ? $idEvaluationSheet : filter_input(INPUT_POST, "idEvaluationSheet");
 $note = isset($note) ? $note : filter_input(INPUT_POST, "note");
 

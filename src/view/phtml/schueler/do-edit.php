@@ -12,7 +12,7 @@ $idKlasse = isset($idKlasse) ? $idKlasse : filter_input(INPUT_POST, "idClass");
 $uploadfile = null;
 
 $url = "index.php";
-if (!is_null($from)) {
+if (!is_null($from) && $from !== "") {
 	$url = "../" . $from;
 }
 
