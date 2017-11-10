@@ -4,10 +4,18 @@ if (!class_exists("AbstractController")) {
 	include __DIR__ . "/AbstractController.php";
 }
 
+//TODO implement validation
 class SubjectController extends AbstractController
 {
+	/** @var string */
 	protected $tableName = "Stunden";
 
+	/**
+	 * @param int $id
+	 * @param string $shortTag
+	 * @param string $description
+	 * @return bool
+	 */
 	public function edit($id, $shortTag, $description)
 	{
 		$values = [];
@@ -22,6 +30,11 @@ class SubjectController extends AbstractController
 		return $this->dataBaseController->update($id, $values);
 	}
 
+	/**
+	 * @param string $shortTag
+	 * @param string $description
+	 * @return bool
+	 */
 	public function add($shortTag, $description)
 	{
 		$values = [
@@ -32,6 +45,11 @@ class SubjectController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
+	/**
+	 * @param array $where
+	 * @param array $orderBy
+	 * @return array
+	 */
 	public function getEntitiesForOverview(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities($where, $orderBy);

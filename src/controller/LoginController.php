@@ -4,10 +4,17 @@ if (!class_exists("AbstractController")) {
 	include __DIR__ . "/AbstractController.php";
 }
 
+//TODO implement validation
 class LoginController extends AbstractController
 {
+	/** @var string */
 	protected $tableName = "Lehrer";
 
+	/**
+	 * @param string $username
+	 * @param string $password
+	 * @return bool
+	 */
 	public function login($username, $password)
 	{
 		$users = $this->dataBaseController->getEntities(["benutzername" => ["=", $username]]);
@@ -27,6 +34,9 @@ class LoginController extends AbstractController
 		return false;
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function checkLogin()
 	{
 		session_start();

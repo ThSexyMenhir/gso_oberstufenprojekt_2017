@@ -7,12 +7,22 @@ if (!class_exists("ClassController")) {
 	include __DIR__ . "/ClassController.php";
 }
 
+//TODO implement validation
 class StudentsController extends AbstractController
 {
 	const PLACEHOLDER = "/src/data/media/img/placeholder.png";
 
+	/** @var string */
 	protected $tableName = "Schueler";
 
+	/**
+	 * @param int $id
+	 * @param string $firstname
+	 * @param string $lastname
+	 * @param string $photo
+	 * @param int $idKlasse
+	 * @return bool
+	 */
 	public function edit($id, $firstname, $lastname, $photo, $idKlasse)
 	{
 		$values = [];
@@ -44,6 +54,13 @@ class StudentsController extends AbstractController
 		return $this->dataBaseController->update($id, $values);
 	}
 
+	/**
+	 * @param string $firstname
+	 * @param string $lastname
+	 * @param string $photo
+	 * @param int $idClass
+	 * @return bool
+	 */
 	public function add($firstname, $lastname, $photo, $idClass)
 	{
 		$classController = new ClassController();
@@ -63,6 +80,11 @@ class StudentsController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
+	/**
+	 * @param array $where
+	 * @param array $orderBy
+	 * @return array
+	 */
 	public function getEntitiesForOverview(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities($where, $orderBy);
@@ -82,6 +104,10 @@ class StudentsController extends AbstractController
 		return $students;
 	}
 
+	/**
+	 * @param int $id
+	 * @return bool
+	 */
 	public function delete($id)
 	{
 		$student = $this->getEntity($id);

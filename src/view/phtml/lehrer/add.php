@@ -34,7 +34,7 @@ $siteTitle = "Lehrer Hinzufügen";
 
 					<div class="form-group col-md-6 col-xs-12">
 						<label for="membercode">Kürzel</label>
-						<input type="text" class="form-control" name="memberCode">
+						<input type="text" class="form-control" name="memberCode" maxlength="2">
 					</div>
 
 					<div class="form-group col-md-6 col-xs-12">

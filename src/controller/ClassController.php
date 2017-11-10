@@ -7,10 +7,20 @@ if (!class_exists("TeacherController")) {
 	include __DIR__ . "/TeacherController.php";
 }
 
+//TODO implement validation
 class ClassController extends AbstractController
 {
+	/**
+	 * @var string
+	 */
 	protected $tableName = "Klassen";
 
+	/**
+	 * @param int $id
+	 * @param int $idMainTeacher
+	 * @param string $description
+	 * @return bool
+	 */
 	public function edit($id, $idMainTeacher, $description)
 	{
 		$values = [];
@@ -31,6 +41,11 @@ class ClassController extends AbstractController
 		return $this->dataBaseController->update($id, $values);
 	}
 
+	/**
+	 * @param int $idMainTeacher
+	 * @param string $description
+	 * @return bool
+	 */
 	public function add($idMainTeacher, $description)
 	{
 		$teacherController = new TeacherController();
@@ -48,6 +63,11 @@ class ClassController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
+	/**
+	 * @param array $where
+	 * @param array $orderBy
+	 * @return array
+	 */
 	public function getEntitiesForOverview(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities($where, $orderBy);

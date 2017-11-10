@@ -9,10 +9,18 @@ if (!class_exists("SubjectContentController")) {
 	include __DIR__ . "/SubjectContentController.php";
 }
 
+//TODO implement validation
 class EvaluationsController extends AbstractController
 {
+	/** @var string */
 	protected $tableName = "Bewertungen";
 
+	/**
+	 * @param int $idStudent
+	 * @param int $idSubjectContent
+	 * @param string $note
+	 * @return bool
+	 */
 	public function upsert($idStudent, $idSubjectContent, $note)
 	{
 		$evaluation = $this->getEntities([

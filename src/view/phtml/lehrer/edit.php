@@ -53,7 +53,7 @@ if (is_null($teacher)) {
 
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="membercode">Kürzel</label>
-					<input type="text" class="form-control" value="<?= $teacher["kuerzel"] ?>" name="memberCode">
+					<input type="text" class="form-control" value="<?= $teacher["kuerzel"] ?>" name="memberCode" maxlength="2">
 				</div>
 
 				<div class="form-group col-md-4 col-xs-12">

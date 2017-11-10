@@ -1,19 +1,26 @@
 <?php
 
-//TODO Kommentare
-//TODO Sicherheitschecks
+//TODO implement validation
+//TODO implement security checks
 class DatabaseController
 {
 	const HOST = 'localhost';
+
 	const DATABASE_NAME = 'lehrerkalender';
 
 	const USER = 'lehrerkalender';
+
 	const PASSWORD = 'f8m6YseoWarYCRYt';
 
+	/** @var PDO */
 	private $pdo;
 
+	/** @var string */
 	private $table;
 
+	/**
+	 * @param string $table
+	 */
 	public function __construct($table)
 	{
 		$this->table = $table;
@@ -38,6 +45,11 @@ class DatabaseController
 		$this->pdo = null;
 	}
 
+	/**
+	 * @param array $where
+	 * @param array $orderBy
+	 * @return array|null
+	 */
 	public function getEntities(array $where = [], array $orderBy = [])
 	{
 		$query = "SELECT * FROM `{$this->table}`";
@@ -68,6 +80,10 @@ class DatabaseController
 		return $result;
 	}
 
+	/**
+	 * @param int $primaryKey
+	 * @return null
+	 */
 	public function getEntityById($primaryKey)
 	{
 		$query = "SELECT * FROM `{$this->table}` WHERE id=$primaryKey";
@@ -80,6 +96,11 @@ class DatabaseController
 		return $result[0];
 	}
 
+	/**
+	 * @param int $id
+	 * @param array $values
+	 * @return bool
+	 */
 	public function update($id, array $values)
 	{
 		$query = "UPDATE {$this->table} SET";
@@ -101,6 +122,10 @@ class DatabaseController
 		return false;
 	}
 
+	/**
+	 * @param array $values
+	 * @return bool
+	 */
 	public function insert(array $values)
 	{
 		$query = "INSERT INTO {$this->table} (";
@@ -128,6 +153,10 @@ class DatabaseController
 		return false;
 	}
 
+	/**
+	 * @param int $primaryKey
+	 * @return bool
+	 */
 	public function delete($primaryKey)
 	{
 		$query = "DELETE FROM {$this->table} WHERE id=$primaryKey";

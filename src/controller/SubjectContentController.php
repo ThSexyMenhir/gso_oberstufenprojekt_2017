@@ -16,10 +16,19 @@ if (!class_exists("SubjectController")) {
 	include __DIR__ . "/SubjectController.php";
 }
 
+//TODO implement validation
 class SubjectContentController extends AbstractController
 {
+	/** @var string */
 	protected $tableName = "Stundeninhalte";
 
+	/**
+	 * @param int $block
+	 * @param string $date
+	 * @param int $idEvaluationSheet
+	 * @param string $note
+	 * @return bool
+	 */
 	public function upsert($block, $date, $idEvaluationSheet, $note)
 	{
 		$subjectConent = $this->getEntities([
@@ -54,7 +63,13 @@ class SubjectContentController extends AbstractController
 		);
 	}
 
-	public function getEntitiesForOverview($startDate, $endDate, array $where = [], array $orderBy = [])
+	/**
+	 * @param $startDate
+	 * @param $endDate
+	 * @param array $where
+	 * @return array
+	 */
+	public function getEntitiesForOverview($startDate, $endDate, array $where = [])
 	{
                 $retArray = array(
                     0 => array(
@@ -117,7 +132,6 @@ class SubjectContentController extends AbstractController
 			return $retArray;
 		}
 
-		$subjects = [];
 		$weekdays = [0 => "monday", 1 => "tuesday", 2 => "wednesday", 3 => "thursday", 4 => "friday"];
 		for ($i = 0; $i < 5; $i++) {
 			foreach ($weekdays as $key => $day) {

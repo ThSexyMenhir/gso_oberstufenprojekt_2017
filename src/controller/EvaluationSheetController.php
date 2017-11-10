@@ -18,15 +18,22 @@ if (!class_exists("TeacherController")) {
 if (!class_exists("StudentsController")) {
 	include __DIR__ . "/StudentsController.php";
 }
-
 if (!class_exists("EvaluationsController")) {
 	include __DIR__ . "/EvaluationsController.php";
 }
 
+//TODO implement validation
 class EvaluationSheetController extends AbstractController
 {
+	/** @var string */
 	protected $tableName = "Bewertungsbogen";
 
+	/**
+	 * @param int $id
+	 * @param int $idClass
+	 * @param int $idSubject
+	 * @return bool
+	 */
 	public function edit($id, $idClass, $idSubject)
 	{
 		$values = [];
@@ -53,6 +60,11 @@ class EvaluationSheetController extends AbstractController
 		return $this->dataBaseController->update($id, $values);
 	}
 
+	/**
+	 * @param int $idClass
+	 * @param int $idSubject
+	 * @return bool
+	 */
 	public function add($idClass, $idSubject)
 	{
 		$classController = new ClassController();
@@ -87,6 +99,11 @@ class EvaluationSheetController extends AbstractController
 		return $this->dataBaseController->insert($values);
 	}
 
+	/**
+	 * @param array $where
+	 * @param array $orderBy
+	 * @return array
+	 */
 	public function getEntitiesForOverview(array $where = [], array $orderBy = [])
 	{
 		$result = parent::getEntities($where, $orderBy);
@@ -108,6 +125,10 @@ class EvaluationSheetController extends AbstractController
 		return $evaluationSheets;
 	}
 
+	/**
+	 * @param int $id
+	 * @return array|bool
+	 */
 	public function getEntityForDetail($id)
 	{
 		$result = $this->getEntity($id);
