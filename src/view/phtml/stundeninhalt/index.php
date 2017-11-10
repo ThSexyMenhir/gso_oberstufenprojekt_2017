@@ -20,12 +20,16 @@ $endDate = $tmpEDateString;
 $subjectContentController = new SubjectContentController();
 $subjectBlock = $subjectContentController->getEntitiesForOverview($startDate, $endDate);
 
+$tmpSDate1 = clone($tmpSDate);
+$tmpEDate1 = clone($tmpEDate);
+$nextSDate = $tmpSDate1->modify('+1 week')->format("Y-m-d H:i:s");
+$nextEDate = $tmpEDate1->modify('+1 week')->format("Y-m-d H:i:s");
 
-$nextSDate = $tmpSDate->modify('+1 week')->format("Y-m-d H:i:s");
-$nextEDate = $tmpEDate->modify('+1 week')->format("Y-m-d H:i:s");
-$interval = DateInterval::createFromDateString("2 weeks");
-$previousSDate = $tmpSDate->sub($interval)->format("Y-m-d H:i:s");
-$previousEDate = $tmpEDate->sub($interval)->format("Y-m-d H:i:s");
+$tmpSDate2 = clone($tmpSDate);
+$tmpEDate2 = clone($tmpEDate);
+$interval = DateInterval::createFromDateString("1 week");
+$previousSDate = $tmpSDate2->sub($interval)->format("Y-m-d H:i:s");
+$previousEDate = $tmpEDate2->sub($interval)->format("Y-m-d H:i:s");
 
 
 
@@ -85,7 +89,7 @@ $counterModal = 0;
 </div>
 
 <?php
-foreach ($subjectBlock as $datas){
+foreach ($subjectBlock as $subjectKey => $datas){
 
 ?>
 <div class="row">
@@ -110,10 +114,10 @@ foreach ($subjectBlock as $datas){
 		?>
 	</div>
 
-	<?php foreach ($datas as $block) {
+	<?php foreach ($datas as $key => $block) {
 		if (!count($block) == 0) { ?>
 
-			<div class="col-xs-2" data-toggle="modal" data-target="#myModal<?= $counterModal;?>">
+			<div class="col-xs-2" data-toggle="modal" data-id="<?= $block["id"]; ?>" data-target="#myModal<?= $counterModal;?>">
 				<div class="subject-box-filled">
 					<div class="row">
 						<div class="col-xs-7 text-left no-padding-right">
@@ -127,7 +131,13 @@ foreach ($subjectBlock as $datas){
 							<?= $block["subject"]; ?>
 						</div>
 						<div class="col-xs-5 icons text-right">
-							<a><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
+                                                    <a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$key?>&date=<?php
+                                                        if($key == "monday"){ 
+                                                            echo $tmpSDateString;
+                                                        } else { 
+                                                            $tmpNextDate = new DateTime("next " . $key . " " . $tmpSDate->format("Y-m-d H:i:s"));
+                                                            echo $tmpNextDate->format("Y-m-d H:i:s");
+                                                        }?>&idEvaluationSheet=<?=$block["id_bewertungsbogen"]?>&note=<?=urlencode($block["description"])?>"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
 						</div>
 					</div>
 				</div>
@@ -164,7 +174,13 @@ foreach ($subjectBlock as $datas){
 				<div class="subject-box">
 					<br>
 					<div class="icons text-right">
-						<a><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
+						<a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$key?>&date=<?php
+                                                if($key == "monday"){
+                                                    echo $tmpSDateString; 
+                                                } else {
+                                                    $tmpNextDate = new DateTime("next " . $key . " " . $tmpSDate->format("Y-m-d H:i:s"));
+                                                    echo $tmpNextDate->format("Y-m-d H:i:s"); 
+                                                }?>"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
 					</div>
 				</div>
 			</div>
