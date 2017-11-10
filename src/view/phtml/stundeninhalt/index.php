@@ -7,8 +7,8 @@ if (!class_exists("SubjectContentController")) {
 	include __DIR__ . "/../../../controller/SubjectContentController.php";
 }
 
-$startDate = isset($_GET["startdate"]) ? $_GET["startdate"] : strtotime( "previous monday" );
-$endDate = isset($_GET["enddate"]) ? $_GET["enddate"] : strtotime( "next friday" );
+$startDate = isset($_GET["startdate"]) ? $_GET["startdate"] : date("Y-m-d",strtotime( "previous monday" ));
+$endDate = isset($_GET["enddate"]) ? $_GET["enddate"] : date("Y-m-d", strtotime( "next friday" ));
 
 $subjectContentController = new SubjectContentController();
 $subjectBlock = $subjectContentController->getEntitiesForOverview($startDate, $endDate);
