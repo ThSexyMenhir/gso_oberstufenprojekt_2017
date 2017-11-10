@@ -1,3 +1,46 @@
+<?php
+$siteTitle = "Tagesansicht";
+$counterBlock = 0;
+
+
+
+
+$subjectBlock = array(
+    0 => array(
+        "teacher" => "WZ",
+        "class" => "FIA 51",
+        "subject" => "WUG",
+        "shortDescription" => "Rechnung",
+        "description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+    ),
+    1 => array(
+        "teacher" => "WZ",
+        "class" => "FIA 51",
+        "subject" => "WUG",
+        "shortDescription" => "Rechnung",
+        "description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+    ),
+    2 => array(
+        "teacher" => "WZ",
+        "class" => "FIA 51",
+        "subject" => "WUG",
+        "shortDescription" => "Rechnung",
+        "description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+    ),
+    3 => array(
+        "teacher" => "WZ",
+        "class" => "FIA 51",
+        "subject" => "WUG",
+        "shortDescription" => "Rechnung",
+        "description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+    ),
+    4 => array(
+
+    ),
+);
+?>
+
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -16,781 +59,74 @@
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 
-<!-- Modal -->
-
+    <div class="container-fluid">
+        <div class="row header-row">
+            <a><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></a>
+            Datum Anfang - Datum Ende
+            <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+            <div class="pull-right">
+                <a><i class="fa da-ellipsis-v" aria-hidden="true"></i></a>
+            </div>
+        </div> <!-- ./row -->
+    </div> <!-- ./container -->
 <div class="container">
-  <h2>Modal</h2>
-  
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+    <?php
+    foreach ($subjectBlock as $datas){
+        ?>
+        <div class="row">
+            <div class="col-xs-2">
+                <?php
+                if ($counterBlock == 0){
+                    echo "07:45 - 09:15";
+                }
+                if ($counterBlock == 1){
+                    echo "09:35 - 11:05";
+                }
+                if ($counterBlock == 2){
+                    echo "11:25 - 12:55";
+                }
+                if ($counterBlock == 3){
+                    echo "13:15 - 14:45";
+                }
+                if ($counterBlock == 4){
+                    echo "15:05 - 16:35";
+                }
+                $counterBlock ++;
+                ?>
+            </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
+            <?php
+                if (!count($datas) == 0) { ?>
 
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+                    <div class="col-xs-10 subject-box-filled">
+                        <div class="col-xs-10">
+                            asdsasda d sdfas dfasdf asdf asdf
+                        </div>
+                        <div class="col-xs-2 icons text-right">
+                            <a><i class="fa fa-times fa-3x" aria-hidden="true"></i></a>
+                            <a><i class="fa fa-pencil fa-3x" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <?php
+                }else{  ?>
+                    <div class="col-xs-10 subject-box">
+                        <div class="col-xs-10">
+
+                            <br>
+                        </div>
+                        <div class="col-xs-2 icons text-right">
+                            <a><i class="fa fa-pencil fa-3x" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <?php
+                }
+            ?>
         </div>
-
-        <div class="modal-body">          
-          <div class="form-group">
-            <label for="usr">Name:</label>
-            <input type="text" class="form-control" id="usr">            
-          </div>
-          <div class="form-group">
-            <label for="theme">Thema:</label>
-            <input type="text" class="form-control" id="usr">            
-          </div>
-          <div class="form-group">
-             <label for="comment">Beschreibung</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
-          </div>          
-        </div>
-
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
-          <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Schließen</button>
-        </div>
-
-      </div>
-      
-    </div>
-  </div>
-
-
-
-  
-    <!-- Select Field Klasse auswählen-->
-        <select class="selectpicker">
-            <option>FIA52</option>                
-            <option>FIA53</option>
-            <option>FIA54</option>
-        </select>
-
-
-
-    <br>
-    <br>
-    <br>
-
-    
-
-    <!-- Table Bewertungsbogen Details -->
-
-    <div class="container col-xs-3">      
-    <table class="table">
-     <thead>
-        <tr>
-            <th>Datum</th>
-            <th>Bewertung</th>            
-        </tr>
-     </thead>
-
-    <tbody>
-      <tr>
-        <td>01.01.2017</td>
-        <td>--</td>        
-      </tr>
-      <tr>
-        <td>01.01.2017</td>
-        <td>++</td>
-      </tr>
-      <tr>
-        <td>01.01.2017</td>
-        <td>NA</td>
-      </tr>
-      <tr>
-        <td>01.01.2017</td>
-        <td>10%</td>
-      </tr>
-      <tr>
-        <td>01.01.2017</td>
-        <td>Super</td>
-      </tr>
-      <tr>
-        <td>01.01.2017</td>
-        <td>Super</td>
-      </tr>
-      <tr>
-        <td>01.01.2017</td>
-        <td>--</td>
-      </tr>
-
-    </tbody>
-  </table>
+        <?php
+    }
+    ?>
 </div>
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-<!-- Table Bewertungsbogen Info Spalte -->
-
-<div class="row">
-
-<div class="col-xs-3 test">      
-    <table class="table info_spalte_bewertungsbogen">
-     <thead>
-        <tr>
-            <th>Name</th>                    
-        </tr>
-     </thead>
-
-    <tbody>
-      <tr class="btn-info">
-        <td>Hans Wurst</td>             
-      </tr>  
-      <tr class="btn-info">
-        <td>Hans Wurst</td>             
-      </tr>  
-      <tr class="btn-info">
-        <td>Hans Wurst</td>             
-     </tr> 
-     <tr class="btn-info">
-        <td>Hans Wurst</td>             
-    </tr>  
-    <tr class="btn-info">
-        <td>Hans Wurst</td>             
-    </tr> 
-    <tr class="btn-info">
-        <td>Hans Wurst</td>             
-    </tr> 
-    <tr class="btn-info">
-        <td>Hans Wurst</td>             
-    </tr> 
-
-    </tbody>
-  </table>
-</div>
-
-
-
-
-
-
-
-<!-- Table Bewertungsbogen -->
-  
-
-
-<div class="col-xs-9 bewertungsbogen">      
-    <table class="table">
-     <thead>
-        <tr>
-            <th>01.01.2017</th>
-            <th>07.01.2017</th>    
-            <th>14.01.2017</th>      
-            <th>21.01.2017</th> 
-            <th>28.01.2017</th>    
-            <th>02.02.2017</th>         
-        </tr>
-     </thead>
-
-    <tbody>
-      <tr>
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                  <input type="text" class="form-control" placeholder="">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td>
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td>   
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td> 
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td> 
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td> 
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td> 
-
-      </tr>
-      <tr>
-
-        <td>
-            <form>
-             <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td>
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td>   
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-      </tr>
-      <tr>
-      <td>
-      <form>
-          <div class="input-group col-xs-10">
-            <input type="text" class="form-control" placeholder="">
-              <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td>
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td>   
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-      </tr>
-      <tr>
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                  <input type="text" class="form-control" placeholder="">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td>
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td>   
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td> 
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td> 
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td> 
-
-        <td>
-            <form>
-                <div class="input-group col-xs-10">
-                    <input type="text" class="form-control" placeholder="">
-                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="edit">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </td> 
-      </tr>
-      <tr>
-      <td>
-      <form>
-          <div class="input-group col-xs-10">
-            <input type="text" class="form-control" placeholder="">
-              <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td>
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td>   
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-      </tr>
-      <tr>
-      <td>
-      <form>
-          <div class="input-group col-xs-10">
-            <input type="text" class="form-control" placeholder="">
-              <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td>
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td>   
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-      </tr>
-      <tr>
-      <td>
-      <form>
-          <div class="input-group col-xs-10">
-            <input type="text" class="form-control" placeholder="">
-              <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td>
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td>   
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-  <td>
-      <form>
-          <div class="input-group col-xs-10">
-              <input type="text" class="form-control" placeholder="">
-               <div class="input-group-btn">
-                  <button class="btn btn-default" type="edit">
-                      <i class="fa fa-pencil"></i>
-                  </button>
-              </div>
-          </div>
-      </form>
-  </td> 
-
-
-      </tr>
-
-    </tbody>
-  </table>
-</div>
-
-</div><!-- ./row -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
 
 </main>
 <script src="../../../../vendor/jquery-3.2.1.min.js"></script>

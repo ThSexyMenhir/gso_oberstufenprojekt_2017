@@ -1,9 +1,50 @@
 .header-row{
-    border-bottom: solid 1px black;
-    padding: 10px;
-    height: 20px;
+    border-bottom: solid 1px #ADADAD;
+    height: 45px;
+
+    font-size: 18px;
 }
 
-.col-xs-4{
-    background-color: red;
+.class-shedule .col-xs-2{
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+.class-shedule .subject-box{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    background-color: #5cb85c;
+}
+
+.class-shedule .subject-time{
+    font-size: 12px;
+    padding-top: 8px;
+}
+
+.icons{
+
+}
+.icons .fa-pencil{
+    color: white;
+}
+
+.icons .fa-times{
+    color: red;
+}
+
+.class-shedule .row{
+    margin-top: 5px;
+}
+
+.subject-box-filled{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    background-color: #337ab7;
+}
+
+.no-padding-right{
+    padding-right: 0px;
 }

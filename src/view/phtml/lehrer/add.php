@@ -20,43 +20,54 @@ $siteTitle = "Lehrer Hinzufügen";
 	<div class="container">
 		<form action="do-add.php" method="POST">
 			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group col-md-6 col-xs-12">
+						<label for="firstname">Vorname:</label>
+						<input type="text" class="form-control" name="firstName">
+					</div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="firstname">Vorname:</label>
-					<input type="text" class="form-control" name="firstName">
-				</div>
+					<div class="form-group col-md-6 col-xs-12">
+						<label for="lastName">Nachname:</label>
+						<input type="text" class="form-control" name="lastName">
+					</div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="lastName">Nachname:</label>
-					<input type="text" class="form-control" name="lastName">
-				</div>
+					<div class="form-group col-md-6 col-xs-12">
+						<label for="membercode">Kürzel</label>
+						<input type="text" class="form-control" name="memberCode">
+					</div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="membercode">Kürzel</label>
-					<input type="text" class="form-control" name="memberCode">
-				</div>
+					<div class="form-group col-md-6 col-xs-12">
+						<label for="userName">Benutzername</label>
+						<input type="text" class="form-control" name="userName">
+					</div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="userName">Benutzername</label>
-					<input type="text" class="form-control" name="userName">
-				</div>
+					<div class="form-group col-md-6 col-xs-12">
+						<label for="password">Password</label>
+						<input type="password" class="form-control" name="password">
+					</div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="password">Password</label>
-					<input type="password" class="form-control" name="password">
-				</div>
+					<div class="form-check col-md-4 col-xs-12">
+						<label class="form-check-label">
+							<input type="checkbox" class="form-check-input" value="1" name="isAdmin">
+							Ist Admin?
+						</label>
+					</div>
 
-				<div class="form-check col-md-4 col-xs-12">
-					<label class="form-check-label">
-						<input type="checkbox" class="form-check-input" value="1" name="isAdmin">
-						Ist Admin?
-					</label>
-				</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="col-xs-6">
+								<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
+							</div>
+							<div class="col-xs-6">
+								<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+							</div>
+						</div>
+					</div>
 
+				</div><!-- ./col-md-6 -->
+				
 
-				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
-				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
-			</div>
+			</div><!-- ./row -->
 		</form>
 	</div>
 </main>
