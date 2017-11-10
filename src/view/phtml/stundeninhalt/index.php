@@ -1,4 +1,5 @@
 <?php
+include __DIR__ . "/../../../../check-login.php";
 if (!class_exists("SubjectController")) {
 	include __DIR__ . "/../../../controller/SubjectController.php";
 }
