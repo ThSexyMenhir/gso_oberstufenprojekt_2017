@@ -41,29 +41,30 @@ $schueler = $studentsController->getEntitiesForOverview([], ['nachname', 'vornam
 				</div>
 			</div>
 			<?php
-			foreach ($schueler as $value) {
-				?>
-				<div class="col-md-3 col-xs-6">
-					<div class="panel panel-primary">
-						<div class="panel-body">
-							<?= $value["headline"] ?>
-						</div>
-						<div class="panel-footer">
-							<div class="text">
-								<?= $value["content"] ?>
+			if (isset($schueler)) {
+				foreach ($schueler as $value) {
+					?>
+					<div class="col-md-3 col-xs-6">
+						<div class="panel panel-primary">
+							<div class="panel-body">
+								<?= $value["headline"] ?>
 							</div>
-							<div class="icons">
-								<a href="edit.php?id=<?= $value["id"] ?>">
-									<i class="fa fa-pencil" aria-hidden="true"></i>
-								</a>
-								<a href="do-delete.php?id=<?= $value["id"] ?>" id="delete">
-									<i class="fa fa-times" aria-hidden="true"></i>
-								</a>
+							<div class="panel-footer">
+								<img src="<?= $value["content"] ?>">
+								<div class="icons">
+									<a href="edit.php?id=<?= $value["id"] ?>">
+										<i class="fa fa-pencil" aria-hidden="true"></i>
+									</a>
+									<a href="do-delete.php?id=<?= $value["id"] ?>" id="delete">
+										<i class="fa fa-times" aria-hidden="true"></i>
+									</a>
+								</div>
+								<div class="clear"></div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<?php
+					<?php
+				}
 			}
 			?>
 

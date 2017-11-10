@@ -12,10 +12,12 @@
 			<i class="fa fa-bars" aria-hidden="true" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
 			   aria-expanded="true"></i>
 			<ul class="dropdown-menu dropdown-pull-right" aria-labelledby="dropdownMenu1">
-				<li><a href="#">Action</a></li>
-				<li><a href="#">Another action</a></li>
-				<li><a href="#">Something else here</a></li>
-				<li><a href="#">Separated link</a></li>
+				<li><a href="../bewertungsbogen/index.php">Bewertungsbogen</a></li>
+				<li><a href="../klassen/index.php">Klassen</a></li>
+				<li><a href="../lehrer/index.php">Lehrer</a></li>
+				<li><a href="../schueler/index.php">Sch&uuml;ler</a></li>
+                                <li><a href="../stunden/index.php">Stunden</a></li>
+                                <li><a href="../stundeninhalt/index.php">Stundeninhalt</a></li>
 			</ul>
 		</div>
 	</nav>

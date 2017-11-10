@@ -32,10 +32,10 @@ class StudentsController extends AbstractController
 		}
 		if ($photo !== "") {
 			$student = $this->getEntity($id);
-			if ($photo !== $student["foto"]) {
-				unlink($student["foto"]);
+			if ($photo !== $student["foto_pfad"] && !empty($student["foto_pfad"])) {
+				unlink($student["foto_pfad"]);
 			}
-			$values["foto"] = $photo;
+			$values["foto_pfad"] = $photo;
 		}
 
 
@@ -71,8 +71,8 @@ class StudentsController extends AbstractController
 		foreach ($result as $values) {
 			$class = $classController->getEntity($values["id_klasse"]);
 			$students[] = [
-				"headline" => $values["nachname"] . ", " . $values["vorname"],
-				"content" => $class["bezeichnung"],
+				"headline" => $values["nachname"] . ", " . $values["vorname"] . ": " . $class["bezeichnung"],
+				"content" => $values["foto_pfad"],
 				"id" => $values["id"],
 			];
 		}
@@ -83,7 +83,7 @@ class StudentsController extends AbstractController
 	public function delete($id)
 	{
 		$student = $this->getEntity($id);
-		unlink($student["foto"]);
+		unlink($student["foto_pfad"]);
 		parent::delete($id);
 	}
 }

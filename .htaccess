@@ -1,0 +1,7 @@
+Redirect /bewertungsbogen /src/view/phtml/bewertungsbogen/index.php
+Redirect /klassen /src/view/phtml/klassen/index.php
+Redirect /lehrer /src/view/phtml/bewertungsbogen/index.php
+Redirect /login /src/view/phtml/login/index.php
+Redirect /stunden /src/view/phtml/stunden/index.php
+Redirect /stundeninhalt /src/view/phtml/stundeninhalt/index.php
+

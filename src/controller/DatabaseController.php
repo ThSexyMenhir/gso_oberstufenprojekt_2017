@@ -7,8 +7,8 @@ class DatabaseController
 	const HOST = 'localhost';
 	const DATABASE_NAME = 'lehrerkalender';
 
-	const USER = 'root';
-	const PASSWORD = 'root';
+	const USER = 'lehrerkalender';
+	const PASSWORD = 'f8m6YseoWarYCRYt';
 
 	private $pdo;
 
