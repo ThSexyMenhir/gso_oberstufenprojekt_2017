@@ -6,15 +6,26 @@ if (!class_exists("SubjectController")) {
 if (!class_exists("SubjectContentController")) {
 	include __DIR__ . "/../../../controller/SubjectContentController.php";
 }
-$tmpSDate = new datetime("previous monday");
-$tmpSDate = $tmpSDate->format("Y-m-d H:i:s");
-$startDate = isset($_GET["startdate"]) ? $_GET["startdate"] : $tmpSDate;
-$tmpEDate = new datetime("next friday");
-$tmpEDate = $tmpEDate->format("Y-m-d H:i:s");
-$endDate = isset($_GET["enddate"]) ? $_GET["enddate"] : $tmpEDate;
+
+$tmpSDate = isset($_GET["startdate"]) ? new datetime($_GET["startdate"]) : new datetime("previous monday");
+$tmpSDateString = $tmpSDate->format("Y-m-d H:i:s");
+$tmpSDateReadable = $tmpSDate->format("d.m.y");
+$startDate = $tmpSDateString;
+
+$tmpEDate = isset($_GET["enddate"]) ? new datetime($_GET["enddate"]) : new datetime("next friday");
+$tmpEDateString = $tmpEDate->format("Y-m-d H:i:s");
+$tmpEDateReadable = $tmpEDate->format("d.m.y");
+$endDate = $tmpEDateString;
 
 $subjectContentController = new SubjectContentController();
 $subjectBlock = $subjectContentController->getEntitiesForOverview($startDate, $endDate);
+
+
+$nextSDate = $tmpSDate->modify('+1 week')->format("Y-m-d H:i:s");
+$nextEDate = $tmpEDate->modify('+1 week')->format("Y-m-d H:i:s");
+$previousSDate = $tmpSDate->modify('-1 week')->format("Y-m-d H:i:s");
+$previousEDate = $tmpEDate->modify('-1 week')->format("Y-m-d H:i:s");
+
 
 $siteTitle = "Wochenansicht";
 $counterBlock = 0;
@@ -40,9 +51,9 @@ $counterModal = 0;
 <main>
 <div class="container-fluid">
 <div class="row header-row">
-	<i class="fa fa-angle-left fa-2x js-scroll" aria-hidden="true" id="scrollBackwards"></i>
-	Datum Anfang - Datum Ende
-	<i class="fa fa-angle-right fa-2x js-scroll" aria-hidden="true" id="scrollForwards"></i>
+        <a href="index.php?startdate=<?=$previousSDate?>&enddate=<?=$previousEDate?>"><i class="fa fa-angle-left fa-2x js-scroll" aria-hidden="true" id="scrollBackwards"></i></a>
+	<?=$tmpSDateReadable?> - <?=$tmpEDateReadable?>
+        <a href="index.php?startdate=<?=$nextSDate?>&enddate=<?=$nextEDate?>"><i class="fa fa-angle-right fa-2x js-scroll" aria-hidden="true" id="scrollForwards"></i></a>
 	<div class="pull-right">
 		<a><i class="fa da-ellipsis-v" aria-hidden="true"></i></a>
 	</div>
