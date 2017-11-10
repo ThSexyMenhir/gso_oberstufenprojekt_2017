@@ -47,21 +47,6 @@ $students = $studentController->getEntitiesForOverview(["id_klasse" => ["=", $cl
 <main>
 	<div class="container class-detail">
 		<div class="row search">
-			<div class="score-sheet">
-				<div class="chart">
-					<i class="fa fa-line-chart" aria-hidden="true"></i>
-				</div>
-				<div class="chart-button">
-					Bewertungsbogen<br>
-					<a href="../bewertungsbogen/index.php?idClass=<?= $class["id"] ?>"
-					   class="btn btn-primary add-button">
-						Einsehen
-					</a>
-					<a href="../bewertungsbogen/add.php?idClass<?= $class["id"] ?>" class="btn btn-primary add-button">
-						Hinzufügen
-					</a>
-				</div>
-			</div>
 			<a href="../schueler/add.php?idClass=<?= $class["id"] ?>&from=<?= urlencode("klassen/detail.php?id=" . $class["id"]) ?>"
 			   class="btn btn-primary add-button ex">
 				Schüler Hinzufügen

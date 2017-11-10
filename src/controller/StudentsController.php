@@ -42,7 +42,7 @@ class StudentsController extends AbstractController
 			}
 			$values["id_klasse"] = $idKlasse;
 		}
-		if ($photo !== "") {
+		if ($photo !== "" && !is_null($photo)) {
 			$student = $this->getEntity($id);
 			if ($photo !== $student["foto_pfad"] && !empty($student["foto_pfad"])) {
 				unlink($student["foto_pfad"]);
