@@ -33,6 +33,7 @@ class SubjectContentController extends AbstractController
 	{
 		$subjectConent = $this->getEntities([
 			"block" => ["=", $block],
+			"datum" => ["=", $date],
 			"id_bewertungsbogen" => ["=", $idEvaluationSheet]
 		]);
 

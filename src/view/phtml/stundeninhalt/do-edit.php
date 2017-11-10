@@ -18,8 +18,8 @@ if (!isset($block) || !isset($date) || !isset($idEvaluationSheet)) {
 	exit;
 }
 
-$evaluationsController = new SubjectContentController();
-$success = $evaluationsController->upsert($block, $date, $idEvaluationSheet, $note);
+$subjectContentController = new SubjectContentController();
+$success = $subjectContentController->upsert($block, $date, $idEvaluationSheet, $note);
 
 if (!$success) {
 	header("Location: index.php?startdate=$startdate&enddate=$enddate");
