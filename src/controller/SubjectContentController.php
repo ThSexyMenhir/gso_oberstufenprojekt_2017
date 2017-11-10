@@ -138,7 +138,7 @@ class SubjectContentController extends AbstractController
 				foreach ($result as $values) {
 					$datetime = new DateTime($values["datum"]);
 					$tmpDay = $datetime->format("w");
-					if ($values["block"] == $i + 1 && $key == $tmpDay) {
+					if ($values["block"] == $i && $key == $tmpDay) {
 						$evaluationSheetController = new EvaluationSheetController();
 						$evalSheet = $evaluationSheetController->getEntity($values["id_bewertungsbogen"]);
 
