@@ -4,7 +4,7 @@ if (!class_exists("SubjectController")) {
 	include __DIR__ . "/../../../controller/SubjectController.php";
 }
 
-$siteTitle = "F&auml;cher Übersicht";
+$siteTitle = "Fächer Übersicht";
 
 $subjectController = new SubjectController();
 $subjects = $subjectController->getEntitiesForOverview([], ['kuerzel', 'bezeichnung']);

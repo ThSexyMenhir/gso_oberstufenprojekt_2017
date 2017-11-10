@@ -11,7 +11,7 @@ $date = isset($date) ? $date : filter_input(INPUT_GET, "idSubjectContent");
 $idEvaluationSheet = isset($idEvaluationSheet) ? $idEvaluationSheet : filter_input(INPUT_GET, "idEvaluationSheet");
 $note = isset($note) ? $note : filter_input(INPUT_GET, "note");
 
-$siteTitle = "Klasse Bearbeiten";
+$siteTitle = "Stundeninhalt Bearbeiten";
 
 if(!isset($_SESSION)){
 	session_start();
