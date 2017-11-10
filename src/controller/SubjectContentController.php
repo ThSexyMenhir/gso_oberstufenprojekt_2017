@@ -151,7 +151,7 @@ class SubjectContentController extends AbstractController
 						$subjectController = new SubjectController();
 						$subject = $subjectController->getEntity($evalSheet["id_stunde"]);
 
-						$shortDescription = substr($values["notizen"], 0, 10);
+						$shortDescription = substr($values["notizen"], 0, 8) . "...";
 
 						$retArray[$i][$day] = [
 							"block" => $values["block"],
