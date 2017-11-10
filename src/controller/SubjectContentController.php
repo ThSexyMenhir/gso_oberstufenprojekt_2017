@@ -61,11 +61,41 @@ class SubjectContentController extends AbstractController
 	public function getEntitiesForOverview($startDate, $endDate, array $where = [], array $orderBy = [])
 	{
                 $retArray = array(
-                    0 => array(),
-                    1 => array(),
-                    2 => array(),
-                    3 => array(),
-                    4 => array(),
+                    0 => array(
+                        "monday" => array(),
+                        "tuesday" => array(),
+                        "wednesday" => array(),
+                        "thursday" => array(),
+                        "friday" => array()
+                    ),
+                    1 => array(
+                        "monday" => array(),
+                        "tuesday" => array(),
+                        "wednesday" => array(),
+                        "thursday" => array(),
+                        "friday" => array()
+                    ),
+                    2 => array(
+                        "monday" => array(),
+                        "tuesday" => array(),
+                        "wednesday" => array(),
+                        "thursday" => array(),
+                        "friday" => array()
+                    ),
+                    3 => array(
+                        "monday" => array(),
+                        "tuesday" => array(),
+                        "wednesday" => array(),
+                        "thursday" => array(),
+                        "friday" => array()
+                    ),
+                    4 => array(
+                        "monday" => array(),
+                        "tuesday" => array(),
+                        "wednesday" => array(),
+                        "thursday" => array(),
+                        "friday" => array()
+                    ),
                 );
                 
 		$where["datum"] = ["BETWEEN", "'" . $startDate . "' AND '" . $endDate . "'"];
