@@ -61,8 +61,10 @@ $students = $studentController->getEntitiesForOverview(["id_klasse" => ["=", $cl
 					</a>
 				</div>
 			</div>
-			<a href="../schueler/add.php?idClass=<?= $class["id"] ?>" class="btn btn-primary add-button ex">Schüler
-				Hinzufügen</a>
+			<a href="../schueler/add.php?idClass=<?= $class["id"] ?>&from=<?= urlencode("klassen/detail.php?id=" . $class["id"]) ?>"
+			   class="btn btn-primary add-button ex">
+				Schüler Hinzufügen
+			</a>
 		</div>
 		<div class="row panel-group">
 			<div class="col-xs-12<?= (empty($students)) ? "" : " display-none" ?>">
@@ -81,10 +83,10 @@ $students = $studentController->getEntitiesForOverview(["id_klasse" => ["=", $cl
 						<div class="panel-footer">
 							<img src="<?= $value["content"] ?>">
 							<div class="icons">
-								<a href="edit.php?id=<?= $value["id"] ?>">
+								<a href="../schueler/edit.php?id=<?= $value["id"] ?>&from=<?= urlencode("klassen/detail.php?id=" . $class["id"]) ?>">
 									<i class="fa fa-pencil" aria-hidden="true"></i>
 								</a>
-								<a href="do-delete.php?id=<?= $value["id"] ?>" id="delete">
+								<a href="../schueler/do-delete.php?id=<?= $value["id"] ?>&from=<?= urlencode("klassen/detail.php?id=" . $class["id"]) ?>" id="delete">
 									<i class="fa fa-times" aria-hidden="true"></i>
 								</a>
 							</div>
