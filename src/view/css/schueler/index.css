@@ -1,0 +1,8 @@
+.panel-footer {
+    min-height: 4.6em;
+}
+.panel-footer img{
+    max-width: 4em;
+    max-height: 4em;
+    float: left;
+}

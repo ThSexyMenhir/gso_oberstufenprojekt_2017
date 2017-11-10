@@ -18,11 +18,15 @@
 	margin-top: 20px;
 }
 .class-detail  img{
-	width: 60%;
+	max-width: 4em;
+	max-height: 4em;
 	float: left;
 }
 .class-detail .icons{
 	position:absolute;
 	bottom:0;
 	right:5px;
+}
+.panel-footer {
+	min-height: 4.6em;
 }

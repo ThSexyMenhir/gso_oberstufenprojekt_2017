@@ -22,7 +22,7 @@ $siteTitle = "Lehrer Hinzufügen";
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group col-md-6 col-xs-12">
-						<label for="firstname">Vorname:</label>
+						<label for="firstName">Vorname:</label>
 						<input type="text" class="form-control" name="firstName">
 					</div>
 

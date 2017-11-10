@@ -21,10 +21,10 @@ if (!isset($firstname) || !isset($lastname) || !isset($idKlasse)) {
 }
 
 $success = true;
-if (!is_null($_FILES['photo']) && $_FILES['photo']["tmp_name"] !== "") {
-	$uploadfile = __DIR__ . '/../../../data/media/img/students/' . $firstname . $lastname . $idKlasse . ".png";
-
-	$success = move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile);
+if (!is_null($_FILES["photo"]) && $_FILES["photo"]["tmp_name"] !== "") {
+	$uploadfile = "/src/data/media/img/students/" . $firstname . $lastname . $idKlasse . ".png";
+	$moveUrl = __DIR__ . "/../../../.." . $uploadfile;
+	$success = move_uploaded_file($_FILES["photo"]["tmp_name"], $moveUrl);
 }
 
 if ($success) {
