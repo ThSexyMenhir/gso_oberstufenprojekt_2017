@@ -8,7 +8,7 @@ $id = isset($id) ? $id : filter_input(INPUT_POST, "id");
 $shortTag = isset($shortTag) ? $shortTag : filter_input(INPUT_POST, "shortTag");
 $description = isset($description) ? $description : filter_input(INPUT_POST, "description");
 
-if (!isset($id) || !isset($shorttag) || !isset($description)) {
+if (!isset($id) || !isset($shortTag) || !isset($description)) {
 	header("Location: index.php");
 	exit;
 }
