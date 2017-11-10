@@ -18,21 +18,17 @@ include __DIR__ . "/../../../../check-login.php";
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<form action="do-add.php" method="POST">
+		<form action="do-edit.php" method="POST">
 			<div class="row">
-			
-				
-                <div class="form-group col-md-4 col-xs-12">
-                	<label for="description">Datum:</label>
-					<input type="text" class="form-control" name=" ">            	
-                </div>    
-
+				<input type="hidden" name="startdate" value="<?=$startdate?>">
+				<input type="hidden" name="enddate" value="<?=$enddate?>">
+				<input type="hidden" name="block" value="<?=$block?>">
+				<input type="hidden" name="date" value="<?=$date?>">
+				<input type="hidden" name="idEvaluationSheet" value="<?=$idEvaluationSheet?>">
                 <div class="form-group">
                     <label for="comment">Notizen:</label>
-                    <textarea class="form-control" rows="5" name=" "></textarea>
-                </div>            
-				
-
+                    <textarea class="form-control" rows="5" name="note"></textarea>
+                </div>
 				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
 				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
 			</div>

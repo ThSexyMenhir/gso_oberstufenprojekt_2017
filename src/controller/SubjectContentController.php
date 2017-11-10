@@ -20,8 +20,23 @@ class SubjectContentController extends AbstractController
 {
 	protected $tableName = "Stundeninhalte";
 
-	public function edit($id, $block, $date, $note, $idEvaluationSheet)
+	public function upsert($block, $date, $idEvaluationSheet, $note)
 	{
+		$subjectConent = $this->getEntities([
+			"block" => ["=", $block],
+			"id_bewertungsbogen" => ["=", $idEvaluationSheet]
+		]);
+
+		if (isset($subjectConent[0]) && !is_null($subjectConent[0])) {
+			return $this->dataBaseController->update(
+				$subjectConent[0]["id"],
+				[
+					"notizen" => $note,
+					"datum" => $date,
+				]
+			);
+		}
+
 		$evaluationSheetController = new EvaluationSheetController();
 		$evaluationSheet = $evaluationSheetController->getEntity($idEvaluationSheet);
 
@@ -29,33 +44,14 @@ class SubjectContentController extends AbstractController
 			return false;
 		}
 
-		$values = array(
-			"block" => $block,
-			"datum" => $date,
-			"notizen" => $note,
-			"idBewertungsbogen" => $idEvaluationSheet
+		return $this->dataBaseController->insert(
+			[
+				"block" => $block,
+				"id_bewertungsbogen" => $idEvaluationSheet,
+				"notizen" => $note,
+				"datum" => $date,
+			]
 		);
-
-		return $this->dataBaseController->update($id, $values);
-	}
-
-	public function add($block, $date, $bote, $idEvaluationSheet)
-	{
-		$evaluationSheetController = new EvaluationSheetController();
-		$evaluationSheet = $evaluationSheetController->getEntity($idEvaluationSheet);
-
-		if (is_null($evaluationSheet)) {
-			return false;
-		}
-
-		$values = array(
-			"block" => $block,
-			"datum" => $date,
-			"notizen" => $bote,
-			"idBwertungsbogen" => $idEvaluationSheet
-		);
-
-		return $this->dataBaseController->insert($values);
 	}
 
 	public function getEntitiesForOverview($startDate, $endDate, array $where = [], array $orderBy = [])

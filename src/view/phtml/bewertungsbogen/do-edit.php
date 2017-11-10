@@ -11,7 +11,7 @@ $idStudent = isset($idStudent) ? $idStudent : filter_input(INPUT_POST, "idStuden
 $idSubjectContent = isset($idSubjectContent) ? $idSubjectContent : filter_input(INPUT_POST, "idSubjectContent");
 $note = isset($note) ? $note : filter_input(INPUT_POST, "note");
 
-if (!isset($idStudent) || !isset($idSubjectContent)) {
+if (!isset($idStudent) || !isset($idSubjectContent) || !isset($idEvaluationSheet)) {
 	header("Location: index.php");
 	exit;
 }
