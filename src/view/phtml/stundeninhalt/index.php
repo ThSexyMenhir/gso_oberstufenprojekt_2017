@@ -320,8 +320,8 @@ $allSubjectBlock = array(0 =>
 					),
 					1 =>
 					array(
-						"startDate" => "01.08.2017",
-						"endDate" => "01.14.2017",
+						"startDate" => "11.06.2017",
+						"endDate" => "11.12.2017",
 						"week" => array(
 							0 => array(
 								"monday" => array(
@@ -492,8 +492,8 @@ $allSubjectBlock = array(0 =>
 					),
 					2 =>
 					array(
-						"startDate" => "01.15.2017",
-						"endDate" => "01.21.2017",
+						"startDate" => "01.15.2018",
+						"endDate" => "01.21.2018",
 						"week" => array(
 							0 => array(
 								"monday" => array(
@@ -636,16 +636,16 @@ $allSubjectBlock = array(0 =>
 <main>
 <div class="container-fluid">
 <div class="row header-row">
-	<i class="fa fa-angle-left fa-2x" aria-hidden="true" id="scrollBackwards"></i>
+	<i class="fa fa-angle-left fa-2x js-scroll" aria-hidden="true" id="scrollBackwards"></i>
 	Datum Anfang - Datum Ende
-	<i class="fa fa-angle-right fa-2x" aria-hidden="true" id="scrollForwards"></i>
+	<i class="fa fa-angle-right fa-2x js-scroll" aria-hidden="true" id="scrollForwards"></i>
 	<div class="pull-right">
 		<a><i class="fa da-ellipsis-v" aria-hidden="true"></i></a>
 	</div>
 </div> <!-- ./row -->
 </div> <!-- ./container -->
 
-<div class="container class-shedule" id="weekDate" data-weeks='<?= json_encode($allSubjectBlock) ?>'>
+<div class="container class-shedule" id="weekDate" data-weeks='<?= json_encode($allSubjectBlock) ?>' data-type="week">
 <div class="row">
 	<div class="col-xs-2">
 		Zeit

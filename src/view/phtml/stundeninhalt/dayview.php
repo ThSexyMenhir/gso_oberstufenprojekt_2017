@@ -38,6 +38,144 @@ $subjectBlock = array(
 
     ),
 );
+// startDate = MM.DD.YYYY
+$subjectBlocks = array(
+	0 => array(
+		"startDate" => "11.10.2017",
+		"endDate" => "11.10.2017",
+		"day" => array(
+			0 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			1 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			2 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			3 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			4 => array(
+
+			)
+		)
+	),
+	1 => array(
+		"startDate" => "01.02.2018",
+		"endDate" => "01.02.2018",
+		"day" => array(
+			0 => array(
+				"teacher" => "",
+				"class" => "",
+				"subject" => "",
+				"shortDescription" => "",
+				"description" => "",
+			),
+			1 => array(
+			),
+			2 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			3 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			4 => array(
+
+			)
+		)
+	),
+	2 => array(
+		"startDate" => "01.03.2017",
+		"endDate" => "01.03.2017",
+		"day" => array(
+			0 => array(
+
+			),
+			1 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			2 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			3 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			4 => array(
+
+			)
+		)
+	),
+	3 => array(
+		"startDate" => "01.04.2017",
+		"endDate" => "01.04.2017",
+		"day" => array(
+			0 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			1 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			),
+			2 => array(
+
+			),
+			3 => array(
+
+			),
+			4 => array(
+				"teacher" => "WZ",
+				"class" => "FIA 51",
+				"subject" => "WUG",
+				"shortDescription" => "Rechnung",
+				"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+			)
+		)
+	)
+);
 ?>
 
 
@@ -69,7 +207,7 @@ $subjectBlock = array(
             </div>
         </div> <!-- ./row -->
     </div> <!-- ./container -->
-<div class="container">
+<div class="container" id="weekDate" data-weeks='<?= json_encode($subjectBlocks) ?>' data-type="day">
     <?php
     foreach ($subjectBlock as $datas){
         ?>
@@ -132,5 +270,6 @@ $subjectBlock = array(
 <script src="../../../../vendor/jquery-3.2.1.min.js"></script>
 <script src="../../../../vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="../../../../src/view/js/main.js"></script>
+<script src="../../../../src/view/js/stundeninhalt/index.js"></script>
 </body>
 </html>
