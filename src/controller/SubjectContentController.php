@@ -14,12 +14,31 @@ class SubjectContentController extends AbstractController {
 
     protected $tableName = "Stundeninhalte";
 
-    public function edit() {
+    public function edit($id, $block, $datum, $notizen, $idBewertungsbogen) {
+        $values = array(
+            "block" => $block,
+            "datum" => $datum,
+            "notizen" => $notizen,
+            "idBewertungsbogen" => $idBewertungsbogen
+        );
 
+        $this->dataBaseController->update($id, $values);
     }
 
-    public function add() {
+    public function add($block, $datum, $notizen, $idBewertungsbogen) {
 
+        $values = array(
+            "block" => $block,
+            "datum" => $datum,
+            "notizen" => $notizen,
+            "idBwertungsbogen" => $idBewertungsbogen
+        );
+
+        return $this->dataBaseController->insert($values);
+    }
+
+    public function delete($id) {
+        parent::delete($id);
     }
 
     public function getEntitiesForOverview($startDate, $endDate, array $where = [], array $orderBy = []) {
