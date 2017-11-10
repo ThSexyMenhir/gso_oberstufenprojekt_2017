@@ -6,10 +6,10 @@ if (!class_exists("SubjectController")) {
 if (!class_exists("SubjectContentController")) {
 	include __DIR__ . "/../../../controller/SubjectContentController.php";
 }
-$tmpSDate = new datetime(strtotime( "previous monday" ));
+$tmpSDate = new datetime("previous monday");
 $tmpSDate = $tmpSDate->format("Y-m-d H:i:s");
 $startDate = isset($_GET["startdate"]) ? $_GET["startdate"] : $tmpSDate;
-$tmpEDate = new datetime(strtotime( "next friday" ));
+$tmpEDate = new datetime("next friday");
 $tmpEDate = $tmpEDate->format("Y-m-d H:i:s");
 $endDate = isset($_GET["enddate"]) ? $_GET["enddate"] : $tmpEDate;
 
