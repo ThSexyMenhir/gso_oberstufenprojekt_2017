@@ -16,9 +16,6 @@ if (!isset($firstname) || !isset($lastname) || !isset($idKlasse)) {
 }
 if (isset($_FILES['photo']) && !is_null($_FILES['photo'])) {
     $uploadfile = __DIR__ . '/../../../data/media/img/students/' . $firstname . $lastname . $idKlasse . ".png";
-    if (file_exists($uploadfile)) {
-        unlink($uploadfile);
-    }
     $success = move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile);
 } else {
     $success = true;

@@ -41,6 +41,7 @@ $schueler = $studentsController->getEntitiesForOverview([], ['nachname', 'vornam
 				</div>
 			</div>
 			<?php
+                        if(isset($schueler)){
 			foreach ($schueler as $value) {
 				?>
 				<div class="col-md-3 col-xs-6">
@@ -65,6 +66,7 @@ $schueler = $studentsController->getEntitiesForOverview([], ['nachname', 'vornam
 				</div>
 				<?php
 			}
+                        }
 			?>
 
 		</div>
