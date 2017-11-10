@@ -1,38 +1,19 @@
 <?php
 include __DIR__ . "/../../../../check-login.php";
+if (!class_exists("ClassController")) {
+	include __DIR__ . "/../../../controller/ClassController.php";
+}
+if (!class_exists("SubjectController")) {
+	include __DIR__ . "/../../../controller/SubjectController.php";
+}
+
 $siteTitle = "Bewertungsbogen Hinzufügen";
 
-$class =(
-    array(
-        array(
-            "idClass" => "1",
-            "class" => "FIA51",
-        ),array(
-            "idClass" => "2",
-            "class" => "FIA52",
-        ),
-        array(
-            "idClass" => "3",
-            "class" => "FIA53",
-        ),
-    )
-);
+$classController = new ClassController();
+$class = $classController->getEntitiesForOverview();
 
-$subject =(
-    array(
-        array(
-            "idSubject" => "1",
-            "subject" => "ANW",
-        ),array(
-            "idSubject" => "2",
-            "subject" => "ITK",
-        ),
-        array(
-            "idSubject" => "3",
-            "subject" => "FE",
-        ),
-    )
-);
+$subjectController = new SubjectController();
+$subject = $subjectController->getEntitiesForOverview();
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -51,7 +32,7 @@ $subject =(
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<form action="do-edit.php" method="POST">
+		<form action="do-add.php" method="POST">
 			<div class="row">
 
                 <div class="col-md-6 col-xs-12">
@@ -60,8 +41,8 @@ $subject =(
                             <label for="idClass">Klasse:</label>
                             <select class="form-control" name="idClass">
                                 <?php foreach ($class as $classes) { ?>
-                                    <option value="<?= $classes["idClass"] ?>">
-                                        <?= $classes["class"] ?>
+                                    <option value="<?= $classes["id"] ?>">
+                                        <?= $classes["headline"] ?>
                                     </option>
                                 <?php } ?>
                             </select>
@@ -70,8 +51,8 @@ $subject =(
                             <label for="idSubject">Fach:</label>
                             <select class="form-control" name="idSubject">
                                 <?php foreach ($subject as $subjects) { ?>
-                                    <option value="<?= $subjects["idSubject"] ?>">
-                                        <?= $subjects["subject"] ?>
+                                    <option value="<?= $subjects["id"] ?>">
+                                        <?= $subjects["content"] ?>
                                     </option>
                                 <?php } ?>
                             </select>
