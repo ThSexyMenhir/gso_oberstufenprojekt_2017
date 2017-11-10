@@ -46,7 +46,7 @@ class DatabaseController
 			$query .= " WHERE ";
 			foreach ($where as $key => $condition) {
 				$value = $condition[1];
-				if (!is_numeric($value)) {
+				if (!is_numeric($value) && !in_array($condition[0], ["BETWEEN", "IN"])) {
 					$value = "'$value'";
 				}
 				$query .= " `$key` $condition[0] $value AND";

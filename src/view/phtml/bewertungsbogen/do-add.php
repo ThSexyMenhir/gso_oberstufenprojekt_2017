@@ -6,16 +6,21 @@ if (!class_exists("EvaluationSheetController")) {
 
 $success = false;
 
-$idClass = isset($idClass) ? $idClass : filter_input(INPUT_GET, "idClass");
-$idSubject = isset($idSubject) ? $idSubject : filter_input(INPUT_GET, "idSubject");
+$idClass = isset($idClass) ? $idClass : filter_input(INPUT_POST, "idClass");
+$idSubject = isset($idSubject) ? $idSubject : filter_input(INPUT_POST, "idSubject");
 
-if (isset($idClass) && isset($idSubject)) {
-	$evaluationSheetController = new EvaluationSheetController();
-	$success = $evaluationSheetController->add($idClass, $idSubject);
+if (!isset($idClass) || !isset($idSubject)) {
+	header("Location: index.php");
+	exit;
 }
+
+$evaluationSheetController = new EvaluationSheetController();
+$success = $evaluationSheetController->add($idClass, $idSubject);
 
 if (!$success) {
-	//TODO Fehlermeldung anzeigen
+	header("Location: index.php");
+	exit;
 }
 
-//TOOD Weiterleitung
+header("Location: index.php");
+exit;

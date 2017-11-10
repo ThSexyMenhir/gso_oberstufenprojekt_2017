@@ -5,14 +5,14 @@ $siteTitle = "Bewertungsbogen Hinzufügen";
 $class =(
     array(
         array(
-            "idClass" => "0",
+            "idClass" => "1",
             "class" => "FIA51",
         ),array(
-            "idClass" => "1",
+            "idClass" => "2",
             "class" => "FIA52",
         ),
         array(
-            "idClass" => "2",
+            "idClass" => "3",
             "class" => "FIA53",
         ),
     )
@@ -21,14 +21,14 @@ $class =(
 $subject =(
     array(
         array(
-            "idSubject" => "0",
+            "idSubject" => "1",
             "subject" => "ANW",
         ),array(
-            "idSubject" => "1",
+            "idSubject" => "2",
             "subject" => "ITK",
         ),
         array(
-            "idSubject" => "2",
+            "idSubject" => "3",
             "subject" => "FE",
         ),
     )
@@ -68,7 +68,7 @@ $subject =(
                         </div>
                         <div class="form-group col-md-12 col-xs-12">
                             <label for="idSubject">Fach:</label>
-                            <select class="form-control" name="idClass">
+                            <select class="form-control" name="idSubject">
                                 <?php foreach ($subject as $subjects) { ?>
                                     <option value="<?= $subjects["idSubject"] ?>">
                                         <?= $subjects["subject"] ?>

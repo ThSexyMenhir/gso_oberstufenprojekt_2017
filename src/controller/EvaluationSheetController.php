@@ -9,6 +9,9 @@ if (!class_exists("ClassController")) {
 if (!class_exists("SubjectController")) {
 	include __DIR__ . "/SubjectController.php";
 }
+if (!class_exists("TeacherController")) {
+	include __DIR__ . "/TeacherController.php";
+}
 
 class EvaluationSheetController extends AbstractController
 {
@@ -56,9 +59,19 @@ class EvaluationSheetController extends AbstractController
 			return false;
 		}
 
+		session_start();
+		$idTeacher = $_SESSION['gos-kalender']['id_lehrer'];
+		$teacherController = new TeacherController();
+		$teacher = $teacherController->getEntity($idTeacher);
+
+		if (is_null($teacher)) {
+			return false;
+		}
+
 		$values = [
 			"id_klasse" => $idClass,
 			"id_stunde" => $idSubject,
+			"id_lehrer" => $idTeacher,
 		];
 
 		return $this->dataBaseController->insert($values);
@@ -83,5 +96,12 @@ class EvaluationSheetController extends AbstractController
 		}
 
 		return $evaluationSheets;
+	}
+
+	public function getEntityForDetail($id)
+	{
+		$result = $this->getEntity($id);
+
+
 	}
 }

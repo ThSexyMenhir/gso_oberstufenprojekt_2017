@@ -6,8 +6,8 @@ if (!class_exists("AbstractController")) {
 if (!class_exists("TeacherController")) {
     include __DIR__ . "/TeacherController.php";
 }
-if (!class_exists("EvaluationsSheetController")) {
-    include __DIR__ . "/EvaluationsSheetController.php";
+if (!class_exists("EvaluationSheetController")) {
+    include __DIR__ . "/EvaluationSheetController.php";
 }
 
 class SubjectContentController extends AbstractController {
@@ -43,7 +43,7 @@ class SubjectContentController extends AbstractController {
 
     public function getEntitiesForOverview($startDate, $endDate, array $where = [], array $orderBy = []) {
 
-        $where["datum"] = ["between", "'" . $startDate . "' and '" . $endDate . "'"];
+        $where["datum"] = ["BETWEEN", "'" . $startDate . "' AND '" . $endDate . "'"];
 
         $evaluationSheetController = new EvaluationSheetController();
         $evaluationSheets = $evaluationSheetController->getEntities(array("id_lehrer" => array("=", $_SESSION['gos-kalender']['id_lehrer'])));

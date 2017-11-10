@@ -66,14 +66,12 @@ $students = array(
 ?>
 <?php
 include __DIR__ . "/../../../../check-login.php";
-if (!class_exists("ClassController")) {
-	include __DIR__ . "/../../../controller/ClassController.php";
+if (!class_exists("EvaluationSheetController")) {
+	include __DIR__ . "/../../../controller/EvaluationSheetController.php";
 }
 
-$siteTitle = "Klassen Übersicht";
+$siteTitle = "Bewertungsbogen Details";
 
-$classController = new ClassController();
-$classes = $classController->getEntitiesForOverview([], ['bezeichnung']);
 ?>
 <!DOCTYPE html>
 <html lang="de">
