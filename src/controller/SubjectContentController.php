@@ -66,7 +66,7 @@ class SubjectContentController extends AbstractController
 		$evaluationSheets = $evaluationSheetController->getEntities(array("id_lehrer" => array("=", $_SESSION['gso-kalender']['id_lehrer'])));
 
 		if (empty($evaluationSheets)) {
-			return null;
+			return array();
 		}
 		$sheetIds = "(";
 		foreach ($evaluationSheets as $evaluationSheet) {
@@ -80,7 +80,7 @@ class SubjectContentController extends AbstractController
 		$result = parent::getEntities($where);
 
 		if (empty($result)) {
-			return null;
+			return array();
 		}
 
 		$subjects = [];
