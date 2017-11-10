@@ -1,0 +1,23 @@
+.bewertungsbogen-detail table{
+	width: 80%;
+}
+.bewertungsbogen-detail table thead{
+	font-size: 25px;
+}
+.bewertungsbogen-detail table tbody{
+	font-size: 18px;
+}
+.bewertungsbogen-detail .profile{
+	float: right;
+}
+.bewertungsbogen-detail .profile img{
+   width: 50%;
+   float: left;
+}
+
+.bewertungsbogen-detail .profile .panel-footer{
+	text-align: left;
+}
+.bewertungsbogen-detail .profile .panel-footer .text{
+	margin-left: 15px;
+}

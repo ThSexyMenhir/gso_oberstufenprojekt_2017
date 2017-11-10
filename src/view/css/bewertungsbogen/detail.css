@@ -1,23 +1,34 @@
-.bewertungsbogen-detail table{
-	width: 80%;
-}
-.bewertungsbogen-detail table thead{
-	font-size: 25px;
-}
-.bewertungsbogen-detail table tbody{
-	font-size: 18px;
-}
-.bewertungsbogen-detail .profile{
-	float: right;
-}
-.bewertungsbogen-detail .profile img{
-   width: 50%;
-   float: left;
+.selectpicker{
+    height: 34px;
+    padding: 6px 12px;
 }
 
-.bewertungsbogen-detail .profile .panel-footer{
-	text-align: left;
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 0px solid transparent;
+    font-size: 15px;
+    height: 50px !important;
 }
-.bewertungsbogen-detail .profile .panel-footer .text{
-	margin-left: 15px;
+
+.info_spalte_bewertungsbogen td{
+    padding: 14px !important;
+
+    height: 14px;
+    font-size: 13px;
+    min-width: 105px !important;
+}
+
+.bewertungsbogen{
+    overflow-y: auto;
+}
+
+.input-group .form-control{
+    width: 100px !important;
+}
+
+.btn-row{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

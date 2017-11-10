@@ -1,79 +1,17 @@
 <?php
-$evaluationSheet = array(
-	"class" => "FIA52",
-	"subject" => "ANW",
-	"subjectDate" => array(
-		"01.01.2017",
-		"02.01.2017",
-		"03.01.2017",
-		"04.01.2017",
-		"05.01.2017",
-		"06.01.2017",
-	),
-);
-
-$students = array(
-	"Hans Wurst" => array(
-		"++",
-		"",
-		"",
-		"",
-		"",
-		"",
-	),
-	"Timo Wurst " => array(
-		"",
-		"++",
-		"",
-		"",
-		"",
-		"",
-	),
-	"Thomas Wurst " => array(
-		"",
-		"",
-		"++",
-		"",
-		"",
-		"",
-	),
-	"Tobias Wurst" => array(
-		"",
-		"++",
-		"",
-		"",
-		"",
-		"",
-	),
-	"Tino Wurst" => array(
-		"",
-		"",
-		"",
-		"",
-		"",
-		"++",
-	),
-	"Tebo Wurst" => array(
-		"",
-		"",
-		"",
-		"",
-		"++",
-		"",
-	),
-)
-
-?>
-<?php
 include __DIR__ . "/../../../../check-login.php";
-if (!class_exists("ClassController")) {
-	include __DIR__ . "/../../../controller/ClassController.php";
+if (!class_exists("EvaluationSheetController")) {
+	include __DIR__ . "/../../../controller/EvaluationSheetController.php";
 }
 
-$siteTitle = "Klassen Übersicht";
+$siteTitle = "Bewertungsbogen Übersicht";
 
-$classController = new ClassController();
-$classes = $classController->getEntitiesForOverview([], ['bezeichnung']);
+session_start();
+$idTeacher = $_SESSION['gos-kalender']['id_lehrer'];
+$evaluationSheetController = new EvaluationSheetController();
+$evaluationSheets = $evaluationSheetController->getEntitiesForOverview(
+	["id_lehrer" => ["=", $idTeacher]]
+);
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -85,7 +23,6 @@ $classes = $classController->getEntitiesForOverview([], ['bezeichnung']);
 	<link rel="stylesheet" href="../../../../vendor/bootstrap-3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../../../vendor/bootstrap-3.3.7/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../../../../vendor/font-awesome.min.css">
-	<link rel="stylesheet" href="../../../../src/view/css/bewertungsbogen/index.css">
 	<title>GSO - Kalender</title>
 </head>
 
@@ -93,85 +30,56 @@ $classes = $classController->getEntitiesForOverview([], ['bezeichnung']);
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<div class="row text-center">
-			<h2><?= $evaluationSheet["class"] ?></h2>
-			<h3><?= $evaluationSheet["subject"] ?></h3>
-		</div>
-		<div class="col-xs-3 schueler-liste">
-			<table class="table info_spalte_bewertungsbogen">
-				<thead>
-				<tr>
-					<th>Name</th>
-				</tr>
-				</thead>
+		<div class="row search">
+			<div class="btn-group">
+				<input id="searchinput" type="search" class="form-control" placeholder="Klasse Suche">
+				<i id="searchclear" class="fa fa-times" aria-hidden="true"></i>
+			</div>
 
-				<tbody>
-				<?php
-				foreach ($students as $key => $value) {
-					echo "
-                    <tr class=\"name-students-list\">
-                        <td>" . $key . "</td>
-                    </tr>";
-				}
-				?>
-				</tbody>
-			</table>
+			<button id="searchButton" class="btn btn-primary active-search">Suchen</button>
+			<a href="add.php" class="btn btn-primary add-button">Bewertungsbogen Hinzufügen</a>
 		</div>
-		<div class="col-xs-9 bewertungsbogen">
-			<table class="table">
-				<thead>
-				<tr>
-					<?php
-					foreach ($evaluationSheet["subjectDate"] as $date) {
-						echo "<th>" . $date . "</th>";
-					}
+		<div class="row panel-group">
+			<div class="col-xs-12<?= (empty($evaluationSheets)) ? '' : ' display-none' ?>">
+				<div class="alert alert-danger">
+					<strong>Keine Bewertungsbogen gefunden</strong>
+				</div>
+			</div>
+			<?php
+			if (isset($evaluationSheets)) {
+				foreach ($evaluationSheets as $value) {
 					?>
-				</tr>
-				</thead>
-
-				<tbody>
-				<?php
-				foreach ($students as $data) {
-					?>
-					<tr>
-						<?php
-						foreach ($data as $evaluationlesson) {
-							?>
-							<td>
-								<form>
-									<div class="input-group">
-										<input type="text" class="form-control evaluation-input"
-											   style="width: 100px;" placeholder="<?= $evaluationlesson ?>">
-										<div class="input-group-btn">
-											<a href="do-save.php" type="submit" class="btn btn-success">
-												<i class="fa fa-pencil"></i>
-											</a>
-										</div>
+					<a href="detail.php?id=<?= $value["id"] ?>">
+						<div class="col-md-3 col-xs-6">
+							<div class="panel panel-primary">
+								<div class="panel-body">
+									<?= $value["headline"] ?>
+								</div>
+								<div class="panel-footer">
+									<div class="text">
+										<?= $value["content"] ?>
 									</div>
-								</form>
-							</td>
-							<?php
-						}
-						?>
-					</tr>
+									<div class="icons">
+										<a href="edit.php?id=<?= $value["id"] ?>">
+											<i class="fa fa-pencil" aria-hidden="true"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+
 					<?php
 				}
-				?>
-				</tbody>
-			</table>
-		</div>
-	</div>
+			}
+			?>
 
-	<div class="container btn-row">
-		<div class="col-xs-12">
-			<a href="index.php" type="button" class="btn btn-info">
-				Speichern
-			</a>
 		</div>
 	</div>
 </main>
 <script src="../../../../vendor/jquery-3.2.1.min.js"></script>
 <script src="../../../../vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="../../../../src/view/js/main.js"></script>
+<script src="../../../../src/view/js/klassen/index.js"></script>
 </body>
 </html>

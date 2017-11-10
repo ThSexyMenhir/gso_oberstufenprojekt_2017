@@ -1,46 +1,79 @@
 <?php
-include __DIR__ . "/../../../../check-login.php";
-$siteTitle = "Bewertungsbogen Detailseite";
-$student = array(
-	'name' => "Hans Wurst",
-	"img" => "../../../../src/data/media/img/chimpanzee-screaming.jpg",
+$evaluationSheet = array(
 	"class" => "FIA52",
-	"subject" => "ANW"
+	"subject" => "ANW",
+	"subjectDate" => array(
+		"01.01.2017",
+		"02.01.2017",
+		"03.01.2017",
+		"04.01.2017",
+		"05.01.2017",
+		"06.01.2017",
+	),
 );
-$reviews = array(
-	0 => array(
-		"date" => "01.01.2017",
-		"review" => "--"
+
+$students = array(
+	"Hans Wurst" => array(
+		"++",
+		"",
+		"",
+		"",
+		"",
+		"",
 	),
-	1 => array(
-		"date" => "02.01.2017",
-		"review" => "++"
+	"Timo Wurst " => array(
+		"",
+		"++",
+		"",
+		"",
+		"",
+		"",
 	),
-	2 => array(
-		"date" => "03.01.2017",
-		"review" => "NA"
+	"Thomas Wurst " => array(
+		"",
+		"",
+		"++",
+		"",
+		"",
+		"",
 	),
-	3 => array(
-		"date" => "04.01.2017",
-		"review" => "10%"
+	"Tobias Wurst" => array(
+		"",
+		"++",
+		"",
+		"",
+		"",
+		"",
 	),
-	4 => array(
-		"date" => "05.01.2017",
-		"review" => "Super"
+	"Tino Wurst" => array(
+		"",
+		"",
+		"",
+		"",
+		"",
+		"++",
 	),
-	5 => array(
-		"date" => "06.01.2017",
-		"review" => "Bester Mann"
+	"Tebo Wurst" => array(
+		"",
+		"",
+		"",
+		"",
+		"++",
+		"",
 	),
-	6 => array(
-		"date" => "07.01.2017",
-		"review" => "Unbeugsam"
-	),
-	7 => array(
-		"date" => "08.01.2017",
-		"review" => "Stabil"
-	)
-);
+)
+
+?>
+<?php
+include __DIR__ . "/../../../../check-login.php";
+if (!class_exists("ClassController")) {
+	include __DIR__ . "/../../../controller/ClassController.php";
+}
+
+$siteTitle = "Klassen Übersicht";
+
+$classController = new ClassController();
+$classes = $classController->getEntitiesForOverview([], ['bezeichnung']);
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -49,53 +82,91 @@ $reviews = array(
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../../../src/view/css/main.css">
-	<link rel="stylesheet" href="../../../../src/view/css/bewertungsbogen/detail.css">
 	<link rel="stylesheet" href="../../../../vendor/bootstrap-3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../../../vendor/bootstrap-3.3.7/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../../../../vendor/font-awesome.min.css">
+	<link rel="stylesheet" href="../../css/bewertungsbogen/detail.css">
 	<title>GSO - Kalender</title>
 </head>
 
 <body>
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
-	<div class="container bewertungsbogen-detail">
-		<div class="row">
-			<div class="col-md-4 col-xs-12 profile">
+	<div class="container">
+		<div class="row text-center">
+			<h2><?= $evaluationSheet["class"] ?></h2>
+			<h3><?= $evaluationSheet["subject"] ?></h3>
+		</div>
+		<div class="col-xs-3 schueler-liste">
+			<table class="table info_spalte_bewertungsbogen">
+				<thead>
+				<tr>
+					<th>Name</th>
+				</tr>
+				</thead>
 
-				<div class="panel panel-primary">
-					<div class="panel-body">
-						<?= $student["name"] ?>
-					</div>
-					<div class="panel-footer">
-						<img src="<?= $student["img"] ?>">
-						<div class="text">
-							<?= $student["class"] ?><br>
-							<?= $student["subject"] ?>
-						</div>
-						<div class="clear"></div>
-					</div>
-				</div>
+				<tbody>
+				<?php
+				foreach ($students as $key => $value) {
+					echo "
+                    <tr class=\"name-students-list\">
+                        <td>" . $key . "</td>
+                    </tr>";
+				}
+				?>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-9 bewertungsbogen">
+			<table class="table">
+				<thead>
+				<tr>
+					<?php
+					foreach ($evaluationSheet["subjectDate"] as $date) {
+						echo "<th>" . $date . "</th>";
+					}
+					?>
+				</tr>
+				</thead>
 
-			</div>
-			<div class="col-md-8 col-xs-12">
-				<table class="table">
-					<thead>
+				<tbody>
+				<?php
+				foreach ($students as $data) {
+					?>
 					<tr>
-						<th>Datum</th>
-						<th>Bewertung</th>
+						<?php
+						foreach ($data as $evaluationlesson) {
+							?>
+							<td>
+								<form>
+									<div class="input-group">
+										<input type="text" class="form-control evaluation-input"
+											   style="width: 100px;" placeholder="<?= $evaluationlesson ?>">
+										<div class="input-group-btn">
+											<a href="do-save.php" type="submit" class="btn btn-success">
+												<i class="fa fa-pencil"></i>
+											</a>
+										</div>
+									</div>
+								</form>
+							</td>
+							<?php
+						}
+						?>
 					</tr>
-					</thead>
-					<tbody>
-					<?php foreach ($reviews as $value) { ?>
-						<tr>
-							<td><?= $value["date"] ?></td>
-							<td><?= $value["review"] ?></td>
-						</tr>
-					<?php } ?>
-					</tbody>
-				</table>
-			</div>
+					<?php
+				}
+				?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="container btn-row">
+		<div class="col-xs-12">
+			<a href="index.php" type="button" class="btn btn-info">
+				Speichern
+			</a>
 		</div>
 	</div>
 </main>
