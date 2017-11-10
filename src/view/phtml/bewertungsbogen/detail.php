@@ -1,68 +1,29 @@
 <?php
-$evaluationSheet = array(
-	"class" => "FIA52",
-	"subject" => "ANW",
-	"subjectDate" => array(
-		"01.01.2017",
-		"02.01.2017",
-		"03.01.2017",
-		"04.01.2017",
-		"05.01.2017",
-		"06.01.2017",
-	),
-);
+include __DIR__ . "/../../../../check-login.php";
+if (!class_exists("EvaluationSheetController")) {
+	include __DIR__ . "/../../../controller/EvaluationSheetController.php";
+}
 
-$students = array(
-	"Hans Wurst" => array(
-		"++",
-		"",
-		"",
-		"",
-		"",
-		"",
-	),
-	"Timo Wurst " => array(
-		"",
-		"++",
-		"",
-		"",
-		"",
-		"",
-	),
-	"Thomas Wurst " => array(
-		"",
-		"",
-		"++",
-		"",
-		"",
-		"",
-	),
-	"Tobias Wurst" => array(
-		"",
-		"++",
-		"",
-		"",
-		"",
-		"",
-	),
-	"Tino Wurst" => array(
-		"",
-		"",
-		"",
-		"",
-		"",
-		"++",
-	),
-	"Tebo Wurst" => array(
-		"",
-		"",
-		"",
-		"",
-		"++",
-		"",
-	),
-)
+$siteTitle = "Bewertungsbogen Details";
 
+$id = isset($id) ? $id : filter_input(INPUT_GET, "id");
+
+if (!isset($id)) {
+	header("Location: index.php");
+	exit;
+}
+
+$evaluationSheetController = new EvaluationSheetController();
+$evaluationSheet = $evaluationSheetController->getEntityForDetail($id);
+
+if (!$evaluationSheet) {
+	header("Location: index.php");
+	exit;
+}
+
+$students = $evaluationSheet["students"];
+$subjectDates = $evaluationSheet["subjectDates"];
+$evaluations = $evaluationSheet["evaluations"];
 ?>
 <?php
 include __DIR__ . "/../../../../check-login.php";
@@ -105,10 +66,10 @@ $siteTitle = "Bewertungsbogen Details";
 
 				<tbody>
 				<?php
-				foreach ($students as $key => $value) {
+				foreach ($evaluations as $key => $value) {
 					echo "
-                    <tr class=\"name-students-list\">
-                        <td>" . $key . "</td>
+                    <tr class=\"name-students-list student-name id-student-$key\" id=\"$key\">
+                        <td>" . $students[$key] . "</td>
                     </tr>";
 				}
 				?>
@@ -120,7 +81,7 @@ $siteTitle = "Bewertungsbogen Details";
 				<thead>
 				<tr>
 					<?php
-					foreach ($evaluationSheet["subjectDate"] as $date) {
+					foreach ($subjectDates as $date) {
 						echo "<th>" . $date . "</th>";
 					}
 					?>
@@ -129,21 +90,24 @@ $siteTitle = "Bewertungsbogen Details";
 
 				<tbody>
 				<?php
-				foreach ($students as $data) {
+				foreach ($evaluations as $idStudent => $data) {
 					?>
-					<tr>
+					<tr class="student-evaluation id-student-<?=$idStudent?>">
 						<?php
 						foreach ($data as $evaluationlesson) {
 							?>
 							<td>
-								<form>
+								<form action="do-edit.php" method="POST">
 									<div class="input-group">
+										<input type="hidden" name="idStudent" value="<?=$idStudent?>">
+										<input type="hidden" name="idSubjectContent" value="<?=$evaluationlesson["idSubjectContent"]?>">
+										<input type="hidden" name="idEvaluationSheet" value="<?=$id?>">
 										<input type="text" class="form-control evaluation-input"
-											   style="width: 100px;" placeholder="<?= $evaluationlesson ?>">
+											   style="width: 100px;" value="<?= $evaluationlesson["note"] ?>" name="note">
 										<div class="input-group-btn">
-											<a href="do-save.php" type="submit" class="btn btn-success">
-												<i class="fa fa-pencil"></i>
-											</a>
+											<button type="submit" class="btn btn-success">
+												<i class="fa fa-check"></i>
+											</button>
 										</div>
 									</div>
 								</form>
@@ -162,8 +126,8 @@ $siteTitle = "Bewertungsbogen Details";
 
 	<div class="container btn-row">
 		<div class="col-xs-12">
-			<a href="index.php" type="button" class="btn btn-info">
-				Speichern
+			<a href="index.php" type="button" class="btn btn-primary">
+				Zurück
 			</a>
 		</div>
 	</div>
@@ -171,5 +135,6 @@ $siteTitle = "Bewertungsbogen Details";
 <script src="../../../../vendor/jquery-3.2.1.min.js"></script>
 <script src="../../../../vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="../../../../src/view/js/main.js"></script>
+<script src="../../../../src/view/js/bewertungsbogen/index.js"></script>
 </body>
 </html>

@@ -9,8 +9,18 @@ if (!class_exists("ClassController")) {
 if (!class_exists("SubjectController")) {
 	include __DIR__ . "/SubjectController.php";
 }
+if (!class_exists("SubjectContentController")) {
+	include __DIR__ . "/SubjectContentController.php";
+}
 if (!class_exists("TeacherController")) {
 	include __DIR__ . "/TeacherController.php";
+}
+if (!class_exists("StudentsController")) {
+	include __DIR__ . "/StudentsController.php";
+}
+
+if (!class_exists("EvaluationsController")) {
+	include __DIR__ . "/EvaluationsController.php";
 }
 
 class EvaluationSheetController extends AbstractController
@@ -91,7 +101,7 @@ class EvaluationSheetController extends AbstractController
 			$evaluationSheets[] = [
 				"headline" => $class["bezeichnung"],
 				"content" => $subject["kuerzel"],
-				"id" => $subject["id"],
+				"id" => $values["id"],
 			];
 		}
 
@@ -102,6 +112,80 @@ class EvaluationSheetController extends AbstractController
 	{
 		$result = $this->getEntity($id);
 
+		if (is_null($result)) {
+			return false;
+		}
 
+		$classController = new ClassController();
+		$class = $classController->getEntity($result["id_klasse"]);
+
+		if (is_null($class)) {
+			return false;
+		}
+
+		$subjectController = new SubjectController();
+		$subject = $subjectController->getEntity($result["id_stunde"]);
+
+		if (is_null($subject)) {
+			return false;
+		}
+
+		$students = [];
+
+		$studentsController = new StudentsController();
+		$studentsResult = $studentsController->getEntities(
+			[
+				"id_klasse" => ["=", $class["id"]]
+			],
+			["nachname", "vorname"]
+		);
+
+		$evaluations = [];
+		foreach ($studentsResult as $student) {
+			$students[$student["id"]] = $student["vorname"] . " " . $student["nachname"];
+			$evaluations[$student["id"]] = [];
+		}
+
+		$subjectDates = [];
+
+		$subjectContentController = new SubjectContentController();
+		$subjectContents = $subjectContentController->getEntities(
+			[
+				"id_bewertungsbogen" => ["=", $id]
+			],
+			["datum"]
+		);
+
+		$evaluationsController = new EvaluationsController();
+
+		foreach ($subjectContents as $subjectContent) {
+			$subjectDates[] = date("d.m.Y", strtotime($subjectContent["datum"]));
+			foreach ($students as $key => $student) {
+				$evaluation = $evaluationsController->getEntities([
+					"id_stundeninhalte" => ["=", $subjectContent["id"]],
+					"id_schueler" => ["=", $key],
+				]);
+
+				$value = "";
+				if (!is_null($evaluation[0])) {
+					$value = $evaluation[0]["notiz"];
+				}
+
+				$evaluations[$key][] = [
+					"note" => $value,
+					"idSubjectContent" => $subjectContent["id"],
+				];
+			}
+		}
+
+		$evaluationSheet = [
+			"class" => $class["bezeichnung"],
+			"subject" => $subject["bezeichnung"],
+			"subjectDates" => $subjectDates,
+			"students" => $students,
+			"evaluations" => $evaluations,
+		];
+
+		return $evaluationSheet;
 	}
 }

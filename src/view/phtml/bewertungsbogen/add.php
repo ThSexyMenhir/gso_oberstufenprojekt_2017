@@ -51,7 +51,7 @@ $subject =(
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
-		<form action="do-add.php" method="POST">
+		<form action="do-edit.php" method="POST">
 			<div class="row">
 
                 <div class="col-md-6 col-xs-12">
