@@ -14,7 +14,7 @@ $idEvaluationSheet = isset($idEvaluationSheet) ? $idEvaluationSheet : filter_inp
 $note = isset($note) ? $note : filter_input(INPUT_POST, "note");
 
 if (!isset($block) || !isset($date) || !isset($idEvaluationSheet)) {
-	header("Location: index.php");
+	header("Location: index.php?startdate=$startdate&enddate=$enddate");
 	exit;
 }
 
@@ -22,9 +22,9 @@ $evaluationsController = new SubjectContentController();
 $success = $evaluationsController->upsert($block, $date, $idEvaluationSheet, $note);
 
 if (!$success) {
-	header("Location: index.php?startdate=");
+	header("Location: index.php?startdate=$startdate&enddate=$enddate");
 	exit;
 }
 
-header("Location: index.php");
+header("Location: index.php?startdate=$startdate&enddate=$enddate");
 exit;

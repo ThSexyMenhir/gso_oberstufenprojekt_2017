@@ -82,7 +82,7 @@ class EvaluationSheetController extends AbstractController
 		}
 
 		session_start();
-		$idTeacher = $_SESSION['gos-kalender']['id_lehrer'];
+		$idTeacher = $_SESSION['gso-kalender']['id_lehrer'];
 		$teacherController = new TeacherController();
 		$teacher = $teacherController->getEntity($idTeacher);
 

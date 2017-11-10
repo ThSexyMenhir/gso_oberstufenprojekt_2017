@@ -8,7 +8,7 @@ $siteTitle = "Bewertungsbogen Übersicht";
 if(!isset($_SESSION)){
     session_start();
 }
-$idTeacher = $_SESSION['gos-kalender']['id_lehrer'];
+$idTeacher = $_SESSION['gso-kalender']['id_lehrer'];
 $evaluationSheetController = new EvaluationSheetController();
 $evaluationSheets = $evaluationSheetController->getEntitiesForOverview(
 	["id_lehrer" => ["=", $idTeacher]]

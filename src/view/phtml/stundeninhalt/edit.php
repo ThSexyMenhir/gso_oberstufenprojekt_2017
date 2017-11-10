@@ -1,5 +1,30 @@
 <?php
 include __DIR__ . "/../../../../check-login.php";
+if (!class_exists("EvaluationSheetController")) {
+	include __DIR__ . "/../../../controller/EvaluationSheetController.php";
+}
+
+$startdate= isset($startdate) ? $startdate : filter_input(INPUT_GET, "startdate");
+$enddate = isset($enddate) ? $enddate : filter_input(INPUT_GET, "enddate");
+$block = isset($block) ? $block : filter_input(INPUT_GET, "idStudent");
+$date = isset($date) ? $date : filter_input(INPUT_GET, "idSubjectContent");
+$idEvaluationSheet = isset($idEvaluationSheet) ? $idEvaluationSheet : filter_input(INPUT_GET, "idEvaluationSheet");
+$note = isset($note) ? $note : filter_input(INPUT_GET, "note");
+
+$siteTitle = "Klasse Bearbeiten";
+
+if(!isset($_SESSION)){
+	session_start();
+}
+$idTeacher = $_SESSION['gso-kalender']['id_lehrer'];
+
+$evaluationSheetController = new EvaluationSheetController();
+$evaluationSheets = $evaluationSheetController->getEntitiesForOverview(["id_lehrer" => ["=", $idTeacher]]);
+
+if (!isset($evaluationSheets)) {
+	header("Location: index.php?startdate=$startdate&enddate=$enddate");
+	exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -24,11 +49,21 @@ include __DIR__ . "/../../../../check-login.php";
 				<input type="hidden" name="enddate" value="<?=$enddate?>">
 				<input type="hidden" name="block" value="<?=$block?>">
 				<input type="hidden" name="date" value="<?=$date?>">
-				<input type="hidden" name="idEvaluationSheet" value="<?=$idEvaluationSheet?>">
                 <div class="form-group">
                     <label for="comment">Notizen:</label>
-                    <textarea class="form-control" rows="5" name="note"></textarea>
+                    <textarea class="form-control" rows="5" name="note"><?=$note?></textarea>
                 </div>
+				<select class="form-control" name="idEvalatuionSheet">
+					<?php foreach ($evaluationSheets as $evaluationSheet) { ?>
+						<option value="<?= $evaluationSheet["id"] ?>"
+							<? if ($idEvaluationSheet === $evaluationSheet["id"]) {
+								echo "selected";
+							} ?>
+						>
+							<?= $evaluationSheet["headline"] . ", " . $evaluationSheet["content"] ?>
+						</option>
+					<?php } ?>
+				</select>
 				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
 				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
 			</div>
