@@ -7,7 +7,7 @@ if (!class_exists("TeacherController")) {
     include __DIR__ . "/TeacherController.php";
 }
 if (!class_exists("EvaluationsSheetController")) {
-    include __DIR__ . "/TeacherController.php";
+    include __DIR__ . "/EvaluationsSheetController.php";
 }
 
 class SubjectContentController extends AbstractController {
