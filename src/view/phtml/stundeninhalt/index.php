@@ -131,7 +131,7 @@ foreach ($subjectBlock as $subjectKey => $datas){
 							<?= $block["subject"]; ?>
 						</div>
 						<div class="col-xs-5 icons text-right">
-                                                    <a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$key?>&date=<?php
+                                                    <a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$subjectKey?>&date=<?php
                                                         if($key == "monday"){ 
                                                             echo $tmpSDateString;
                                                         } else { 
@@ -174,7 +174,7 @@ foreach ($subjectBlock as $subjectKey => $datas){
 				<div class="subject-box">
 					<br>
 					<div class="icons text-right">
-						<a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$key?>&date=<?php
+						<a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$subjectKey?>&date=<?php
                                                 if($key == "monday"){
                                                     echo $tmpSDateString; 
                                                 } else {
