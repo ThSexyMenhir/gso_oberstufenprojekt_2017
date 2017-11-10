@@ -1,3 +1,12 @@
+<?php
+if (!class_exists("SubjectController")) {
+	include __DIR__ . "/../../../controller/SubjectController.php";
+}
+
+$siteTitle = "Stundeninhalt Übersicht";
+
+
+?>
 <!DOCTYPE html>
 <html lang="de">
 

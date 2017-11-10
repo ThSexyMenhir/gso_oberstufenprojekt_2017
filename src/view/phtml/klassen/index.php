@@ -41,6 +41,7 @@ $classes = $classController->getEntitiesForOverview([], ['bezeichnung']);
 				</div>
 			</div>
 			<?php
+                        if(isset($classes)){
 			foreach ($classes as $value) {
 				?>
 				<a href="detail.php?id=<?= $value["id"] ?>">
@@ -68,6 +69,7 @@ $classes = $classController->getEntitiesForOverview([], ['bezeichnung']);
 
 				<?php
 			}
+                        }
 			?>
 
 		</div>
