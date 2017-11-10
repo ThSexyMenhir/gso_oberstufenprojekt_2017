@@ -60,13 +60,21 @@ class SubjectContentController extends AbstractController
 
 	public function getEntitiesForOverview($startDate, $endDate, array $where = [], array $orderBy = [])
 	{
+                $retArray = array(
+                    0 => array(),
+                    1 => array(),
+                    2 => array(),
+                    3 => array(),
+                    4 => array(),
+                );
+                
 		$where["datum"] = ["BETWEEN", "'" . $startDate . "' AND '" . $endDate . "'"];
 
 		$evaluationSheetController = new EvaluationSheetController();
 		$evaluationSheets = $evaluationSheetController->getEntities(array("id_lehrer" => array("=", $_SESSION['gso-kalender']['id_lehrer'])));
 
 		if (empty($evaluationSheets)) {
-			return array();
+			return $retArray;
 		}
 		$sheetIds = "(";
 		foreach ($evaluationSheets as $evaluationSheet) {
@@ -80,7 +88,7 @@ class SubjectContentController extends AbstractController
 		$result = parent::getEntities($where);
 
 		if (empty($result)) {
-			return array();
+			return $retArray;
 		}
 
 		$subjects = [];
@@ -105,7 +113,7 @@ class SubjectContentController extends AbstractController
 
 						$shortDescription = substr($values["notizen"], 0, 10);
 
-						$subjects[$i][$day] = [
+						$retArray[$i][$day] = [
 							"block" => $values["block"],
 							"datum" => $values["datum"],
 							"shortDescription" => $shortDescription,
@@ -121,7 +129,7 @@ class SubjectContentController extends AbstractController
 			}
 		}
 
-		return $subjects;
+		return $retArray;
 	}
 	/*
 	public function getEntitiesForDay($curDate, array $where = [], array $orderBy = []) {
