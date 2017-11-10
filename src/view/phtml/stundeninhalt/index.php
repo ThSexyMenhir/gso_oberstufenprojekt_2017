@@ -161,6 +161,460 @@ $subjectBlock = array(
         ),
     ),
 );
+// startDate = MM.DD.YYYY
+$allSubjectBlock = array(0 =>
+					array(
+						"startDate" => "01.01.2017",
+						"endDate" => "01.07.2017",
+						"week" => array(
+							0 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "sk.dh klsajdhf lkjasdfhkljashdf kljashdfk "
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							1 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "Hier kann ein langer Text stehen",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							2 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "Hier kann ein langer Text stehen",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							3 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "Hier kann ein langer Text stehen",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							4 => array(
+								"monday" => array(
+
+								),
+								"tuesday" => array(
+
+								),
+								"wednesday" => array(
+
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+
+								),
+							)
+						)
+					),
+					1 =>
+					array(
+						"startDate" => "01.08.2017",
+						"endDate" => "01.14.2017",
+						"week" => array(
+							0 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "sk.dh klsajdhf lkjasdfhkljashdf kljashdfk "
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							1 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "Hier kann ein langer Text stehen",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							2 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "Hier kann ein langer Text stehen",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							3 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "Hier kann ein langer Text stehen",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							4 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "Hier kann ein langer Text stehen",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							)
+						)
+					),
+					2 =>
+					array(
+						"startDate" => "01.15.2017",
+						"endDate" => "01.21.2017",
+						"week" => array(
+							0 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "sjkhgfd sdfkjshd kjfhasdkj fh",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "sk.dh klsajdhf lkjasdfhkljashdf kljashdfk "
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							1 => array(
+								"monday" => array(
+
+								),
+								"tuesday" => array(
+
+								),
+								"wednesday" => array(
+
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+
+								)
+							),
+							2 => array(
+								"monday" => array(
+									"teacher" => "WZ",
+									"class" => "FIA 51",
+									"subject" => "WUG",
+									"shortDescription" => "Rechnung",
+									"description" => "Hier kann ein langer Text stehen",
+								),
+								"tuesday" => array(
+									"teacher" => "NL",
+									"class" => "FIA 52",
+									"subject" => "ANW",
+									"shortDescription" => "Programieren",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"wednesday" => array(
+									"teacher" => "PL",
+									"class" => "FIA 53",
+									"subject" => "ITK",
+									"shortDescription" => "Netzwerk",
+									"description" => "Hier kann ein langer Text stehen"
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+									"teacher" => "ND",
+									"class" => "FIA 55",
+									"subject" => "Geschichten",
+									"shortDescription" => "Geschichten",
+									"description" => "Hier kann ein langer Text stehen",
+								)
+							),
+							3 => array(
+								"monday" => array(
+
+								),
+								"tuesday" => array(
+
+								),
+								"wednesday" => array(
+
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+
+								)
+							),
+							4 => array(
+								"monday" => array(
+
+								),
+								"tuesday" => array(
+
+								),
+								"wednesday" => array(
+
+								),
+								"thursday" => array(
+
+								),
+								"friday" => array(
+
+								)
+							)
+						)
+					)
+				);
 
 ?>
 <!DOCTYPE html>
@@ -182,16 +636,16 @@ $subjectBlock = array(
 <main>
 <div class="container-fluid">
 <div class="row header-row">
-	<a><i class="fa fa-angle-left fa-2x" aria-hidden="true"></i></a>
+	<i class="fa fa-angle-left fa-2x" aria-hidden="true" id="scrollBackwards"></i>
 	Datum Anfang - Datum Ende
-	<i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+	<i class="fa fa-angle-right fa-2x" aria-hidden="true" id="scrollForwards"></i>
 	<div class="pull-right">
 		<a><i class="fa da-ellipsis-v" aria-hidden="true"></i></a>
 	</div>
 </div> <!-- ./row -->
 </div> <!-- ./container -->
 
-<div class="container class-shedule">
+<div class="container class-shedule" id="weekDate" data-weeks='<?= json_encode($allSubjectBlock) ?>'>
 <div class="row">
 	<div class="col-xs-2">
 		Zeit
@@ -238,7 +692,6 @@ foreach ($subjectBlock as $datas){
 		$counterBlock ++;
 		?>
 	</div>
-
 
 	<?php foreach ($datas as $block) {
 		if (!count($block) == 0) { ?>
@@ -315,5 +768,6 @@ foreach ($subjectBlock as $datas){
 <script src="../../../../vendor/jquery-3.2.1.min.js"></script>
 <script src="../../../../vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="../../../../src/view/js/main.js"></script>
+<script src="../../../../src/view/js/stundeninhalt/index.js"></script>
 </body>
 </html>
