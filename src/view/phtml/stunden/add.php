@@ -21,21 +21,22 @@ $siteTitle = "Stunden Hinzufügen";
 	<div class="container">
 		<form action="do-add.php" method="POST">
 			<div class="row">
-				
-				
-                <div class="form-group col-md-4 col-xs-12">
-                	<label for="membercode">Kürzel:</label>
-					<input type="text" class="form-control" name="shortTag">
-                </div>     
+				<div class="col-md-6 col-xs-12">
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="membercode">Kürzel:</label>
+                        <input type="text" class="form-control" name="shortTag">
+                    </div>
 
-				<div class="form-group col-md-4 col-xs-12">
-                	<label for="description">Bezeichnung:</label>
-					<input type="text" class="form-control" name="description">
-                </div>         
-				
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="description">Bezeichnung:</label>
+                        <input type="text" class="form-control" name="description">
+                    </div>
 
-				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
-				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
+                        <a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+                    </div>
+                </div>
 			</div>
 		</form>
 	</div>

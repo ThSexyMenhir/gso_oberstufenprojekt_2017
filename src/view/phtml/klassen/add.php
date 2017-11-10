@@ -28,25 +28,27 @@ $teachers = $teacherController->getEntities([], ['nachname', 'vorname']);
 	<div class="container">
 		<form action="do-add.php" method="POST">
 			<div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="idMainTeacher">Klassenlehrer:</label>
+                        <select class="form-control" name="idMainTeacher">
+                            <?php foreach ($teachers as $teacher) { ?>
+                                <option value="<?= $teacher["id"] ?>">
+                                    <?= $teacher["nachname"] . ", " . $teacher["vorname"] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="idMainTeacher">Klassenlehrer:</label>
-					<select class="form-control" name="idMainTeacher">
-						<?php foreach ($teachers as $teacher) { ?>
-							<option value="<?= $teacher["id"] ?>">
-								<?= $teacher["nachname"] . ", " . $teacher["vorname"] ?>
-							</option>
-						<?php } ?>
-					</select>
-				</div>
-
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="description">Bezeichnung:</label>
-					<input type="text" class="form-control" name="description">
-				</div>
-
-				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
-				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+                    </div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="description">Bezeichnung:</label>
+                        <input type="text" class="form-control" name="description">
+                    </div>
+                    <div class="col-md6 col-xs-12">
+                        <button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
+                        <a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+                    </div>
+                </div>
 			</div>
 		</form>
 	</div>
