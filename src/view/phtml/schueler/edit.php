@@ -46,39 +46,44 @@ if (is_null($student)) {
 <main>
 	<div class="container">
 		<form action="do-edit.php" method="POST" enctype="multipart/form-data">
-			<div class="row">
-				<input type="hidden" value="<?=$from?>" name="from">
-				<input type="hidden" name="id" value="<?= $student["id"] ?>">
-				<div class="form-group col-md-3 col-xs-12">
-					<label for="firstName">Vorname:</label>
-					<input type="text" class="form-control" value="<?= $student["vorname"] ?>" name="firstName">
-				</div>
-				<div class="form-group col-md-3 col-xs-12">
-					<label for="lastName">Nachname:</label>
-					<input type="text" class="form-control" value="<?= $student["nachname"] ?>" name="lastName">
-				</div>
-				<div class="form-group col-md-2 col-xs-12">
-					<label for="idClass">Klasse:</label>
-					<select class="form-control" name="idClass">
-						<?php foreach ($classes as $class) { ?>
-							<option value="<?= $class["id"] ?>"
-								<? if ($student["id_klasse"] === $class["id"]) {
-									echo "selected";
-								} ?>
-							>
-								<?= $class["bezeichnung"] ?>
-							</option>
-						<?php } ?>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="photo">Datei einfügen</label>
-					<input type="file" class="form-control-file" name="photo" accept="image/*">
-				</div>
-
-				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
-				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
-			</div>
+            <div class="col-md-6 col-xs-12">
+                <div class="row">
+                    <input type="hidden" value="<?=$from?>" name="from">
+                    <input type="hidden" name="id" value="<?= $student["id"] ?>">
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="firstName">Vorname:</label>
+                        <input type="text" class="form-control" value="<?= $student["vorname"] ?>" name="firstName">
+                    </div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="lastName">Nachname:</label>
+                        <input type="text" class="form-control" value="<?= $student["nachname"] ?>" name="lastName">
+                    </div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="idClass">Klasse:</label>
+                        <select class="form-control" name="idClass">
+                            <?php foreach ($classes as $class) { ?>
+                                <option value="<?= $class["id"] ?>"
+                                    <? if ($student["id_klasse"] === $class["id"]) {
+                                        echo "selected";
+                                    } ?>
+                                >
+                                    <?= $class["bezeichnung"] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="photo">Datei einfügen</label>
+                        <input type="file" class="form-control-file" name="photo" accept="image/*">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
+                        <a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+                    </div>
+                </div>
+            </div>
 		</form>
 	</div>
 </main>

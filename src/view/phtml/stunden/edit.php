@@ -39,21 +39,26 @@ if (is_null($subject)) {
 <main>
 	<div class="container">
 		<form action="do-edit.php" method="POST">
-			<div class="row">
-				<input type="hidden" name="id" value="<?= $subject["id"] ?>">
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="membercode">Kürzel:</label>
-					<input type="text" class="form-control" value="<?= $subject["kuerzel"] ?>" name="shortTag">
-				</div>
+            <div class="col-md-6 col-xs-12">
+                <div class="row">
+                    <input type="hidden" name="id" value="<?= $subject["id"] ?>">
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="membercode">Kürzel:</label>
+                        <input type="text" class="form-control" value="<?= $subject["kuerzel"] ?>" name="shortTag">
+                    </div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="description">Bezeichnung:</label>
-					<input type="text" class="form-control" value="<?= $subject["bezeichnung"] ?>" name="description">
-				</div>
-
-				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
-				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
-			</div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="description">Bezeichnung:</label>
+                        <input type="text" class="form-control" value="<?= $subject["bezeichnung"] ?>" name="description">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
+                        <a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+                    </div>
+                </div>
+            </div>
 		</form>
 	</div>
 </main>

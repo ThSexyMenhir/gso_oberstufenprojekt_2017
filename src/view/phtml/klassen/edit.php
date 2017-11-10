@@ -45,31 +45,36 @@ if (is_null($class)) {
 <main>
 	<div class="container">
 		<form action="do-edit.php" method="POST">
-			<div class="row">
-				<input type="hidden" name="id" value="<?= $class["id"] ?>">
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="idMainTeacher">Klassenlehrer:</label>
-					<select class="form-control" name="idMainTeacher">
-						<?php foreach ($teachers as $teacher) { ?>
-							<option value="<?= $teacher["id"] ?>"
-								<? if ($class["id_klassenlehrer"] === $teacher["id"]) {
-									echo "selected";
-								} ?>
-							>
-								<?= $teacher["nachname"] . ", " . $teacher["vorname"] ?>
-							</option>
-						<?php } ?>
-					</select>
-				</div>
+            <div class="col-md-6 col-xs-12">
+                <div class="row">
+                    <input type="hidden" name="id" value="<?= $class["id"] ?>">
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="idMainTeacher">Klassenlehrer:</label>
+                        <select class="form-control" name="idMainTeacher">
+                            <?php foreach ($teachers as $teacher) { ?>
+                                <option value="<?= $teacher["id"] ?>"
+                                    <? if ($class["id_klassenlehrer"] === $teacher["id"]) {
+                                        echo "selected";
+                                    } ?>
+                                >
+                                    <?= $teacher["nachname"] . ", " . $teacher["vorname"] ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="description">Bezeichnung:</label>
-					<input type="text" class="form-control" name="description" value="<?= $class["bezeichnung"] ?>">
-				</div>
-
-				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
-				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
-			</div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="description">Bezeichnung:</label>
+                        <input type="text" class="form-control" name="description" value="<?= $class["bezeichnung"] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
+                        <a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+                    </div>
+                </div>
+            </div>
 		</form>
 	</div>
 </main>

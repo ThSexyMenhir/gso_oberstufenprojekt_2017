@@ -39,47 +39,52 @@ if (is_null($teacher)) {
 <main>
 	<div class="container">
 		<form action="do-edit.php" method="POST">
-			<div class="row">
-				<input type="hidden" name="id" value="<?= $teacher["id"] ?>">
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="firstname">Vorname:</label>
-					<input type="text" class="form-control" value="<?= $teacher["vorname"] ?>" name="firstName">
-				</div>
+            <div class="col-md-6 col-xs-12">
+                <div class="row">
+                    <input type="hidden" name="id" value="<?= $teacher["id"] ?>">
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="firstname">Vorname:</label>
+                        <input type="text" class="form-control" value="<?= $teacher["vorname"] ?>" name="firstName">
+                    </div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="lastName">Nachname:</label>
-					<input type="text" class="form-control" value="<?= $teacher["nachname"] ?>" name="lastName">
-				</div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="lastName">Nachname:</label>
+                        <input type="text" class="form-control" value="<?= $teacher["nachname"] ?>" name="lastName">
+                    </div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="membercode">Kürzel</label>
-					<input type="text" class="form-control" value="<?= $teacher["kuerzel"] ?>" name="memberCode" maxlength="2">
-				</div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="membercode">Kürzel</label>
+                        <input type="text" class="form-control" value="<?= $teacher["kuerzel"] ?>" name="memberCode" maxlength="2">
+                    </div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="userName">Benutzername</label>
-					<input type="text" class="form-control" value="<?= $teacher["benutzername"] ?>" name="userName">
-				</div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="userName">Benutzername</label>
+                        <input type="text" class="form-control" value="<?= $teacher["benutzername"] ?>" name="userName">
+                    </div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="password">Password</label>
-					<input type="password" class="form-control" value="" name="password">
-				</div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" value="" name="password">
+                    </div>
 
-				<div class="form-check col-md-4 col-xs-12">
-					<label class="form-check-label">
-						<input type="checkbox"
-							   class="form-check-input"
-							   value="1"
-							   name="isAdmin" <? if ($teacher["ist_admin"]) {echo "checked";} ?>
-						>
-						Ist Admin?
-					</label>
-				</div>
-
-				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
-				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
-			</div>
+                    <div class="form-check col-md-6 col-xs-12">
+                        <label class="form-check-label">
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   value="1"
+                                   name="isAdmin" <? if ($teacher["ist_admin"]) {echo "checked";} ?>
+                            >
+                            Ist Admin?
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
+                        <a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+                    </div>
+                </div>
+            </div>
 		</form>
 	</div>
 </main>
