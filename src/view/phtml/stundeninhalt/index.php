@@ -7,12 +7,12 @@ if (!class_exists("SubjectContentController")) {
 	include __DIR__ . "/../../../controller/SubjectContentController.php";
 }
 
-$tmpSDate = isset($_GET["startdate"]) ? new datetime($_GET["startdate"]) : new datetime("previous monday");
+$tmpSDate = isset($_GET["startdate"]) ? new datetime($_GET["startdate"]) : new datetime("monday this week");
 $tmpSDateString = $tmpSDate->format("Y-m-d H:i:s");
 $tmpSDateReadable = $tmpSDate->format("d.m.y");
 $startDate = $tmpSDateString;
 
-$tmpEDate = isset($_GET["enddate"]) ? new datetime($_GET["enddate"]) : new datetime("next friday");
+$tmpEDate = isset($_GET["enddate"]) ? new datetime($_GET["enddate"]) : new datetime("friday this week");
 $tmpEDateString = $tmpEDate->format("Y-m-d H:i:s");
 $tmpEDateReadable = $tmpEDate->format("d.m.y");
 $endDate = $tmpEDateString;
@@ -23,8 +23,10 @@ $subjectBlock = $subjectContentController->getEntitiesForOverview($startDate, $e
 
 $nextSDate = $tmpSDate->modify('+1 week')->format("Y-m-d H:i:s");
 $nextEDate = $tmpEDate->modify('+1 week')->format("Y-m-d H:i:s");
-$previousSDate = $tmpSDate->modify('-1 week')->format("Y-m-d H:i:s");
-$previousEDate = $tmpEDate->modify('-1 week')->format("Y-m-d H:i:s");
+$interval = DateInterval::createFromDateString("2 weeks");
+$previousSDate = $tmpSDate->sub($interval)->format("Y-m-d H:i:s");
+$previousEDate = $tmpEDate->sub($interval)->format("Y-m-d H:i:s");
+
 
 
 $siteTitle = "Wochenansicht";
@@ -117,9 +119,6 @@ foreach ($subjectBlock as $datas){
 						<div class="col-xs-7 text-left no-padding-right">
 							<?= $block["shortDescription"]; ?>
 							<?= $block["teacher"]; ?>
-						</div>
-						<div class="col-xs-5 icons text-right">
-							<a><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
 						</div>
 					</div>
 					<div class="row">
