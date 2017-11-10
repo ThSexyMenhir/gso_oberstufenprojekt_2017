@@ -131,10 +131,10 @@ foreach ($subjectBlock as $subjectKey => $datas){
 							<?= $block["subject"]; ?>
 						</div>
 						<div class="col-xs-5 icons text-right">
-                                                    <a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$subjectKey?>&date=<?php
-                                                        if($key == "monday"){ 
+                                                    <a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$subjectKey + 1?>&date=<?php
+                                                        if($key == "monday"){
                                                             echo $tmpSDateString;
-                                                        } else { 
+                                                        } else {
                                                             $tmpNextDate = new DateTime("next " . $key . " " . $tmpSDate->format("Y-m-d H:i:s"));
                                                             echo $tmpNextDate->format("Y-m-d H:i:s");
                                                         }?>&idEvaluationSheet=<?=$block["id_bewertungsbogen"]?>&note=<?=urlencode($block["description"])?>"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
@@ -174,7 +174,7 @@ foreach ($subjectBlock as $subjectKey => $datas){
 				<div class="subject-box">
 					<br>
 					<div class="icons text-right">
-						<a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$subjectKey?>&date=<?php
+						<a href="edit.php?startdate=<?=$tmpSDate->format("Y-m-d H:i:s")?>&enddate=<?=$tmpEDate->format("Y-m-d H:i:s")?>&block=<?=$subjectKey + 1?>&date=<?php
                                                 if($key == "monday"){
                                                     echo $tmpSDateString; 
                                                 } else {
