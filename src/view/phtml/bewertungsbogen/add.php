@@ -1,6 +1,38 @@
 <?php
 include __DIR__ . "/../../../../check-login.php";
 $siteTitle = "Bewertungsbogen Hinzufügen";
+
+$class =(
+    array(
+        array(
+            "idClass" => "0",
+            "class" => "FIA51",
+        ),array(
+            "idClass" => "1",
+            "class" => "FIA52",
+        ),
+        array(
+            "idClass" => "2",
+            "class" => "FIA53",
+        ),
+    )
+);
+
+$subject =(
+    array(
+        array(
+            "idSubject" => "0",
+            "subject" => "ANW",
+        ),array(
+            "idSubject" => "1",
+            "subject" => "ITK",
+        ),
+        array(
+            "idSubject" => "2",
+            "subject" => "FE",
+        ),
+    )
+);
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -22,15 +54,38 @@ $siteTitle = "Bewertungsbogen Hinzufügen";
 		<form action="do-add.php" method="POST">
 			<div class="row">
 
+                <div class="col-md-6 col-xs-12">
+                    <div class="row">
+                        <div class="form-group col-md-12 col-xs-12">
+                            <label for="idClass">Klasse:</label>
+                            <select class="form-control" name="idClass">
+                                <?php foreach ($class as $classes) { ?>
+                                    <option value="<?= $classes["idClass"] ?>">
+                                        <?= $classes["class"] ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12 col-xs-12">
+                            <label for="idSubject">Fach:</label>
+                            <select class="form-control" name="idClass">
+                                <?php foreach ($subject as $subjects) { ?>
+                                    <option value="<?= $subjects["idSubject"] ?>">
+                                        <?= $subjects["subject"] ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            <button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
+                            <a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="form-group col-md-4 col-xs-12">
-					<label for="description">Bezeichnung:</label>
-					<input type="text" class="form-control" name="description">
-				</div>
 
-
-				<button type="submit" class="btn btn-default pull-left btn-success">Speichern</button>
-				<a href="index.php" class="btn btn-default pull-right btn-danger">Zurück</a>
 			</div>
 		</form>
 	</div>
