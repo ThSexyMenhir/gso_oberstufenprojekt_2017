@@ -19,7 +19,7 @@ class LoginController extends AbstractController
 
 		if (password_verify($password, $user["passwort"])) {
 			session_start();
-			$_SESSION['gos-kalender'] = ['id_lehrer' => $user["id"]];
+			$_SESSION['gso-kalender'] = ['id_lehrer' => $user["id"]];
 			return true;
 		}
 
@@ -30,7 +30,7 @@ class LoginController extends AbstractController
 	public function checkLogin()
 	{
 		session_start();
-		$id = $_SESSION['gos-kalender']['id_lehrer'];
+		$id = $_SESSION['gso-kalender']['id_lehrer'];
 
 		if (is_null($id)) {
 			$this->logout();
