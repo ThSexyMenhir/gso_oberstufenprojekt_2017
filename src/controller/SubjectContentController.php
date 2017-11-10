@@ -48,6 +48,9 @@ class SubjectContentController extends AbstractController {
         $evaluationSheetController = new EvaluationSheetController();
         $evaluationSheets = $evaluationSheetController->getEntities(array("id_lehrer" => array("=", $_SESSION['gos-kalender']['id_lehrer'])));
 
+        if (empty($evaluationSheets)){
+            return null;
+        }
         $sheetIds = "(";
         foreach ($evaluationSheets as $evaluationSheet){
             $sheetIds .= $evaluationSheet["id"] . ",";
@@ -59,7 +62,57 @@ class SubjectContentController extends AbstractController {
 
         $result = parent::getEntities($where);
 
+        if (empty($result)){
+            return null;
+        }
 
+        $subjects = [];
+        $weekdays = [0 => "monday", 1 => "tuesday", 2 => "wednesday", 3 => "thursday", 4 => "friday"];
+        for ($i = 0; $i < 5; $i++) {
+            foreach ($weekdays as $key => $day) {
+                foreach ($result as $values) {
+                    $datetime = new DateTime($values["datum"]);
+                    $tmpDay = $datetime->format("w");
+                    if ($values["block"] == $i + 1 && $key == $tmpDay) {
+                        $subjects[$i][$day] = [
+                            "block" => $values["block"],
+                            "datum" => $values["datum"],
+                            "notizen" => $values["notizen"],
+                            "id" => $values["id"],
+                            "id_bewertungsbogen" => $values["id_bewertungsbogen"]
+                        ];
+                    }
+                }
+            }
+        }
+
+        return $subjects;
+    }
+
+    public function getEntitiesForDay($curDate, array $where = [], array $orderBy = []) {
+
+        $where["datum"] = ["LIKE", $curDate];
+
+        $evaluationSheetController = new EvaluationSheetController();
+        $evaluationSheets = $evaluationSheetController->getEntities(array("id_lehrer" => array("=", $_SESSION['gos-kalender']['id_lehrer'])));
+
+        if (empty($evaluationSheets)){
+            return null;
+        }
+        $sheetIds = "(";
+        foreach ($evaluationSheets as $evaluationSheet){
+            $sheetIds .= $evaluationSheet["id"] . ",";
+        }
+        $sheetIds = substr($sheetIds, 0, -1);
+        $sheetIds .= ")";
+
+        $where["id_bewertungsbogen"] = array("IN", $sheetIds);
+
+        $result = parent::getEntities($where);
+
+        if (empty($result)){
+            return null;
+        }
 
         $subjects = [];
         $weekdays = [0 => "monday", 1 => "tuesday", 2 => "wednesday", 3 => "thursday", 4 => "friday"];
@@ -80,7 +133,6 @@ class SubjectContentController extends AbstractController {
                 }
             }
         }
-
 
         return $subjects;
     }

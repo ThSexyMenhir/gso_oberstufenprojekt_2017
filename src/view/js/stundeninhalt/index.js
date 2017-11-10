@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				  endDate: data.friday
 			  },
 			  success: function(){
-				  console.log("test");
+				  console.log(data);
 			  }
 		  	});
 		},

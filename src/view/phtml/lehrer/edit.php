@@ -63,7 +63,7 @@ if (is_null($teacher)) {
 
 				<div class="form-group col-md-4 col-xs-12">
 					<label for="password">Password</label>
-					<input type="password" class="form-control" value="<?= $teacher["passwort"] ?>" name="password">
+					<input type="password" class="form-control" value="" name="password">
 				</div>
 
 				<div class="form-check col-md-4 col-xs-12">
