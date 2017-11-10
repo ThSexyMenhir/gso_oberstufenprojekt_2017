@@ -2,8 +2,11 @@
 if (!class_exists("ClassController")) {
 	include __DIR__ . "/../../../controller/ClassController.php";
 }
+if (!class_exists("StudentsController")) {
+	include __DIR__ . "/../../../controller/StudentsController.php";
+}
 
-	$siteTitle = "Klassen Details";
+$siteTitle = "Klassen Details";
 
 $id = isset($id) ? $id : filter_input(INPUT_GET, "id");
 
@@ -20,32 +23,9 @@ if (is_null($class)) {
 	exit;
 }
 
-$schueler = array(
-	    0 => array(
-	         "headline" => "Hans Wurst",
-			 "content" => "../../../../src/data/media/img/chimpanzee-screaming.jpg"
-	    ),
-		1 => array(
-			"headline" => "Peter Wurst",
-			"content" => "../../../../src/data/media/img/chimpanzee-screaming.jpg"
-	    ),
-		2 => array(
-			"headline" => "Robert Wurst",
-			"content" => "../../../../src/data/media/img/chimpanzee-screaming.jpg"
-	    ),
-		3 => array(
-			"headline" => "Hund Wurst",
-			"content" => "../../../../src/data/media/img/chimpanzee-screaming.jpg"
-	    ),
-		4 => array(
-			"headline" => "Fritz Wurst",
-			"content" => "../../../../src/data/media/img/chimpanzee-screaming.jpg"
-	    ),
-		5 => array(
-			"headline" => "Till Wurst",
-			"content" => "../../../../src/data/media/img/chimpanzee-screaming.jpg"
-	    )
-	);
+$studentController = new StudentsController();
+$students = $studentController->getEntitiesForOverview(["id_klasse" => ["=", $class["id"]]], ["nachname", "vorname"]);
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -62,41 +42,51 @@ $schueler = array(
 </head>
 
 <body>
-	<?php include __DIR__ . "/../../../../header.php" ?>
-	<main>
-		<div class="container class-detail">
-			<div class="row search">
-				<div class="score-sheet">
-					<div class="chart">
-						<i class="fa fa-line-chart" aria-hidden="true"></i>
-					</div>
-					<div class="chart-button">
-						Bewertungsbogen<br>
-						<button class="btn btn-primary add-button">Einsehen</button>
-						<button class="btn btn-primary add-button">Hinzufügen</button>
-					</div>
+<?php include __DIR__ . "/../../../../header.php" ?>
+<main>
+	<div class="container class-detail">
+		<div class="row search">
+			<div class="score-sheet">
+				<div class="chart">
+					<i class="fa fa-line-chart" aria-hidden="true"></i>
 				</div>
-				<a href="../schueler/add.php?idClass=<?=$class["id"]?>" class="btn btn-primary add-button ex">Schüler Hinzufügen</a>
+				<div class="chart-button">
+					Bewertungsbogen<br>
+					<a href="../bewertungsbogen/index.php?idClass=<?= $class["id"] ?>"
+					   class="btn btn-primary add-button">
+						Einsehen
+					</a>
+					<a href="../bewertungsbogen/add.php?idClass<?= $class["id"] ?>" class="btn btn-primary add-button">
+						Hinzufügen
+					</a>
+				</div>
 			</div>
-			<div class="row panel-group">
-				<div class="col-xs-12<?= (empty($schueler)) ? '':' display-none'?>">
-					<div class="alert alert-danger">
-					  <strong>Keine Schüler gefunden</strong>
-					</div>
+			<a href="../schueler/add.php?idClass=<?= $class["id"] ?>" class="btn btn-primary add-button ex">Schüler
+				Hinzufügen</a>
+		</div>
+		<div class="row panel-group">
+			<div class="col-xs-12<?= (empty($students)) ? "" : " display-none" ?>">
+				<div class="alert alert-danger">
+					<strong>Keine Schüler gefunden</strong>
 				</div>
-				<?php
-				foreach ($schueler as $value) {
+			</div>
+			<?php
+			foreach ($students as $value) {
 				?>
 				<div class="col-md-3 col-xs-6">
 					<div class="panel panel-primary">
 						<div class="panel-body">
-							<?=$value["headline"]?>
+							<?= $value["headline"] ?>
 						</div>
 						<div class="panel-footer">
-							<img src="<?=$value["content"]?>">
+							<img src="<?= $value["content"] ?>">
 							<div class="icons">
-								<a><i class="fa fa-pencil" aria-hidden="true"></i></a>
-								<a><i class="fa fa-times" aria-hidden="true"></i></a>
+								<a href="edit.php?id=<?= $value["id"] ?>">
+									<i class="fa fa-pencil" aria-hidden="true"></i>
+								</a>
+								<a href="do-delete.php?id=<?= $value["id"] ?>" id="delete">
+									<i class="fa fa-times" aria-hidden="true"></i>
+								</a>
 							</div>
 							<div class="clear"></div>
 						</div>
@@ -104,14 +94,14 @@ $schueler = array(
 				</div>
 
 				<?php
-				}
-				?>
+			}
+			?>
 
-			</div>
 		</div>
-	</main>
-	<script src="../../../../vendor/jquery-3.2.1.min.js"></script>
-	<script src="../../../../vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-	<script src="../../../../src/view/js/main.js"></script>
+	</div>
+</main>
+<script src="../../../../vendor/jquery-3.2.1.min.js"></script>
+<script src="../../../../vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="../../../../src/view/js/main.js"></script>
 </body>
 </html>

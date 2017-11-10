@@ -38,14 +38,14 @@ if (is_null($student)) {
 	<link rel="stylesheet" href="../../../../vendor/font-awesome.min.css">
 	<title>GSO - Kalender</title>
 </head>
-·
+
 <body>
 <?php include __DIR__ . "/../../../../header.php" ?>
 <main>
 	<div class="container">
 		<form action="do-edit.php" method="POST" enctype="multipart/form-data">
 			<div class="row">
-
+				<input type="hidden" name="id" value="<?= $student["id"] ?>">
 				<div class="form-group col-md-3 col-xs-12">
 					<label for="firstName">Vorname:</label>
 					<input type="text" class="form-control" value="<?= $student["vorname"] ?>" name="firstName">
