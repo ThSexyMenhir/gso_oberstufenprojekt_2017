@@ -50,9 +50,7 @@ $schueler = $studentsController->getEntitiesForOverview([], ['nachname', 'vornam
 							<?= $value["headline"] ?>
 						</div>
 						<div class="panel-footer">
-							<div class="text">
-								<?= $value["content"] ?>
-							</div>
+							<img src="<?= $value["content"] ?>">
 							<div class="icons">
 								<a href="edit.php?id=<?= $value["id"] ?>">
 									<i class="fa fa-pencil" aria-hidden="true"></i>
@@ -61,6 +59,7 @@ $schueler = $studentsController->getEntitiesForOverview([], ['nachname', 'vornam
 									<i class="fa fa-times" aria-hidden="true"></i>
 								</a>
 							</div>
+							<div class="clear"></div>
 						</div>
 					</div>
 				</div>

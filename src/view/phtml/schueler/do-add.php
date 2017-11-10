@@ -13,12 +13,12 @@ if (!isset($firstname) || !isset($lastname) || !isset($idKlasse)) {
     header("Location: index.php");
     exit;
 }
+
+$success = true;
 if (isset($_FILES['photo']) && !is_null($_FILES['photo'])) {
     $uploadfile = __DIR__ . '/../../../data/media/img/students/' . $firstname . $lastname . $idKlasse . ".png";
 
     $success = move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile);
-} else {
-    $success = true;
 }
 
 if ($success) {
